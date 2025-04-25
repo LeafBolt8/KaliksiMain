@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Kalikse"  x:Class="Kalikse.PremiumPage"
+    Title="Go Premium"  BackgroundColor="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}">
+    <ContentPage.Resources>
+        <Style x:Key="FeatureLabelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}" />
+            <Setter Property="Margin" Value="0,5" />
+            <Setter Property="HorizontalOptions" Value="Start"/>
+        </Style>
+
+        <VerticalStackLayout x:Key="FreePlanContent" Spacing="15" VerticalOptions="Start">
+            <Label Text="Basic"
+                   FontSize="22"
+                   FontAttributes="Bold"
+                   TextColor="{StaticResource AccentColor}"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,10"/>
+
+            <Label Text="FREE"
+                   FontSize="20"
+                   FontAttributes="Italic"
+                   TextColor="{StaticResource SecondaryColor}"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,10"/>
+
+            <BoxView HeightRequest="1" Color="{AppThemeBinding Light=#E0E0E0, Dark=#505050}" HorizontalOptions="FillAndExpand" />
+
+            <VerticalStackLayout Spacing="5">
+                <Label Text="- Limited Database" Style="{StaticResource FeatureLabelStyle}"/>
+                <Label Text="- View only on community forums" Style="{StaticResource FeatureLabelStyle}"/>
+                <Label Text="- Basic Recipes" Style="{StaticResource FeatureLabelStyle}"/>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout x:Key="PremiumPlanContent" Spacing="15" VerticalOptions="Start">
+            <Label Text="Premium"
+                   FontSize="22"
+                   FontAttributes="Bold"
+                   TextColor="{StaticResource AccentColor}"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,10"/>
+
+            <Label Text="60 Pesos / Month"
+                   FontSize="20"
+                   FontAttributes="Italic"
+                   TextColor="{StaticResource SecondaryColor}"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,10"/>
+
+            <BoxView HeightRequest="1" Color="{AppThemeBinding Light=#E0E0E0, Dark=#505050}" HorizontalOptions="FillAndExpand" />
+
+            <VerticalStackLayout Spacing="5">
+                <Label Text="- Maximized Database" Style="{StaticResource FeatureLabelStyle}"/>
+                <Label Text="- Able to post and review recipes in the community forums" Style="{StaticResource FeatureLabelStyle}"/>
+                <Label Text="- Access to exclusive recipes" Style="{StaticResource FeatureLabelStyle}"/>
+            </VerticalStackLayout>
+
+            <BoxView HeightRequest="1" Color="{AppThemeBinding Light=#E0E0E0, Dark=#505050}" HorizontalOptions="FillAndExpand" Margin="0,5,0,0" />
+
+            <Button Text="Go Premium"
+                    BackgroundColor="{StaticResource PrimaryColor}"
+                    TextColor="White"
+                    CornerRadius="20"
+                    HeightRequest="50"
+                    FontSize="18"
+                    FontAttributes="Bold"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="EndAndExpand"  Clicked="OnGoPremiumClicked"    Margin="0,20,0,0"/>
+
+        </VerticalStackLayout>
+
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20" HorizontalOptions="FillAndExpand">
+
+            <Label Text="Choose Your Plan"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   TextColor="{StaticResource PrimaryColor}"
+                   HorizontalOptions="Center"
+                   Margin="0,10,0,20"/>
+
+            <OnIdiom x:TypeArguments="View">
+                <OnIdiom.Phone>
+                    <VerticalStackLayout Spacing="20" HorizontalOptions="FillAndExpand">
+                        <Frame BorderColor="{StaticResource PrimaryColor}"
+                               CornerRadius="15"
+                               HasShadow="True"
+                               Padding="20"
+                               BackgroundColor="{AppThemeBinding Light={StaticResource CardBackgroundLight}, Dark={StaticResource CardBackgroundDark}}"
+                               VerticalOptions="FillAndExpand">
+                            <ContentView Content="{StaticResource FreePlanContent}"/>
+                        </Frame>
+                        <Frame BorderColor="{StaticResource PrimaryColor}"
+                               CornerRadius="15"
+                               HasShadow="True"
+                               Padding="20"
+                               BackgroundColor="{AppThemeBinding Light={StaticResource CardBackgroundLight}, Dark={StaticResource CardBackgroundDark}}"
+                               VerticalOptions="FillAndExpand">
+                            <ContentView Content="{StaticResource PremiumPlanContent}"/>
+                        </Frame>
+                    </VerticalStackLayout>
+                </OnIdiom.Phone>
+                <OnIdiom.Desktop>
+                    <HorizontalStackLayout Spacing="20" HorizontalOptions="Center" MaximumWidthRequest="800">
+                        <Frame BorderColor="{StaticResource PrimaryColor}"
+                               CornerRadius="15"
+                               HasShadow="True"
+                               Padding="20"
+                               BackgroundColor="{AppThemeBinding Light={StaticResource CardBackgroundLight}, Dark={StaticResource CardBackgroundDark}}"
+                               VerticalOptions="FillAndExpand"
+                               WidthRequest="350">
+                            <ContentView Content="{StaticResource FreePlanContent}"/>
+                        </Frame>
+                        <Frame BorderColor="{StaticResource PrimaryColor}"
+                               CornerRadius="15"
+                               HasShadow="True"
+                               Padding="20"
+                               BackgroundColor="{AppThemeBinding Light={StaticResource CardBackgroundLight}, Dark={StaticResource CardBackgroundDark}}"
+                               VerticalOptions="FillAndExpand"
+                               WidthRequest="350">
+                            <ContentView Content="{StaticResource PremiumPlanContent}"/>
+                        </Frame>
+                    </HorizontalStackLayout>
+                </OnIdiom.Desktop>
+            </OnIdiom>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

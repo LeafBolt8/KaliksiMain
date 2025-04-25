@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Kalikse"  x:Class="Kalikse.CommunityFeedPage"
+             Title="Community"  BackgroundColor="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}">
+
+    <ContentPage.Resources>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="Auto, *">
+
+        <Grid Grid.Row="0" ColumnDefinitions="*, Auto" Padding="10">
+            <Label Text="Community Feed"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   TextColor="{StaticResource PrimaryColor}"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   Grid.Column="0"/>
+
+            <Frame Grid.Column="1"
+                   BackgroundColor="{StaticResource PrimaryColor}"
+                   CornerRadius="10"
+                   Padding="10,5"
+                   HorizontalOptions="End"
+                   VerticalOptions="Center">
+                <Label Text="+ Add Recipe"
+                       TextColor="White"
+                       FontSize="16"
+                       FontAttributes="Bold">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnAddRecipeTapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </Frame>
+        </Grid>
+
+        <CollectionView Grid.Row="1"
+                        x:Name="RecipeFeedCollectionView"
+                        SelectionMode="None"  ItemsSource="{Binding Recipes}"
+                        Margin="10,0"
+                        >
+            <CollectionView.EmptyView>
+                <Label Text="No recipes posted yet. Be the first to share!"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}"
+                       FontSize="18"
+                       HorizontalTextAlignment="Center"/>
+            </CollectionView.EmptyView>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="{StaticResource PrimaryColor}"
+                           CornerRadius="15"
+                           HasShadow="True"
+                           Padding="15"
+                           Margin="0,5"  HorizontalOptions="Center"  MaximumWidthRequest="600"  BackgroundColor="{AppThemeBinding Light={StaticResource CardBackgroundLight}, Dark={StaticResource CardBackgroundDark}}">
+                        <VerticalStackLayout Spacing="10">
+
+                            <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                                <Frame CornerRadius="20"  HeightRequest="40"
+                                       WidthRequest="40"
+                                       Padding="0"
+                                       IsClippedToBounds="True"
+                                       BackgroundColor="{AppThemeBinding Light=#E0E0E0, Dark=#505050}">
+                                    <Image Source="user.png"  Aspect="AspectFill"
+                                            HorizontalOptions="Center"
+                                            VerticalOptions="Center"/>
+                                </Frame>
+
+                                <VerticalStackLayout VerticalOptions="Center" Spacing="2">
+                                    <Label Text="{Binding UserName}" FontAttributes="Bold" FontSize="16" TextColor="{StaticResource AccentColor}"/>
+                                    <Label Text="{Binding PostDate, StringFormat='{0:MMM dd,yyyy}'}" FontSize="12" TextColor="{AppThemeBinding Light={StaticResource PlaceholderTextLight}, Dark={StaticResource PlaceholderTextDark}}"/>
+                                </VerticalStackLayout>
+
+                            </HorizontalStackLayout>
+
+                            <Label Text="{Binding FoodName}" FontSize="20" FontAttributes="Bold" TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}"/>
+
+                            <Image Source="{Binding ImageUrl}"  IsVisible="{Binding ImageUrl, Converter={StaticResource IsNotNullOrEmptyConverter}}" Aspect="AspectFit"  HeightRequest="200"
+                                   HorizontalOptions="FillAndExpand"
+                                   BackgroundColor="{AppThemeBinding Light=#F0F0F0, Dark=#404040}"/>
+                            <Label Text="Ingredients:" FontAttributes="Bold" TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}"/>
+                            <Label Text="{Binding IngredientsWithPrices}" TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}" FontSize="14"/>
+
+                            <Label Text="Description:" FontAttributes="Bold" TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}"/>
+                            <Label Text="{Binding Description}" TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}" FontSize="14"/>
+
+                            <HorizontalStackLayout HorizontalOptions="End" Spacing="20" Margin="0,10,0,0">
+
+                                <HorizontalStackLayout Spacing="5">
+                                    <HorizontalStackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnLikeTapped" CommandParameter="{Binding .}"/>
+                                    </HorizontalStackLayout.GestureRecognizers>
+                                    <Image Source="like_icon.png" HeightRequest="20" WidthRequest="20"/>
+                                    <Label Text="{Binding LikesCount, StringFormat='{0} Likes'}" VerticalOptions="Center" TextColor="{StaticResource SecondaryColor}"/>
+                                </HorizontalStackLayout>
+
+                                <HorizontalStackLayout Spacing="5">
+                                    <HorizontalStackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnCommentTapped" CommandParameter="{Binding .}"/>
+                                    </HorizontalStackLayout.GestureRecognizers>
+                                    <Image Source="comment_icon.png" HeightRequest="20" WidthRequest="20"/>
+                                    <Label Text="{Binding CommentsCount, StringFormat='{0} Comments'}" VerticalOptions="Center" TextColor="{StaticResource SecondaryColor}"/>
+                                </HorizontalStackLayout>
+                            </HorizontalStackLayout>
+
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </Grid>
+</ContentPage>

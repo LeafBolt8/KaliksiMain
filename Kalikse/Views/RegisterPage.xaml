@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Kalikse.RegisterPage"
+             Title="Register"
+             BackgroundColor="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}"
+             NavigationPage.HasNavigationBar="False">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="25" Padding="30,0" VerticalOptions="Center" MaximumWidthRequest="1500">
+
+            <Label Text="Create Account"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   TextColor="{StaticResource PrimaryColor}"
+                   HorizontalOptions="Center"/>
+
+            <VerticalStackLayout Spacing="5">
+                <Label Text="Full Name" TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}" FontAttributes="Bold"/>
+                <Border Stroke="{StaticResource PrimaryColor}"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 10"
+                        Padding="0">
+                    <Border.Shadow>
+                        <Shadow Offset="5,5" Radius="10" Opacity="0.2"/>
+                    </Border.Shadow>
+                    <Grid ColumnDefinitions="Auto,*" VerticalOptions="Center" Padding="10,0">
+                        <Image Source="user_icon.png" WidthRequest="20" HeightRequest="20" VerticalOptions="Center" Margin="5,0"/>
+                        <Entry x:Name="FullNameEntry"
+                               Grid.Column="1"
+                               Placeholder="John Doe"
+                               TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}"
+                               PlaceholderColor="{AppThemeBinding Light={StaticResource PlaceholderTextLight}, Dark={StaticResource PlaceholderTextDark}}"
+                               BackgroundColor="Transparent"/>
+                    </Grid>
+                </Border>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="5">
+                <Label Text="Email" TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}" FontAttributes="Bold"/>
+                <Border Stroke="{StaticResource PrimaryColor}"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 10"
+                        Padding="0">
+                    <Border.Shadow>
+                        <Shadow Offset="5,5" Radius="10" Opacity="0.2"/>
+                    </Border.Shadow>
+                    <Grid ColumnDefinitions="Auto,*" VerticalOptions="Center" Padding="10,0">
+                        <Image Source="email.png" WidthRequest="20" HeightRequest="20" VerticalOptions="Center" Margin="5,0"/>
+                        <Entry x:Name="RegisterEmailEntry"
+                               Grid.Column="1"
+                               Placeholder="user@kalikse.com"
+                               Keyboard="Email"
+                               TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}"
+                               PlaceholderColor="{AppThemeBinding Light={StaticResource PlaceholderTextLight}, Dark={StaticResource PlaceholderTextDark}}"
+                               BackgroundColor="Transparent"/>
+                    </Grid>
+                </Border>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="5">
+                <Label Text="Password" TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}" FontAttributes="Bold"/>
+                <Border Stroke="{StaticResource PrimaryColor}"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 10"
+                        Padding="0">
+                    <Border.Shadow>
+                        <Shadow Offset="5,5" Radius="10" Opacity="0.2"/>
+                    </Border.Shadow>
+                    <Grid ColumnDefinitions="Auto,*" VerticalOptions="Center" Padding="10,0">
+                        <Image Source="password.png" WidthRequest="20" HeightRequest="20" VerticalOptions="Center" Margin="5,0"/>
+                        <Entry x:Name="RegisterPasswordEntry"
+                               Grid.Column="1"
+                               Placeholder="••••••••"
+                               IsPassword="True"
+                               TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}"
+                               PlaceholderColor="{AppThemeBinding Light={StaticResource PlaceholderTextLight}, Dark={StaticResource PlaceholderTextDark}}"
+                               BackgroundColor="Transparent"/>
+                    </Grid>
+                </Border>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="5">
+                <Label Text="Confirm Password" TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}" FontAttributes="Bold"/>
+                <Border Stroke="{StaticResource PrimaryColor}"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 10"
+                        Padding="0">
+                    <Border.Shadow>
+                        <Shadow Offset="5,5" Radius="10" Opacity="0.2"/>
+                    </Border.Shadow>
+                    <Grid ColumnDefinitions="Auto,*" VerticalOptions="Center" Padding="10,0">
+                        <Image Source="password.png" WidthRequest="20" HeightRequest="20" VerticalOptions="Center" Margin="5,0"/>
+                        <Entry x:Name="ConfirmPasswordEntry"
+                               Grid.Column="1"
+                               Placeholder="••••••••"
+                               IsPassword="True"
+                               TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}"
+                               PlaceholderColor="{AppThemeBinding Light={StaticResource PlaceholderTextLight}, Dark={StaticResource PlaceholderTextDark}}"
+                               BackgroundColor="Transparent"/>
+                    </Grid>
+                </Border>
+            </VerticalStackLayout>
+
+            <Button Text="CREATE ACCOUNT"
+                    BackgroundColor="{StaticResource PrimaryColor}"
+                    TextColor="White"
+                    CornerRadius="25"
+                    FontSize="16"
+                    FontAttributes="Bold"
+                    HeightRequest="50"
+                    Clicked="OnRegisterClicked">
+                <Button.Shadow>
+                    <Shadow Offset="3,3" Radius="5" Opacity="0.4"/>
+                </Button.Shadow>
+            </Button>
+
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="5">
+                <Label Text="Already have an account?" TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}"/>
+                <Label Text="Login Here"
+                       TextColor="{StaticResource PrimaryColor}"
+                       FontAttributes="Bold">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnLoginTapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

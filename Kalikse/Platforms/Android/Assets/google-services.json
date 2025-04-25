@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "16234243763",
+    "project_id": "kaliksi",
+    "storage_bucket": "kaliksi.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:16234243763:android:e8ac49b4e111596d2472c6",
+        "android_client_info": {
+          "package_name": "com.group1.kaliksi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvB0nri_0yJJeSqRYyCcuH_Gz6k8yYdM8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

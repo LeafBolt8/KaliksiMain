@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Kalikse.SettingsPage"
+             Title="Settings"
+             BackgroundColor="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="burger_icon.png" Order="Primary"
+                     Priority="0" />
+    </ContentPage.ToolbarItems>
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="30"
+            Padding="20"  VerticalOptions="Start" MaximumWidthRequest="1000">
+            <Label Text="Settings"
+                    FontSize="28"
+                    FontAttributes="Bold"
+                    TextColor="{AppThemeBinding Light={StaticResource PrimaryColor}, Dark={StaticResource LightText}}"
+                    HorizontalOptions="Center"
+                    Margin="0,10,0,20"/>
+            <Frame BackgroundColor="{AppThemeBinding Light={StaticResource CardBackgroundLight}, Dark={StaticResource CardBackgroundDark}}"
+                   CornerRadius="25"
+                   HasShadow="True"
+                   Margin="0"
+                   Padding="25">
+                <VerticalStackLayout Spacing="20">
+                    <HorizontalStackLayout Spacing="10">
+                        <Image Source="theme_icon.png" HeightRequest="24" WidthRequest="24"/>
+                        <Label Text="App Theme"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}"
+                               VerticalOptions="Center"/>
+                    </HorizontalStackLayout>
+
+                    <BoxView HeightRequest="1" Color="{AppThemeBinding Light=#E0E0E0, Dark=#505050}" />
+                    <VerticalStackLayout x:Name="ThemeOptionsLayout" Spacing="15">
+                        <RadioButton Content="Light"
+                                     GroupName="AppThemeGroup"
+                                     TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}"
+                                     CheckedChanged="OnThemeRadioButtonCheckedChanged"
+                                     FontSize="16"/>
+                        <RadioButton Content="Dark"
+                                     GroupName="AppThemeGroup"
+                                     TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}"
+                                     CheckedChanged="OnThemeRadioButtonCheckedChanged"
+                                     FontSize="16"/>
+                    </VerticalStackLayout>
+
+                </VerticalStackLayout>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

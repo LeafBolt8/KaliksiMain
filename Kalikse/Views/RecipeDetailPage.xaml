@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Kalikse.RecipeDetailPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Kalikse.Models"
+    Title="Generated Recipes"
+    BackgroundColor="{StaticResource LightBackground}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="burger_icon.png"
+                     Command="{Binding OpenBurgerMenuCommand}" Priority="0"/>
+    </ContentPage.ToolbarItems>
+
+    <VerticalStackLayout>
+
+        <Label
+            Text="Recipes for You"
+            FontSize="22"
+            FontAttributes="Bold"
+            TextColor="{StaticResource PrimaryColor}"
+            HorizontalOptions="Center"
+            Margin="0,20,0,10" />
+
+        <CollectionView x:Name="RecipesListCollection"
+                        SelectionMode="Single"
+                        SelectionChanged="RecipesListCollection_SelectionChanged"
+                        ItemsSource="{Binding Recipes}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="local:Recipe">
+                    <Border Stroke="{StaticResource PrimaryColor}"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 10"
+                            Padding="10"
+                            Margin="10,5">
+                        <HorizontalStackLayout Spacing="10">
+                            <Image Source="{Binding ImageFilename}"
+                                   Aspect="AspectFill"
+                                   HeightRequest="80"
+                                   WidthRequest="80"
+                                   VerticalOptions="Center"/>
+                            <VerticalStackLayout VerticalOptions="Center">
+                                <Label Text="{Binding Name}"
+                                       FontSize="18"
+                                       FontAttributes="Bold"
+                                       TextColor="{StaticResource DarkText}"/>
+                                <Label Text="{Binding DietaryTags, StringFormat='Tags: {0}'}"
+                                       FontSize="14"
+                                       TextColor="{StaticResource SecondaryColor}"/>
+                            </VerticalStackLayout>
+                        </HorizontalStackLayout>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </VerticalStackLayout>
+</ContentPage>

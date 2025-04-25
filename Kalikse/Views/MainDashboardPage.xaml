@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<FlyoutPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Kalikse" x:Class="Kalikse.MainDashboardPage"
+    FlyoutLayoutBehavior="Popover">
+
+    <FlyoutPage.Resources>
+    </FlyoutPage.Resources>
+
+    <FlyoutPage.Flyout>
+        <ContentPage Title="Menu"
+                     BackgroundColor="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}">
+            <VerticalStackLayout Spacing="0">
+                <Grid BackgroundColor="{StaticResource PrimaryColor}" Padding="20" RowDefinitions="Auto, Auto">
+                    <Image Source="app_logo.png" HeightRequest="80" HorizontalOptions="Center" Grid.Row="0" Aspect="AspectFit"/>
+                    <Label Text="Welcome, User!" FontSize="18" FontAttributes="Bold" TextColor="White" Margin="0,15,0,0" Grid.Row="1" HorizontalOptions="Center"/>
+                </Grid>
+
+                <CollectionView SelectionMode="Single"
+                                SelectionChanged="OnMenuItemSelected"
+                                Margin="0,10,0,0">
+                    <CollectionView.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Dashboard</x:String>
+                            <x:String>Recipes</x:String>
+                            <x:String>Community</x:String>
+                            <x:String>Profile</x:String>
+                            <x:String>Settings</x:String>
+                            <x:String>Go Premium</x:String>
+                        </x:Array>
+                    </CollectionView.ItemsSource>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="15,10" ColumnDefinitions="Auto,*">
+                                <Image Source="burger_icon.png" HeightRequest="24" WidthRequest="24" VerticalOptions="Center" Grid.Column="0" Margin="0,0,15,0"/>
+                                <Label Text="{Binding .}" FontSize="16" TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}" VerticalOptions="Center" Grid.Column="1"/>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical" ItemSpacing="1"/>
+                    </CollectionView.ItemsLayout>
+                </CollectionView>
+
+                <Button Text="Logout"
+                        Margin="20,30,20,20"
+                        CornerRadius="25"
+                        BackgroundColor="{StaticResource PrimaryColor}"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        HeightRequest="50"
+                        Clicked="OnLogoutClicked"/>
+            </VerticalStackLayout>
+        </ContentPage>
+    </FlyoutPage.Flyout>
+
+    <FlyoutPage.Detail>
+        <NavigationPage>
+            <x:Arguments>
+                <ContentPage Title="Dashboard">
+                    <ContentPage.ToolbarItems>
+                        <ToolbarItem IconImageSource="burger_icon.png"
+                                     Order="Primary"
+                                     Priority="0"
+                                     Clicked="OnToolbarItemClicked"/>
+                    </ContentPage.ToolbarItems>
+                    <ContentPage.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStop Color="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}" Offset="0.0" />
+                            <GradientStop Color="{AppThemeBinding Light=White, Dark={StaticResource DarkBackground}}" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </ContentPage.Background>
+                    <ScrollView>
+                        <VerticalStackLayout
+                            Spacing="30"
+                            Padding="20"
+                            VerticalOptions="Start"
+  
+                            MaximumWidthRequest="800">
+
+                            <Grid ColumnDefinitions="*, Auto" VerticalOptions="Center" Margin="0,20,0,0">
+                                <Label Text="Dashboard"
+                                       FontSize="28"
+                                       FontAttributes="Bold"
+                                       TextColor="{StaticResource PrimaryColor}"
+                                       HorizontalOptions="Start"
+                                       VerticalOptions="Center"
+                                       Grid.Column="0"/>
+
+                                <Frame CornerRadius="25"  HeightRequest="50" WidthRequest="50"
+                                       BackgroundColor="{StaticResource SecondaryColor}" Padding="0"
+                                       HorizontalOptions="End" VerticalOptions="Center" Grid.Column="1">
+                                    <Label Text="U" HorizontalOptions="Center" VerticalOptions="Center"
+                                           TextColor="White" FontAttributes="Bold" FontSize="24"/>
+                                </Frame>
+                            </Grid>
+
+
+                            <Frame BackgroundColor="{AppThemeBinding Light={StaticResource CardBackgroundLight}, Dark={StaticResource CardBackgroundDark}}"
+                                   CornerRadius="25"
+                                   HasShadow="True"
+                                   Margin="0" Padding="25">
+                                <VerticalStackLayout Spacing="25">
+
+                                    <VerticalStackLayout Spacing="10">
+                                        <HorizontalStackLayout Spacing="10">
+                                            <Image Source="budget.png" HeightRequest="24" WidthRequest="24"/>
+                                            <Label Text="Grocery Budget (₱)"
+                                                   FontAttributes="Bold"
+                                                   FontSize="18"
+                                                   TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}"
+                                                   VerticalOptions="Center"/>
+                                        </HorizontalStackLayout>
+                                        <Entry x:Name="BudgetEntry"
+                                               Placeholder="Enter your budget"
+                                               Keyboard="Numeric"
+                                               TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}"
+                                               BackgroundColor="{AppThemeBinding Light=#F5F5F5, Dark=#333333}"
+                                               PlaceholderColor="{AppThemeBinding Light={StaticResource PlaceholderTextLight}, Dark={StaticResource PlaceholderTextDark}}"
+                                               HeightRequest="45"/>
+                                    </VerticalStackLayout>
+
+                                    <BoxView HeightRequest="1" Color="{AppThemeBinding Light=#E0E0E0, Dark=#505050}" />
+
+                                    <VerticalStackLayout Spacing="10">
+                                        <HorizontalStackLayout Spacing="10">
+                                            <Image Source="diet.png" HeightRequest="24" WidthRequest="24"/>
+                                            <Label Text="Diet Preferences"
+                                                   FontAttributes="Bold"
+                                                   FontSize="18"
+                                                   TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}"
+                                                   VerticalOptions="Center"/>
+                                        </HorizontalStackLayout>
+                                        <VerticalStackLayout x:Name="DietOptionsGroup" Spacing="10">
+                                            <HorizontalStackLayout Spacing="15">
+                                                <RadioButton Content="None" GroupName="DietPref" TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}" FontSize="14"/>
+                                                <RadioButton Content="Keto" GroupName="DietPref" TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}" FontSize="14"/>
+                                            </HorizontalStackLayout>
+                                            <HorizontalStackLayout Spacing="15">
+                                                <RadioButton Content="Vegetarian" GroupName="DietPref" TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}" FontSize="14"/>
+                                                <RadioButton Content="Vegan" GroupName="DietPref" TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}" FontSize="14"/>
+                                            </HorizontalStackLayout>
+                                            <HorizontalStackLayout Spacing="15">
+                                                <RadioButton Content="Low Carb" GroupName="DietPref" TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}" FontSize="14"/>
+                                                <RadioButton Content="High Protein" GroupName="DietPref" TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}" FontSize="14"/>
+                                            </HorizontalStackLayout>
+                                            <HorizontalStackLayout Spacing="15">
+                                                <RadioButton Content="Intermittent Fasting" GroupName="DietPref" TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}" FontSize="14"/>
+                                            </HorizontalStackLayout>
+                                        </VerticalStackLayout>
+                                    </VerticalStackLayout>
+
+                                    <BoxView HeightRequest="1" Color="{AppThemeBinding Light=#E0E0E0, Dark=#505050}" />
+
+                                    <VerticalStackLayout Spacing="5">
+                                        <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                                            <Image Source="allergy_icon.png" HeightRequest="24" WidthRequest="24"/>
+                                            <Label Text="Allergies"
+                                                   TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}" FontAttributes="Bold"/>
+                                        </HorizontalStackLayout>
+                                        <VerticalStackLayout Spacing="10">
+                                            <Grid ColumnDefinitions="30,*,30" RowDefinitions="Auto,Auto,Auto,Auto">
+                                                <CheckBox x:Name="PeanutsCheckbox" Grid.Column="0" Grid.Row="0" Color="{StaticResource PrimaryColor}" VerticalOptions="Center"/>
+                                                <Label Text="Peanuts" Grid.Column="1" Grid.Row="0" TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}" VerticalOptions="Center"/>
+                                                <Image Source="peanut.png" Grid.Column="2" Grid.Row="0" HeightRequest="20" HorizontalOptions="End"/>
+
+                                                <CheckBox Grid.Column="0" Grid.Row="1" Color="{StaticResource PrimaryColor}" VerticalOptions="Center"/>
+                                                <Label Text="Seafood" Grid.Column="1" Grid.Row="1" TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}" VerticalOptions="Center"/>
+                                                <Image Source="seafood.png" Grid.Column="2" Grid.Row="1" HeightRequest="20" HorizontalOptions="End"/>
+
+                                                <CheckBox Grid.Column="0" Grid.Row="2" Color="{StaticResource PrimaryColor}" VerticalOptions="Center"/>
+                                                <Label Text="Gluten" Grid.Column="1" Grid.Row="2" TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}" VerticalOptions="Center"/>
+                                                <Image Source="gluten_free.png" Grid.Column="2" Grid.Row="2" HeightRequest="20" HorizontalOptions="End"/>
+
+                                                <CheckBox Grid.Column="0" Grid.Row="3" Color="{StaticResource PrimaryColor}" VerticalOptions="Center"/>
+                                                <Label Text="Dairy" Grid.Column="1" Grid.Row="3" TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}" VerticalOptions="Center"/>
+                                                <Image Source="dairy.png" Grid.Column="2" Grid.Row="3" HeightRequest="20" HorizontalOptions="End"/>
+                                            </Grid>
+                                        </VerticalStackLayout>
+                                    </VerticalStackLayout>
+
+                                    <Button Text="Generate Plan"
+                                            Clicked="OnGeneratePlanClicked"
+                                            CornerRadius="25"
+                                            BackgroundColor="{StaticResource PrimaryColor}"
+                                            TextColor="White"
+                                            FontAttributes="Bold"
+                                            HeightRequest="55"
+                                            FontSize="18"
+                                            Margin="0,10,0,0">
+                                        <Button.Shadow>
+                                            <Shadow Offset="5,5" Radius="10" Opacity="0.5"/>
+                                        </Button.Shadow>
+                                    </Button>
+
+                                </VerticalStackLayout>
+                            </Frame>
+                        </VerticalStackLayout>
+                    </ScrollView>
+                </ContentPage>
+            </x:Arguments>
+        </NavigationPage>
+    </FlyoutPage.Detail>
+</FlyoutPage>
