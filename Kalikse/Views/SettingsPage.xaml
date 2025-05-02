@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Kalikse.SettingsPage"
              Title="Settings"
-             BackgroundColor="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}">
-
+             BackgroundImageSource="{AppThemeBinding Light=lightbackground.png, Dark=darkbackground.png}"  BackgroundColor="Transparent">
     <ContentPage.ToolbarItems>
         <ToolbarItem IconImageSource="burger_icon.png" Order="Primary"
                      Priority="0" />
@@ -13,13 +12,13 @@
     <ScrollView>
         <VerticalStackLayout
             Spacing="30"
-            Padding="20"  VerticalOptions="Start" MaximumWidthRequest="1000">
+            Padding="20" VerticalOptions="Start"  MaximumWidthRequest="1000">
             <Label Text="Settings"
-                    FontSize="28"
-                    FontAttributes="Bold"
-                    TextColor="{AppThemeBinding Light={StaticResource PrimaryColor}, Dark={StaticResource LightText}}"
-                    HorizontalOptions="Center"
-                    Margin="0,10,0,20"/>
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   TextColor="{AppThemeBinding Light={StaticResource PrimaryColor}, Dark={StaticResource LightText}}"
+                   HorizontalOptions="Center"
+                   Margin="0,10,0,20"/>
             <Frame BackgroundColor="{AppThemeBinding Light={StaticResource CardBackgroundLight}, Dark={StaticResource CardBackgroundDark}}"
                    CornerRadius="25"
                    HasShadow="True"

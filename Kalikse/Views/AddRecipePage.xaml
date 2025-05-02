@@ -2,70 +2,81 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Kalikse.AddRecipePage"
-             Title="Add New Recipe"  BackgroundColor="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}"
-             NavigationPage.HasNavigationBar="False">
+             Title="Add New Recipe"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundImageSource="{AppThemeBinding Light=lightbackground.png, Dark=darkbackground.png}"
+             BackgroundColor="Transparent">
 
-    <ScrollView>
-        <VerticalStackLayout Spacing="20" Padding="20" MaximumWidthRequest="1500">
+    <Grid RowDefinitions="Auto, *">
 
+        <VerticalStackLayout Grid.Row="0" Padding="20, 20, 20, 10" HorizontalOptions="Center">
             <Label Text="Share Your Recipe"
-                   FontSize="24"
-                   FontAttributes="Bold"
-                   TextColor="{StaticResource PrimaryColor}"
-                   HorizontalOptions="Center"/>
-
-            <VerticalStackLayout Spacing="5">
-                <Label Text="Food Name" FontAttributes="Bold" TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}"/>
-                <Entry x:Name="FoodNameEntry"
-                       Placeholder="e.g., Chicken Adobo"
-                       TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}"
-                       PlaceholderColor="{AppThemeBinding Light={StaticResource PlaceholderTextLight}, Dark={StaticResource PlaceholderTextDark}}"
-                       BackgroundColor="{AppThemeBinding Light=#F5F5F5, Dark=#333333}"
-                       HeightRequest="40"/>
-            </VerticalStackLayout>
-
-            <VerticalStackLayout Spacing="5">
-                <Label Text="Ingredients with Prices (e.g., Chicken (₱150), Soy Sauce (₱20))" FontAttributes="Bold" TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}"/>
-                <Editor x:Name="IngredientsEditor"
-                        Placeholder="List ingredients and their approximate prices..."
-                        AutoSize="TextChanges"  MinimumHeightRequest="100"
-                        TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}"
-                        PlaceholderColor="{AppThemeBinding Light={StaticResource PlaceholderTextLight}, Dark={StaticResource PlaceholderTextDark}}"
-                        BackgroundColor="{AppThemeBinding Light=#F5F5F5, Dark=#333333}"
-                        Keyboard="Text"/>
-            </VerticalStackLayout>
-
-            <VerticalStackLayout Spacing="5">
-                <Label Text="Description / Instructions" FontAttributes="Bold" TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}"/>
-                <Editor x:Name="DescriptionEditor"
-                        Placeholder="Describe your recipe and how to make it..."
-                        AutoSize="TextChanges"
-                        MinimumHeightRequest="150"
-                        TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}"
-                        PlaceholderColor="{AppThemeBinding Light={StaticResource PlaceholderTextLight}, Dark={StaticResource PlaceholderTextDark}}"
-                        BackgroundColor="{AppThemeBinding Light=#F5F5F5, Dark=#333333}"
-                        Keyboard="Text"/>
-            </VerticalStackLayout>
-
-            <VerticalStackLayout Spacing="10">
-                <Label Text="Recipe Image" FontAttributes="Bold" TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}"/>
-                <Button Text="Attach Image"
-                        BackgroundColor="{StaticResource SecondaryColor}"
-                        TextColor="White"
-                        CornerRadius="10"
-                        Clicked="OnAttachImageClicked"/>
-            </VerticalStackLayout>
-
-            <Button Text="SUBMIT RECIPE"
-                    BackgroundColor="{StaticResource PrimaryColor}"
-                    TextColor="White"
-                    CornerRadius="25"
-                    FontSize="18"
-                    FontAttributes="Bold"
-                    HeightRequest="50"
-                    Margin="0,20,0,0"
-                    Clicked="OnSubmitRecipeClicked"/>
-
+                   FontSize="30"  FontAttributes="Bold"
+                   TextColor="{AppThemeBinding Light=#1A237E, Dark={StaticResource PrimaryColor}}"
+                   HorizontalOptions="Center"/> 
         </VerticalStackLayout>
-    </ScrollView>
+
+
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Spacing="20"
+                                 Padding="20"
+                                 VerticalOptions="CenterAndExpand"
+                                 MaximumWidthRequest="1200"  BackgroundColor="Transparent">
+
+                <VerticalStackLayout Spacing="5">
+                    <Label Text="Food Name" FontAttributes="Bold" TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}"/>
+                    <Entry x:Name="FoodNameEntry"
+                           Placeholder="e.g., Chicken Adobo"
+                           TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}"
+                           PlaceholderColor="{AppThemeBinding Light={StaticResource PlaceholderTextLight}, Dark={StaticResource PlaceholderTextDark}}"
+                           BackgroundColor="{AppThemeBinding Light=#F5F5F5, Dark=#333333}"
+                           HeightRequest="40"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Spacing="5">
+                    <Label Text="Ingredients with Prices (e.g., Chicken (₱150), Soy Sauce (₱20))" FontAttributes="Bold" TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}"/>
+                    <Editor x:Name="IngredientsEditor"
+                            Placeholder="List ingredients and their approximate prices..."
+                            AutoSize="TextChanges"
+                            MinimumHeightRequest="100"
+                            TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}"
+                            PlaceholderColor="{AppThemeBinding Light={StaticResource PlaceholderTextLight}, Dark={StaticResource PlaceholderTextDark}}"
+                            BackgroundColor="{AppThemeBinding Light=#F5F5F5, Dark=#333333}"
+                            Keyboard="Text"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Spacing="5">
+                    <Label Text="Description / Instructions" FontAttributes="Bold" TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}"/>
+                    <Editor x:Name="DescriptionEditor"
+                            Placeholder="Describe your recipe and how to make it..."
+                            AutoSize="TextChanges"
+                            MinimumHeightRequest="150"
+                            TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}"
+                            PlaceholderColor="{AppThemeBinding Light={StaticResource PlaceholderTextLight}, Dark={StaticResource PlaceholderTextDark}}"
+                            BackgroundColor="{AppThemeBinding Light=#F5F5F5, Dark=#333333}"
+                            Keyboard="Text"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Recipe Image" FontAttributes="Bold" TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}"/>
+                    <Button Text="Attach Image"
+                            BackgroundColor="{StaticResource PrimaryColor}"
+                            TextColor="White"
+                            CornerRadius="10"
+                            Clicked="OnAttachImageClicked"/>
+                </VerticalStackLayout>
+
+                <Button Text="SUBMIT RECIPE"
+                        BackgroundColor="{StaticResource PrimaryColor}"
+                        TextColor="White"
+                        CornerRadius="25"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        HeightRequest="50"
+                        Margin="0,20,0,0"
+                        Clicked="OnSubmitRecipeClicked"/>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
 </ContentPage>

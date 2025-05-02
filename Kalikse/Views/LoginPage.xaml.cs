@@ -1,59 +1,82 @@
 using Microsoft.Maui.Controls;
 using System;
 using System.Diagnostics; // Needed for Debug.WriteLine
+using Kalikse.Services; // Needed for FirebaseAuthService
+using Kalikse.Views; // Needed to reference other pages like RegisterPage and ForgotPasswordPage
+using Firebase.Auth; // Needed for Firebase Authentication types
 
-namespace Kalikse
+namespace Kalikse.Views // Ensure this matches the namespace in your LoginPage.xaml
 {
-    public partial class LoginPage : ContentPage
-    {
-        // Make sure you have x:Name="EmailEntry" and x:Name="PasswordEntry" in your LoginPage.xaml
-        // These are defined in the XAML and linked automatically by InitializeComponent()
+    // Partial class definition linked to LoginPage.xaml
+    public partial class LoginPage : ContentPage
+    {
+        // Field to hold the Firebase Authentication Service instance
+        private readonly FirebaseAuthService _authService;
 
-        public LoginPage()
-        {
-            InitializeComponent();
-        }
+        // Constructor for the LoginPage
+        public LoginPage()
+        {
+            // Initialize the UI components defined in LoginPage.xaml
+            InitializeComponent();
 
-        private async void OnForgotPasswordTapped(object sender, EventArgs e)
-        {
-            Debug.WriteLine("Forgot Password tapped. Navigating to ForgotPasswordPage.");
-            // Navigate to the Forgot Password page
-            await Navigation.PushAsync(new ForgotPasswordPage());
-        }
+            // Create an instance of the FirebaseAuthService
+            _authService = new FirebaseAuthService();
 
-        private async void OnSignUpTapped(object sender, EventArgs e)
-        {
-            Debug.WriteLine("Sign Up tapped. Navigating to RegisterPage.");
-            // Navigate to the Register page
-            await Navigation.PushAsync(new RegisterPage());
-        }
+            // Set the BindingContext if you were using data binding (not strictly needed for this code-behind logic)
+            // BindingContext = this;
+        }
 
-        // Event handler for the "SIGN IN" button
-        private async void OnLoginClicked(object sender, EventArgs e)
-        {
-            Debug.WriteLine("Sign In button clicked.");
+        // Event handler for the "SIGN IN" button click
+        // This method uses the FirebaseAuthService to attempt user sign-in
+        private async void OnLoginClicked(object sender, EventArgs e)
+        {
+            try
+            {
+                // Attempt to sign in with Firebase Authentication
+                var auth = await _authService.SignIn(emailEntry.Text, passwordEntry.Text);
+                // Optional: Get a fresh token if needed immediately after login
+                // string token = await _authService.GetFreshToken(auth);
 
-            // Get the text entered by the user
-            string enteredEmailOrUsername = EmailEntry.Text?.Trim();
-            string enteredPassword = PasswordEntry.Text;
-
-            // Check credentials against the temporary store
-            // WARNING: This is NOT secure for a real app!
-            // It checks if the entered credentials match the LAST registered credentials.
-            if (enteredEmailOrUsername == TemporaryAuthStore.RegisteredEmail && enteredPassword == TemporaryAuthStore.RegisteredPassword)
-            {
-                // Credentials match - Simulate successful login
-                Debug.WriteLine("Login successful.");
-                // Navigate to the main part of the app (e.g., MainDashboardPage)
-                // Using Application.Current.MainPage replaces the current page stack
+                // If SignIn is successful, navigate to the main dashboard
+                Debug.WriteLine($"Firebase login successful for {auth.User.Email}. Navigating to Dashboard.");
+                // Replace the current Main Page with the Dashboard page
+                // This clears the navigation stack and sets the Dashboard as the new root
                 Application.Current.MainPage = new MainDashboardPage();
-            }
-            else
-            {
-                // Credentials do NOT match - Show an error message
-                Debug.WriteLine("Login failed: Invalid credentials.");
-                await DisplayAlert("Login Failed", "Invalid email/username or password.", "OK");
-            }
-        }
-    }
+
+
+                // You can remove the success DisplayAlert if you navigate immediately
+                // await DisplayAlert("Success", $"Welcome {auth.User.Email}", "OK");
+            }
+            catch (Exception ex)
+            {
+                // Handle login errors (e.g., invalid credentials, user not found)
+                Debug.WriteLine($"Firebase login failed: {ex.Message}");
+                await DisplayAlert("Login Failed", ex.Message, "OK");
+            }
+        }
+
+        // Event handler for the "Forgot Password?" label tap
+        // This method navigates to the ForgotPasswordPage
+        private async void OnForgotPasswordTapped(object sender, EventArgs e)
+        {
+            Debug.WriteLine("Forgot Password tapped. Navigating to ForgotPasswordPage.");
+            // Navigate to the Forgot Password page using the navigation stack
+            // Make sure ForgotPasswordPage exists and is in the Kalikse.Views namespace
+            await Navigation.PushAsync(new ForgotPasswordPage());
+            Debug.WriteLine("Navigation to ForgotPasswordPage completed.");
+        }
+
+        // Event handler for the "Create Account" label tap
+        // This method navigates to the RegisterPage
+        private async void OnSignUpTapped(object sender, EventArgs e)
+        {
+            Debug.WriteLine("Create Account tapped. Navigating to RegisterPage.");
+            // Navigate to the Register page using the navigation stack
+            // Make sure RegisterPage exists and is in the Kalikse.Views namespace
+            await Navigation.PushAsync(new RegisterPage());
+            Debug.WriteLine("Navigation to RegisterPage completed.");
+        }
+
+        // You can add other methods or event handlers below if needed for the LoginPage
+    }
 }

@@ -1,12 +1,21 @@
-﻿// Add this using directive at the top
+﻿// Using directive for the main MAUI namespace
+using Microsoft.Maui.Controls;
+
+// Using directive for the root namespace of your project
+using Kalikse;
+
+// Using directive for the Views namespace where LoginPage is likely located
+using Kalikse.Views; // Add this line
+
+// Using directive for other necessary namespaces if used (e.g., System)
+using System;
+
+// Add this using directive at the top
 using Microsoft.Maui.Storage; // Needed for Preferences
 using Microsoft.Maui; // Needed for AppTheme
 using System.Diagnostics; // Needed for Debug.WriteLine (Good practice for debugging startup)
 
-using Kalikse; // Assuming LoginPage and RegisterPage are in this namespace
-using Microsoft.Maui.Controls; // Needed for Application class
-
-namespace Kalikse
+namespace Kalikse // This is the namespace for App.xaml.cs
 {
     public partial class App : Application
     {
@@ -17,56 +26,84 @@ namespace Kalikse
             // Step 5: Load the saved theme preference on app startup
             LoadSavedThemePreference(); // Call the new method here
 
+            // Set the initial page of the application
             // Embed your LoginPage within a NavigationPage
-            // Ensure MainPage is set AFTER loading theme, so the initial page respects the theme
+            // This is the correct way to start with navigation capabilities from the Login page.
             MainPage = new NavigationPage(new LoginPage());
+            Debug.WriteLine("App started with LoginPage wrapped in NavigationPage.");
+
+            // Ensure MainPage is set AFTER loading theme, so the initial page respects the theme
+            // The line above already does this.
+
+            // Note: The global background image logic using a root Grid in App.xaml.cs was incorrect for MainPage.
+            // Theme-aware background images are implemented on individual pages using BackgroundImageSource in their XAML files.
+            // For example, in LoginPage.xaml, you would use:
+            // BackgroundImageSource="{AppThemeBinding Light=light_background.png, Dark=dark_background.png}"
+
+            // Subscribe to the RequestedThemeChanged event if you need to react to system theme changes
+            // This is already handled by AppThemeBinding in XAML for colors and can be used for BackgroundImageSource too.
+            // You might still need this if you have complex theme logic in code.
+            // Application.Current.RequestedThemeChanged += Current_RequestedThemeChanged; // Keep if needed for code logic
         }
 
-        // Step 5b: Method to load saved theme preference and apply it on startup
+        // Optional: Event handler for theme changes (system or UserAppTheme = Unspecified)
+        // You might not need this if only using AppThemeBinding in XAML for backgrounds.
+        // private void Current_RequestedThemeChanged(object sender, AppThemeChangedEventArgs e)
+        // {
+        //     Debug.WriteLine($"RequestedThemeChanged event fired. New theme: {e.RequestedTheme}");
+        //     // If you had theme-specific logic in code, implement it here.
+        // }
+
+
+        // Method to load saved theme preference and apply it on startup
         private void LoadSavedThemePreference()
         {
             // Retrieve the saved preference, default to "System" if not found
-            // We use "System" as a string key, mapping to AppTheme.Unspecified
             string savedTheme = Preferences.Get("AppThemePreference", "System");
             Debug.WriteLine($"App startup: Loaded theme preference: {savedTheme}"); // Debug log
 
             // Apply the theme based on the loaded preference
+            AppTheme themeToApply = AppTheme.Unspecified; // Default to system
+
             if (savedTheme == "Light")
             {
-                Application.Current.UserAppTheme = AppTheme.Light;
-                Debug.WriteLine("App theme set to Light on startup."); // Debug log
+                themeToApply = AppTheme.Light;
             }
             else if (savedTheme == "Dark")
             {
-                Application.Current.UserAppTheme = AppTheme.Dark;
-                Debug.WriteLine("App theme set to Dark on startup."); // Debug log
+                themeToApply = AppTheme.Dark;
             }
-            else // "System" or any other value defaults to Unspecified
-            {
-                // No explicit theme saved, let the system theme apply
-                Application.Current.UserAppTheme = AppTheme.Unspecified; // Unspecified means use system theme
-                Debug.WriteLine("App theme set to System (Unspecified) on startup."); // Debug log
-            }
+
+            Application.Current.UserAppTheme = themeToApply;
+            Debug.WriteLine($"App theme set to {themeToApply} on startup."); // Debug log
+
+            // The background image will be handled by AppThemeBinding in the page XAML.
         }
 
 
         protected override void OnStart()
         {
-            // Consider if you need to do anything specific here related to themes
-            // Usually, setting it in the constructor is sufficient.
+            // Called when the application starts
+            Debug.WriteLine("App OnStart");
+            // The theme is set in the constructor and LoadSavedThemePreference
         }
 
         protected override void OnSleep()
         {
-            // Consider saving the current theme here if needed, though
+            // Called when the application goes to the background
+            Debug.WriteLine("App OnSleep");
             // Preferences automatically saves immediately when .Set is called.
         }
 
         protected override void OnResume()
         {
-            // Consider if you need to refresh anything based on potential
-            // system theme changes while the app was asleep.
-            // Application.Current.UserAppTheme = AppTheme.Unspecified; // You could reset to system here if desired
+            // Called when the application resumes from the background
+            Debug.WriteLine("App OnResume");
+            // If UserAppTheme is Unspecified, the system theme might have changed while asleep.
+            // The AppThemeBinding in XAML will automatically react to this.
         }
     }
 }
+
+
+

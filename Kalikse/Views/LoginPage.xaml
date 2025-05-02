@@ -1,46 +1,44 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Kalikse.LoginPage"
+             x:Class="Kalikse.Views.LoginPage"
              Title="Login"
-             BackgroundColor="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+             BackgroundImageSource="{AppThemeBinding Light=lightbackground.png, Dark=darkbackground.png}">
 
     <ScrollView>
         <VerticalStackLayout Spacing="25"
                              Padding="30,40"
                              MaximumWidthRequest="1500"
-                             VerticalOptions="StartAndExpand">
-            <Image Source="{AppThemeBinding Light=app_logo.png, Dark=app_logo_dark.png}"
-                   HeightRequest="300"  WidthRequest="300"   HorizontalOptions="Center"
+                             VerticalOptions="StartAndExpand"
+                             BackgroundColor="Transparent">
+            <Image Source="{AppThemeBinding Light=applogo.png, Dark=app_logo_dark.png}"
+                   HeightRequest="350"  WidthRequest="350"  HorizontalOptions="Center"
                    Margin="0,0,0,20"
                    Aspect="AspectFit" />
 
             <Label Text="Welcome Back!"
                    FontSize="28"
                    FontAttributes="Bold"
-                   TextColor="{StaticResource PrimaryColor}"
-                   HorizontalOptions="Center"
+                   TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark=#ADD8E6}"  HorizontalOptions="Center"
                    Margin="0,0,0,10"/>
 
             <Label Text="Sign in to continue to Kaliksi"
                    FontSize="16"
-                   TextColor="{AppThemeBinding Light={StaticResource PlaceholderTextLight}, Dark={StaticResource PlaceholderTextDark}}"
-                   HorizontalOptions="Center"
+                   TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark=#ADD8E6}"  HorizontalOptions="Center"
                    Margin="0,0,0,20"/>
 
             <VerticalStackLayout Spacing="5">
                 <Label Text="Email"
-                       TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}"
-                       FontAttributes="Bold"
+                       TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark=#ADD8E6}"  FontAttributes="Bold"
                        FontSize="14"/>
-                <Border Stroke="{StaticResource PrimaryColor}"
+                <Border Stroke="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource PrimaryColor}}"
                         StrokeThickness="1"
                         StrokeShape="RoundRectangle 8"
                         Padding="10,5">
                     <Grid ColumnDefinitions="Auto,*" ColumnSpacing="10">
                         <Image Source="user.png" HeightRequest="20" WidthRequest="20" VerticalOptions="Center"/>
-                        <Entry x:Name="EmailEntry"
+                        <Entry x:Name="emailEntry"
                                Grid.Column="1"
                                Placeholder="user@kaliksi.com"
                                Keyboard="Email"
@@ -54,16 +52,15 @@
 
             <VerticalStackLayout Spacing="5">
                 <Label Text="Password"
-                       TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}"
-                       FontAttributes="Bold"
+                       TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark=#ADD8E6}"  FontAttributes="Bold"
                        FontSize="14"/>
-                <Border Stroke="{StaticResource PrimaryColor}"
+                <Border Stroke="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource PrimaryColor}}"
                         StrokeThickness="1"
                         StrokeShape="RoundRectangle 8"
                         Padding="10,5">
                     <Grid ColumnDefinitions="Auto,*" ColumnSpacing="10">
                         <Image Source="password.png" HeightRequest="20" WidthRequest="20" VerticalOptions="Center"/>
-                        <Entry x:Name="PasswordEntry"
+                        <Entry x:Name="passwordEntry"
                                Grid.Column="1"
                                Placeholder="••••••••"
                                IsPassword="True"
@@ -76,8 +73,7 @@
             </VerticalStackLayout>
 
             <Label Text="Forgot Password?"
-                   TextColor="{StaticResource PrimaryColor}"
-                   HorizontalOptions="End"
+                   TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark=#ADD8E6}"  HorizontalOptions="End"
                    FontAttributes="Italic"
                    Margin="0, -15, 0, 0">
                 <Label.GestureRecognizers>
@@ -87,8 +83,7 @@
 
             <Button Text="SIGN IN"
                     BackgroundColor="{StaticResource PrimaryColor}"
-                    TextColor="White"
-                    CornerRadius="25"
+                    TextColor="White"  CornerRadius="25"
                     FontSize="18"
                     FontAttributes="Bold"
                     HeightRequest="55"
@@ -101,11 +96,9 @@
 
             <HorizontalStackLayout HorizontalOptions="Center" Spacing="5">
                 <Label Text="New to Kaliksi?"
-                       TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}"
-                       FontSize="14"/>
+                       TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark=#ADD8E6}"  FontSize="14"/>
                 <Label Text="Create Account"
-                       TextColor="{StaticResource PrimaryColor}"
-                       FontAttributes="Bold"
+                       TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark=#ADD8E6}"  FontAttributes="Bold"
                        FontSize="14">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnSignUpTapped"/>

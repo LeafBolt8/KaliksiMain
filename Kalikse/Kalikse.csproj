@@ -50,9 +50,6 @@
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
-		<MauiImage Update="Resources\Images\app_logo.png">
-		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-		</MauiImage>
 		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
 
 		<!-- Custom Fonts -->
@@ -71,6 +68,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="Firebase.Auth" Version="1.0.0" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
@@ -121,6 +119,14 @@
 
 	<ItemGroup>
 	  <MauiAsset Include="Platforms\Android\Assets\google-services.json" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+		<MauiXaml Update="Views\RegisterPage.xaml">
+			<Generator>MSBuild:Compile</Generator>
+			<DependsOn>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</DependsOn>
+		</MauiXaml>
 	</ItemGroup>
 
 </Project>

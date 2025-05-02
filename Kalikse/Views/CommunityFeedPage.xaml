@@ -2,8 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Kalikse"  x:Class="Kalikse.CommunityFeedPage"
-             Title="Community"  BackgroundColor="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}">
-
+             Title="Community"
+             BackgroundImageSource="{AppThemeBinding Light=lightbackground.png, Dark=darkbackground.png}"  BackgroundColor="Transparent">
     <ContentPage.Resources>
     </ContentPage.Resources>
 
@@ -13,8 +13,7 @@
             <Label Text="Community Feed"
                    FontSize="24"
                    FontAttributes="Bold"
-                   TextColor="{StaticResource PrimaryColor}"
-                   HorizontalOptions="Center"
+                   TextColor="{AppThemeBinding Light=#1A237E, Dark={StaticResource PrimaryColor}}"  HorizontalOptions="Center"
                    VerticalOptions="Center"
                    Grid.Column="0"/>
 
@@ -38,8 +37,7 @@
         <CollectionView Grid.Row="1"
                         x:Name="RecipeFeedCollectionView"
                         SelectionMode="None"  ItemsSource="{Binding Recipes}"
-                        Margin="10,0"
-                        >
+                        Margin="10,0">
             <CollectionView.EmptyView>
                 <Label Text="No recipes posted yet. Be the first to share!"
                        HorizontalOptions="Center"
@@ -63,8 +61,7 @@
                                        Padding="0"
                                        IsClippedToBounds="True"
                                        BackgroundColor="{AppThemeBinding Light=#E0E0E0, Dark=#505050}">
-                                    <Image Source="user.png"  Aspect="AspectFill"
-                                            HorizontalOptions="Center"
+                                    <Image Source="user.png"  Aspect="AspectFill"  HorizontalOptions="Center"
                                             VerticalOptions="Center"/>
                                 </Frame>
 
@@ -93,7 +90,8 @@
                                         <TapGestureRecognizer Tapped="OnLikeTapped" CommandParameter="{Binding .}"/>
                                     </HorizontalStackLayout.GestureRecognizers>
                                     <Image Source="like_icon.png" HeightRequest="20" WidthRequest="20"/>
-                                    <Label Text="{Binding LikesCount, StringFormat='{0} Likes'}" VerticalOptions="Center" TextColor="{StaticResource SecondaryColor}"/>
+                                    <Label Text="{Binding LikesCount, StringFormat='{0} Likes'}" VerticalOptions="Center"
+                                           TextColor="{AppThemeBinding Light=#1A237E, Dark={StaticResource SecondaryColor}}"/>
                                 </HorizontalStackLayout>
 
                                 <HorizontalStackLayout Spacing="5">
@@ -101,7 +99,8 @@
                                         <TapGestureRecognizer Tapped="OnCommentTapped" CommandParameter="{Binding .}"/>
                                     </HorizontalStackLayout.GestureRecognizers>
                                     <Image Source="comment_icon.png" HeightRequest="20" WidthRequest="20"/>
-                                    <Label Text="{Binding CommentsCount, StringFormat='{0} Comments'}" VerticalOptions="Center" TextColor="{StaticResource SecondaryColor}"/>
+                                    <Label Text="{Binding CommentsCount, StringFormat='{0} Comments'}" VerticalOptions="Center"
+                                           TextColor="{AppThemeBinding Light=#1A237E, Dark={StaticResource SecondaryColor}}"/>
                                 </HorizontalStackLayout>
                             </HorizontalStackLayout>
 
