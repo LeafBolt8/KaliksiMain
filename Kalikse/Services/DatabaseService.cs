@@ -74,61 +74,151 @@ namespace Kalikse.Services
                             @CreatedAt, @UpdatedAt
                         );";
 
-                    // Add Chicken Adobo (None dietary preference, contains soy)
-                    command.Parameters.AddWithValue("@Name", "Chicken Adobo");
-                    command.Parameters.AddWithValue("@Description", "A classic Filipino dish featuring chicken marinated in vinegar, soy sauce, and garlic, then braised until tender.");
-                    command.Parameters.AddWithValue("@ImageUrl", "adobo.jpg");
-                    command.Parameters.AddWithValue("@MinPrice", 250.00m);
-                    command.Parameters.AddWithValue("@MaxPrice", 350.00m);
-                    command.Parameters.AddWithValue("@DietaryPreference", "None");
-                    command.Parameters.AddWithValue("@Allergens", "Soy");
-                    command.Parameters.AddWithValue("@Ingredients", "Chicken, Soy Sauce, Vinegar, Garlic, Bay Leaves, Black Peppercorns");
-                    command.Parameters.AddWithValue("@Instructions", "1. Combine chicken, soy sauce, vinegar, garlic, bay leaves, and peppercorns in a bowl.\n2. Marinate for at least 30 minutes.\n3. Transfer to a pot and bring to a boil.\n4. Simmer for 30-40 minutes until chicken is tender.\n5. Serve hot with rice.");
+                    // Keto Bulletproof Coffee
+                    command.Parameters.AddWithValue("@Name", "Keto Bulletproof Coffee");
+                    command.Parameters.AddWithValue("@Description", "A creamy, energizing coffee drink that helps you stay in ketosis.");
+                    command.Parameters.AddWithValue("@ImageUrl", "bulletproof_coffee.jpg");
+                    command.Parameters.AddWithValue("@MinPrice", 100.00m);
+                    command.Parameters.AddWithValue("@MaxPrice", 150.00m);
+                    command.Parameters.AddWithValue("@DietaryPreference", "Keto");
+                    command.Parameters.AddWithValue("@Allergens", "Dairy");
+                    command.Parameters.AddWithValue("@Ingredients", "Coffee, Butter, MCT Oil, Heavy Cream, Cinnamon");
+                    command.Parameters.AddWithValue("@Instructions", "1. Brew strong coffee\n2. Add 1 tbsp butter\n3. Add 1 tbsp MCT oil\n4. Add 2 tbsp heavy cream\n5. Blend until frothy\n6. Sprinkle with cinnamon");
                     command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("o"));
                     command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("o"));
                     command.ExecuteNonQuery();
 
-                    // Add Vegetarian Sinigang (Vegetarian, contains peanuts)
+                    // Keto Avocado Egg Salad
                     command.Parameters.Clear();
-                    command.Parameters.AddWithValue("@Name", "Vegetarian Sinigang");
-                    command.Parameters.AddWithValue("@Description", "A sour and savory Filipino soup made with vegetables and tamarind broth.");
-                    command.Parameters.AddWithValue("@ImageUrl", "sinigang.jpg");
+                    command.Parameters.AddWithValue("@Name", "Keto Avocado Egg Salad");
+                    command.Parameters.AddWithValue("@Description", "A creamy, protein-rich salad perfect for keto lunches.");
+                    command.Parameters.AddWithValue("@ImageUrl", "avocado_egg_salad.jpg");
+                    command.Parameters.AddWithValue("@MinPrice", 150.00m);
+                    command.Parameters.AddWithValue("@MaxPrice", 200.00m);
+                    command.Parameters.AddWithValue("@DietaryPreference", "Keto");
+                    command.Parameters.AddWithValue("@Allergens", "Eggs");
+                    command.Parameters.AddWithValue("@Ingredients", "Hard-boiled Eggs, Avocado, Mayonnaise, Dijon Mustard, Celery, Green Onions, Salt, Pepper");
+                    command.Parameters.AddWithValue("@Instructions", "1. Chop hard-boiled eggs\n2. Mash avocado\n3. Mix all ingredients\n4. Season to taste\n5. Serve on lettuce leaves");
+                    command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("o"));
+                    command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("o"));
+                    command.ExecuteNonQuery();
+
+                    // Keto Cauliflower Rice Stir-Fry
+                    command.Parameters.Clear();
+                    command.Parameters.AddWithValue("@Name", "Keto Cauliflower Rice Stir-Fry");
+                    command.Parameters.AddWithValue("@Description", "A low-carb alternative to traditional fried rice.");
+                    command.Parameters.AddWithValue("@ImageUrl", "cauliflower_stirfry.jpg");
                     command.Parameters.AddWithValue("@MinPrice", 200.00m);
                     command.Parameters.AddWithValue("@MaxPrice", 300.00m);
-                    command.Parameters.AddWithValue("@DietaryPreference", "Vegetarian");
-                    command.Parameters.AddWithValue("@Allergens", "Peanuts");
-                    command.Parameters.AddWithValue("@Ingredients", "Tamarind Broth, Kangkong, Radish, Tomatoes, Onions, Peanuts");
-                    command.Parameters.AddWithValue("@Instructions", "1. Prepare tamarind broth.\n2. Add vegetables in order of cooking time.\n3. Season with salt and pepper.\n4. Serve hot with rice.");
+                    command.Parameters.AddWithValue("@DietaryPreference", "Keto");
+                    command.Parameters.AddWithValue("@Allergens", "Eggs, Soy");
+                    command.Parameters.AddWithValue("@Ingredients", "Cauliflower Rice, Eggs, Bacon, Green Onions, Soy Sauce, Garlic, Ginger, Sesame Oil");
+                    command.Parameters.AddWithValue("@Instructions", "1. Cook bacon until crispy\n2. Scramble eggs\n3. Stir-fry cauliflower rice\n4. Add all ingredients\n5. Season with soy sauce and sesame oil");
                     command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("o"));
                     command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("o"));
                     command.ExecuteNonQuery();
 
-                    // Add Vegan Lumpia (Vegan, no allergens)
+                    // Keto Fat Bombs
                     command.Parameters.Clear();
-                    command.Parameters.AddWithValue("@Name", "Vegan Lumpia");
-                    command.Parameters.AddWithValue("@Description", "Crispy spring rolls filled with vegetables and tofu.");
-                    command.Parameters.AddWithValue("@ImageUrl", "lumpia.jpg");
-                    command.Parameters.AddWithValue("@MinPrice", 150.00m);
-                    command.Parameters.AddWithValue("@MaxPrice", 250.00m);
-                    command.Parameters.AddWithValue("@DietaryPreference", "Vegan");
-                    command.Parameters.AddWithValue("@Allergens", "");
-                    command.Parameters.AddWithValue("@Ingredients", "Lumpia Wrapper, Tofu, Carrots, Cabbage, Green Beans, Garlic");
-                    command.Parameters.AddWithValue("@Instructions", "1. Prepare vegetable filling.\n2. Wrap in lumpia wrapper.\n3. Deep fry until golden brown.\n4. Serve with sweet chili sauce.");
+                    command.Parameters.AddWithValue("@Name", "Keto Fat Bombs");
+                    command.Parameters.AddWithValue("@Description", "Delicious energy-boosting snacks for keto dieters.");
+                    command.Parameters.AddWithValue("@ImageUrl", "fat_bombs.jpg");
+                    command.Parameters.AddWithValue("@MinPrice", 100.00m);
+                    command.Parameters.AddWithValue("@MaxPrice", 150.00m);
+                    command.Parameters.AddWithValue("@DietaryPreference", "Keto");
+                    command.Parameters.AddWithValue("@Allergens", "Dairy, Nuts");
+                    command.Parameters.AddWithValue("@Ingredients", "Coconut Oil, Cream Cheese, Cocoa Powder, Stevia, Vanilla Extract, Almonds");
+                    command.Parameters.AddWithValue("@Instructions", "1. Mix softened cream cheese with coconut oil\n2. Add cocoa powder and sweetener\n3. Form into balls\n4. Roll in chopped almonds\n5. Freeze for 30 minutes");
                     command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("o"));
                     command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("o"));
                     command.ExecuteNonQuery();
 
-                    // Add Keto Sisig (Keto, contains dairy)
+                    // Keto Zucchini Lasagna
                     command.Parameters.Clear();
-                    command.Parameters.AddWithValue("@Name", "Keto Sisig");
-                    command.Parameters.AddWithValue("@Description", "A low-carb version of the popular Filipino sisig dish.");
-                    command.Parameters.AddWithValue("@ImageUrl", "sisig.jpg");
+                    command.Parameters.AddWithValue("@Name", "Keto Zucchini Lasagna");
+                    command.Parameters.AddWithValue("@Description", "A low-carb version of the classic Italian dish.");
+                    command.Parameters.AddWithValue("@ImageUrl", "zucchini_lasagna.jpg");
                     command.Parameters.AddWithValue("@MinPrice", 300.00m);
                     command.Parameters.AddWithValue("@MaxPrice", 400.00m);
                     command.Parameters.AddWithValue("@DietaryPreference", "Keto");
                     command.Parameters.AddWithValue("@Allergens", "Dairy");
-                    command.Parameters.AddWithValue("@Ingredients", "Pork Belly, Eggs, Mayonnaise, Onions, Chili, Lime");
-                    command.Parameters.AddWithValue("@Instructions", "1. Grill pork belly until crispy.\n2. Chop into small pieces.\n3. Mix with mayonnaise and seasonings.\n4. Top with egg and serve hot.");
+                    command.Parameters.AddWithValue("@Ingredients", "Zucchini, Ground Beef, Marinara Sauce, Ricotta Cheese, Mozzarella, Parmesan, Italian Seasoning");
+                    command.Parameters.AddWithValue("@Instructions", "1. Slice zucchini lengthwise\n2. Layer with meat sauce and cheeses\n3. Bake at 375°F for 45 minutes\n4. Let rest 10 minutes\n5. Serve hot");
+                    command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("o"));
+                    command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("o"));
+                    command.ExecuteNonQuery();
+
+                    // Keto Chicken Alfredo
+                    command.Parameters.Clear();
+                    command.Parameters.AddWithValue("@Name", "Keto Chicken Alfredo");
+                    command.Parameters.AddWithValue("@Description", "Creamy pasta alternative using zucchini noodles.");
+                    command.Parameters.AddWithValue("@ImageUrl", "chicken_alfredo.jpg");
+                    command.Parameters.AddWithValue("@MinPrice", 250.00m);
+                    command.Parameters.AddWithValue("@MaxPrice", 350.00m);
+                    command.Parameters.AddWithValue("@DietaryPreference", "Keto");
+                    command.Parameters.AddWithValue("@Allergens", "Dairy");
+                    command.Parameters.AddWithValue("@Ingredients", "Chicken Breast, Zucchini Noodles, Heavy Cream, Parmesan, Garlic, Butter, Italian Seasoning");
+                    command.Parameters.AddWithValue("@Instructions", "1. Cook chicken until golden\n2. Prepare zucchini noodles\n3. Make alfredo sauce\n4. Combine all ingredients\n5. Garnish with extra parmesan");
+                    command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("o"));
+                    command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("o"));
+                    command.ExecuteNonQuery();
+
+                    // Keto Taco Bowl
+                    command.Parameters.Clear();
+                    command.Parameters.AddWithValue("@Name", "Keto Taco Bowl");
+                    command.Parameters.AddWithValue("@Description", "A Mexican-inspired bowl without the carbs.");
+                    command.Parameters.AddWithValue("@ImageUrl", "taco_bowl.jpg");
+                    command.Parameters.AddWithValue("@MinPrice", 200.00m);
+                    command.Parameters.AddWithValue("@MaxPrice", 300.00m);
+                    command.Parameters.AddWithValue("@DietaryPreference", "Keto");
+                    command.Parameters.AddWithValue("@Allergens", "Dairy");
+                    command.Parameters.AddWithValue("@Ingredients", "Ground Beef, Lettuce, Avocado, Cheese, Sour Cream, Tomatoes, Taco Seasoning");
+                    command.Parameters.AddWithValue("@Instructions", "1. Cook seasoned ground beef\n2. Prepare lettuce base\n3. Add toppings\n4. Garnish with cheese and sour cream\n5. Serve immediately");
+                    command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("o"));
+                    command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("o"));
+                    command.ExecuteNonQuery();
+
+                    // Keto Chocolate Mousse
+                    command.Parameters.Clear();
+                    command.Parameters.AddWithValue("@Name", "Keto Chocolate Mousse");
+                    command.Parameters.AddWithValue("@Description", "A rich, creamy dessert that's keto-friendly.");
+                    command.Parameters.AddWithValue("@ImageUrl", "chocolate_mousse.jpg");
+                    command.Parameters.AddWithValue("@MinPrice", 150.00m);
+                    command.Parameters.AddWithValue("@MaxPrice", 200.00m);
+                    command.Parameters.AddWithValue("@DietaryPreference", "Keto");
+                    command.Parameters.AddWithValue("@Allergens", "Dairy");
+                    command.Parameters.AddWithValue("@Ingredients", "Heavy Cream, Dark Chocolate, Erythritol, Vanilla Extract, Salt");
+                    command.Parameters.AddWithValue("@Instructions", "1. Melt chocolate\n2. Whip cream with sweetener\n3. Fold in chocolate\n4. Add vanilla and salt\n5. Chill for 2 hours");
+                    command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("o"));
+                    command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("o"));
+                    command.ExecuteNonQuery();
+
+                    // Keto Salmon with Avocado Salsa
+                    command.Parameters.Clear();
+                    command.Parameters.AddWithValue("@Name", "Keto Salmon with Avocado Salsa");
+                    command.Parameters.AddWithValue("@Description", "A healthy, omega-3 rich meal perfect for keto.");
+                    command.Parameters.AddWithValue("@ImageUrl", "salmon_salsa.jpg");
+                    command.Parameters.AddWithValue("@MinPrice", 300.00m);
+                    command.Parameters.AddWithValue("@MaxPrice", 400.00m);
+                    command.Parameters.AddWithValue("@DietaryPreference", "Keto");
+                    command.Parameters.AddWithValue("@Allergens", "");
+                    command.Parameters.AddWithValue("@Ingredients", "Salmon Fillet, Avocado, Lime, Cilantro, Red Onion, Olive Oil, Salt, Pepper");
+                    command.Parameters.AddWithValue("@Instructions", "1. Season and bake salmon\n2. Prepare avocado salsa\n3. Combine lime juice and olive oil\n4. Top salmon with salsa\n5. Garnish with cilantro");
+                    command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("o"));
+                    command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("o"));
+                    command.ExecuteNonQuery();
+
+                    // Keto Breakfast Casserole
+                    command.Parameters.Clear();
+                    command.Parameters.AddWithValue("@Name", "Keto Breakfast Casserole");
+                    command.Parameters.AddWithValue("@Description", "A hearty breakfast that keeps you full until lunch.");
+                    command.Parameters.AddWithValue("@ImageUrl", "breakfast_casserole.jpg");
+                    command.Parameters.AddWithValue("@MinPrice", 250.00m);
+                    command.Parameters.AddWithValue("@MaxPrice", 350.00m);
+                    command.Parameters.AddWithValue("@DietaryPreference", "Keto");
+                    command.Parameters.AddWithValue("@Allergens", "Eggs, Dairy");
+                    command.Parameters.AddWithValue("@Ingredients", "Eggs, Sausage, Cheese, Bell Peppers, Onions, Heavy Cream, Salt, Pepper");
+                    command.Parameters.AddWithValue("@Instructions", "1. Cook sausage and vegetables\n2. Beat eggs with cream\n3. Layer ingredients in casserole dish\n4. Bake at 350°F for 45 minutes\n5. Let rest 10 minutes before serving");
                     command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("o"));
                     command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("o"));
                     command.ExecuteNonQuery();
