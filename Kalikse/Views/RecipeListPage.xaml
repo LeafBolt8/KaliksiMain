@@ -28,8 +28,8 @@
             </StackLayout>
         </Frame>
 
-        <CollectionView Grid.Row="1"
-                       x:Name="RecipesCollection"
+        <CollectionView x:Name="RecipesCollection"
+                       Grid.Row="1"
                        SelectionMode="Single"
                        SelectionChanged="OnRecipeSelected"
                        Margin="0,10">
