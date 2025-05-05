@@ -2,6 +2,7 @@
 <Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Kalikse"
+             xmlns:converters="clr-namespace:Kalikse.Converters"
              x:Class="Kalikse.App">
     <Application.Resources>
         <ResourceDictionary>
@@ -32,6 +33,8 @@
                 <Setter Property="BackgroundColor" Value="#F5F5F5"/>
             </Style>
 
+            <!-- Converters -->
+            <converters:AllergensToStringConverter x:Key="AllergensToStringConverter" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>
