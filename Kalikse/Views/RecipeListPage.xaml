@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Kalikse.Views"
              x:Class="Kalikse.Views.RecipeListPage"
              Title="Filtered Recipes"
              BackgroundImageSource="{AppThemeBinding Light=lightbackground.png, Dark=lightdashboardbg.png}">
@@ -28,8 +29,8 @@
             </StackLayout>
         </Frame>
 
-        <CollectionView x:Name="RecipesCollection"
-                       Grid.Row="1"
+        <CollectionView Grid.Row="1"
+                       x:Name="RecipesCollection"
                        SelectionMode="Single"
                        SelectionChanged="OnRecipeSelected"
                        Margin="0,10">
