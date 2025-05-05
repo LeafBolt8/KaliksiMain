@@ -5,134 +5,185 @@ using Kalikse.Services; // Needed for FirebaseAuthService
 using Kalikse.Views; // Needed to reference other pages like RegisterPage, ForgotPasswordPage, and LoginPage
 using Firebase.Auth; // Needed for Firebase Authentication types
 using System.Linq; // Needed for .FirstOrDefault()
+using System.Collections.Generic;
 
 // Corrected Namespace to match x:Class in MainDashboardPage.xaml
 namespace Kalikse
 {
-    // Partial class definition linked to MainDashboardPage.xaml
-    public partial class MainDashboardPage : FlyoutPage
+ï¿½ ï¿½ // Partial class definition linked to MainDashboardPage.xaml
+ï¿½ ï¿½ public partial class MainDashboardPage : FlyoutPage
     {
-        // You might have an AuthService here if needed for logout,
+ï¿½ ï¿½ ï¿½ ï¿½ // You might have an AuthService here if needed for logout,
         // but the provided snippet doesn't show it.
         // private readonly FirebaseAuthService _authService;
 
-        public MainDashboardPage()
+ï¿½ ï¿½ ï¿½ ï¿½ public MainDashboardPage()
         {
             InitializeComponent();
 
-            // Set the initial detail page
-            // In this case, it's the Dashboard ContentPage defined in the XAML
-            // The NavigationPage is already set in XAML arguments
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ // Set the initial detail page
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ // In this case, it's the Dashboard ContentPage defined in the XAML
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ // The NavigationPage is already set in XAML arguments
             // If you had an AuthService, you might initialize it here:
             // _authService = new FirebaseAuthService();
-        }
+ï¿½ ï¿½ ï¿½ ï¿½ }
 
-        // Event handler for the ToolbarItem (Burger Icon)
-        // This method toggles the flyout menu
-        private void OnToolbarItemClicked(object sender, EventArgs e)
+ï¿½ ï¿½ ï¿½ ï¿½ // Event handler for the ToolbarItem (Burger Icon)
+ï¿½ ï¿½ ï¿½ ï¿½ // This method toggles the flyout menu
+ï¿½ ï¿½ ï¿½ ï¿½ private void OnToolbarItemClicked(object sender, EventArgs e)
         {
             Debug.WriteLine("ToolbarItem (Burger Icon) clicked.");
-            // Toggle the IsPresented property to open/close the flyout
-            IsPresented = !IsPresented;
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ // Toggle the IsPresented property to open/close the flyout
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ IsPresented = !IsPresented;
         }
 
-        // Event handler for selecting an item in the Flyout menu CollectionView
-        private async void OnMenuItemSelected(object sender, SelectionChangedEventArgs e)
+ï¿½ ï¿½ ï¿½ ï¿½ // Event handler for selecting an item in the Flyout menu CollectionView
+ï¿½ ï¿½ ï¿½ ï¿½ private async void OnMenuItemSelected(object sender, SelectionChangedEventArgs e)
         {
-            // Get the selected item (which is a string in this case)
-            string selectedMenuItem = e.CurrentSelection.FirstOrDefault() as string;
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ // Get the selected item (which is a string in this case)
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ string selectedMenuItem = e.CurrentSelection.FirstOrDefault() as string;
 
             if (!string.IsNullOrEmpty(selectedMenuItem))
             {
                 Debug.WriteLine($"Menu item selected: {selectedMenuItem}");
 
-                // Reset the selected item in the CollectionView to prevent it from staying highlighted
-                ((CollectionView)sender).SelectedItem = null;
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ // Reset the selected item in the CollectionView to prevent it from staying highlighted
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ((CollectionView)sender).SelectedItem = null;
 
-                // Navigate to the corresponding page based on the selected menu item
-                // We are using the Navigation property of the Detail page's NavigationPage
-                // Ensure the Detail is a NavigationPage in your XAML
-                if (Detail is NavigationPage navigationPage)
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ // Navigate to the corresponding page based on the selected menu item
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ // We are using the Navigation property of the Detail page's NavigationPage
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ // Ensure the Detail is a NavigationPage in your XAML
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ if (Detail is NavigationPage navigationPage)
                 {
-                    // Close the flyout menu before navigating
-                    IsPresented = false;
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ // Close the flyout menu before navigating
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ IsPresented = false;
 
-                    // Navigate based on the selected item
-                    switch (selectedMenuItem)
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ // Navigate based on the selected item
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ switch (selectedMenuItem)
                     {
                         case "Dashboard":
-                            // If Dashboard is already the root, no need to push a new instance
-                            // You might want to pop to the root if you've navigated away
-                            // For this structure, the initial page in x:Arguments is the Dashboard
-                            // So navigating back to it might involve popping or resetting the stack
-                            // A simple approach is to just ensure the flyout closes.
-                            // await navigationPage.PopToRootAsync(); // Use this if you want to clear the stack
-                            break;
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ // If Dashboard is already the root, no need to push a new instance
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ // You might want to pop to the root if you've navigated away
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ // For this structure, the initial page in x:Arguments is the Dashboard
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ // So navigating back to it might involve popping or resetting the stack
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ // A simple approach is to just ensure the flyout closes.
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ // await navigationPage.PopToRootAsync(); // Use this if you want to clear the stack
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ break;
                         case "Recipes":
-                            // TODO: Navigate to your RecipesPage
-                            Debug.WriteLine("Navigation to RecipesPage not implemented yet.");
-                            // await navigationPage.PushAsync(new RecipesPage());
-                            await DisplayAlert("Navigation", "Recipes page not implemented yet.", "OK");
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ // TODO: Navigate to your RecipesPage
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ Debug.WriteLine("Navigation to RecipesPage not implemented yet.");
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ // await navigationPage.PushAsync(new RecipesPage());
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ await DisplayAlert("Navigation", "Recipes page not implemented yet.", "OK");
                             break;
                         case "Community":
-                            // Navigate to the CommunityFeedPage
-                            // Create a new instance of CommunityFeedPage
-                            var communityFeedPage = new CommunityFeedPage();
-                            // Navigate to the CommunityFeedPage within the Detail's NavigationPage
-                            await navigationPage.PushAsync(communityFeedPage);
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ // Navigate to the CommunityFeedPage
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ // Create a new instance of CommunityFeedPage
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ var communityFeedPage = new CommunityFeedPage();
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ // Navigate to the CommunityFeedPage within the Detail's NavigationPage
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ await navigationPage.PushAsync(communityFeedPage);
                             break;
                         case "Profile":
-                            // TODO: Navigate to your ProfilePage
-                            Debug.WriteLine("Navigation to ProfilePage not implemented yet.");
-                            // await navigationPage.PushAsync(new ProfilePage());
-                            await DisplayAlert("Navigation", "Profile page not implemented yet.", "OK");
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ // TODO: Navigate to your ProfilePage
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ Debug.WriteLine("Navigation to ProfilePage not implemented yet.");
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ // await navigationPage.PushAsync(new ProfilePage());
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ await DisplayAlert("Navigation", "Profile page not implemented yet.", "OK");
                             break;
                         case "Settings":
-                            // TODO: Navigate to your SettingsPage
-                            var settingsPage = new SettingsPage();
-                            // await navigationPage.PushAsync(new SettingsPage());
-                            await navigationPage.PushAsync(settingsPage);
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ // TODO: Navigate to your SettingsPage
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ var settingsPage = new SettingsPage();
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ // await navigationPage.PushAsync(new SettingsPage());
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ await navigationPage.PushAsync(settingsPage);
                             break;
                         case "Go Premium":
-                            // Navigate to the PremiumPage
-                            // Create a new instance of PremiumPage
-                            var premiumPage = new PremiumPage();
-                            // Navigate to the PremiumPage within the Detail's NavigationPage
-                            await navigationPage.PushAsync(premiumPage);
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ // Navigate to the PremiumPage
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ // Create a new instance of PremiumPage
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ var premiumPage = new PremiumPage();
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ // Navigate to the PremiumPage within the Detail's NavigationPage
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ await navigationPage.PushAsync(premiumPage);
                             break;
                     }
                 }
             }
         }
 
-        // Event handler for the Logout button in the Flyout menu
-        private async void OnLogoutClicked(object sender, EventArgs e)
+ï¿½ ï¿½ ï¿½ ï¿½ // Event handler for the Logout button in the Flyout menu
+ï¿½ ï¿½ ï¿½ ï¿½ private async void OnLogoutClicked(object sender, EventArgs e)
         {
             Debug.WriteLine("Logout button clicked.");
 
-            // TODO: Implement actual logout logic (e.g., clear authentication tokens, etc.)
-            // If using Firebase Auth, you might call a sign-out method here:
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ // TODO: Implement actual logout logic (e.g., clear authentication tokens, etc.)
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ // If using Firebase Auth, you might call a sign-out method here:
             // await _authService.SignOutAsync(); // Example
 
-            // Navigate back to the Login page
-            // Replacing the Main Page effectively resets the navigation stack
-            // LoginPage is in the Kalikse.Views namespace, so 'using Kalikse.Views;' is needed at the top
-            Application.Current.MainPage = new LoginPage(); // This navigates to the Login page
-            Debug.WriteLine("Navigated back to Login Page.");
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ // Navigate back to the Login page
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ // Replacing the Main Page effectively resets the navigation stack
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ // LoginPage is in the Kalikse.Views namespace, so 'using Kalikse.Views;' is needed at the top
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ Application.Current.MainPage = new LoginPage(); // This navigates to the Login page
+ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ ï¿½ Debug.WriteLine("Navigated back to Login Page.");
         }
 
 
-        // Event handler for the "Generate Plan" button on the Dashboard
-        private async void OnGeneratePlanClicked(object sender, EventArgs e)
+ï¿½ ï¿½ ï¿½ ï¿½ // Event handler for the "Generate Plan" button on the Dashboard
+ï¿½ ï¿½ ï¿½ ï¿½ private async void OnGeneratePlanClicked(object sender, EventArgs e)
         {
             Debug.WriteLine("Generate Plan button clicked.");
 
-            // TODO: Implement logic to collect budget, diet preferences, and allergies
-            // TODO: Use this information to generate a meal/grocery plan
-            // TODO: Display the generated plan (e.g., in a new page or a modal)
+            // Get the budget
+            if (!decimal.TryParse(BudgetEntry.Text, out decimal budget))
+            {
+                await DisplayAlert("Error", "Please enter a valid budget amount.", "OK");
+                return;
+            }
 
-            // For now, display a placeholder message
-            await DisplayAlert("Generate Plan", "Plan generation logic not implemented yet.", "OK");
+            // Get the selected dietary preference
+            var selectedDietPref = GetSelectedDietPreference();
+            if (string.IsNullOrEmpty(selectedDietPref))
+            {
+                await DisplayAlert("Error", "Please select a dietary preference.", "OK");
+                return;
+            }
+
+            // Get selected allergens
+            var selectedAllergens = GetSelectedAllergens();
+
+            // Navigate to the RecipeListPage with the user's criteria
+            if (Detail is NavigationPage navigationPage)
+            {
+                await navigationPage.PushAsync(new RecipeListPage(budget, selectedDietPref, selectedAllergens));
+            }
+        }
+
+        private string GetSelectedDietPreference()
+        {
+            if (NoneRadio.IsChecked)
+                return "None";
+            if (KetoRadio.IsChecked)
+                return "Keto";
+            if (VegetarianRadio.IsChecked)
+                return "Vegetarian";
+            if (VeganRadio.IsChecked)
+                return "Vegan";
+            if (LowCarbRadio.IsChecked)
+                return "Low Carb";
+            if (HighProteinRadio.IsChecked)
+                return "High Protein";
+            
+            return null;
+        }
+
+        private List<string> GetSelectedAllergens()
+        {
+            var allergens = new List<string>();
+            
+            // Check each allergen checkbox
+            if (PeanutsCheckbox.IsChecked)
+                allergens.Add("Peanuts");
+
+            // Add other allergens as they are checked
+            // You'll need to add similar checks for other allergen checkboxes
+            // For now, we'll just check Peanuts as an example
+
+            return allergens;
         }
     }
 }

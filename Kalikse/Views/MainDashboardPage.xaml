@@ -82,27 +82,27 @@
                                         </HorizontalStackLayout>
                                         <Grid ColumnDefinitions="30,*,30" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" RowSpacing="10">
                                             <!-- None -->
-                                            <RadioButton GroupName="DietPref" Grid.Row="0" Grid.Column="0" VerticalOptions="Center" />
+                                            <RadioButton x:Name="NoneRadio" GroupName="DietPref" Grid.Row="0" Grid.Column="0" VerticalOptions="Center" />
                                             <Label Text="None" Grid.Row="0" Grid.Column="1" VerticalOptions="Center"/>
                                             <Image Source="none_icon.png" Grid.Row="0" Grid.Column="2" HeightRequest="20" HorizontalOptions="End"/>
                                             <!-- Keto -->
-                                            <RadioButton GroupName="DietPref" Grid.Row="1" Grid.Column="0" VerticalOptions="Center" />
+                                            <RadioButton x:Name="KetoRadio" GroupName="DietPref" Grid.Row="1" Grid.Column="0" VerticalOptions="Center" />
                                             <Label Text="Keto" Grid.Row="1" Grid.Column="1" VerticalOptions="Center"/>
                                             <Image Source="keto.png" Grid.Row="1" Grid.Column="2" HeightRequest="20" HorizontalOptions="End"/>
                                             <!-- Vegetarian -->
-                                            <RadioButton GroupName="DietPref" Grid.Row="2" Grid.Column="0" VerticalOptions="Center" />
+                                            <RadioButton x:Name="VegetarianRadio" GroupName="DietPref" Grid.Row="2" Grid.Column="0" VerticalOptions="Center" />
                                             <Label Text="Vegetarian" Grid.Row="2" Grid.Column="1" VerticalOptions="Center"/>
                                             <Image Source="vegetarian.png" Grid.Row="2" Grid.Column="2" HeightRequest="20" HorizontalOptions="End"/>
                                             <!-- Vegan -->
-                                            <RadioButton GroupName="DietPref" Grid.Row="3" Grid.Column="0" VerticalOptions="Center" />
+                                            <RadioButton x:Name="VeganRadio" GroupName="DietPref" Grid.Row="3" Grid.Column="0" VerticalOptions="Center" />
                                             <Label Text="Vegan" Grid.Row="3" Grid.Column="1" VerticalOptions="Center"/>
                                             <Image Source="vegan.png" Grid.Row="3" Grid.Column="2" HeightRequest="20" HorizontalOptions="End"/>
                                             <!-- Low Carb -->
-                                            <RadioButton GroupName="DietPref" Grid.Row="4" Grid.Column="0" VerticalOptions="Center" />
+                                            <RadioButton x:Name="LowCarbRadio" GroupName="DietPref" Grid.Row="4" Grid.Column="0" VerticalOptions="Center" />
                                             <Label Text="Low Carb" Grid.Row="4" Grid.Column="1" VerticalOptions="Center"/>
                                             <Image Source="lowcarb.png" Grid.Row="4" Grid.Column="2" HeightRequest="20" HorizontalOptions="End"/>
                                             <!-- High Protein -->
-                                            <RadioButton GroupName="DietPref" Grid.Row="5" Grid.Column="0" VerticalOptions="Center" />
+                                            <RadioButton x:Name="HighProteinRadio" GroupName="DietPref" Grid.Row="5" Grid.Column="0" VerticalOptions="Center" />
                                             <Label Text="High Protein" Grid.Row="5" Grid.Column="1" VerticalOptions="Center"/>
                                             <Image Source="highprotein.png" Grid.Row="5" Grid.Column="2" HeightRequest="20" HorizontalOptions="End"/>
                                         </Grid>
