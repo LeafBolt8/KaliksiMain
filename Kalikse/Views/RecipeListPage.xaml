@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Kalikse.Views.RecipeListPage"
+             Title="Filtered Recipes">
+
+    <Grid RowDefinitions="Auto,*">
+        <Label Text="Your Filtered Recipes"
+               Grid.Row="0"
+               FontSize="24"
+               HorizontalOptions="Center"
+               Margin="10"/>
+
+        <CollectionView Grid.Row="1"
+                       x:Name="RecipesCollection"
+                       SelectionMode="Single"
+                       SelectionChanged="OnRecipeSelected">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Margin="10"
+                           Padding="10"
+                           BorderColor="Gray"
+                           CornerRadius="10">
+                        <Grid ColumnDefinitions="Auto,*">
+                            <Image Source="{Binding ImageUrl}"
+                                   WidthRequest="100"
+                                   HeightRequest="100"
+                                   Aspect="AspectFill"
+                                   Grid.Column="0"/>
+                            <StackLayout Grid.Column="1"
+                                       Margin="10,0,0,0">
+                                <Label Text="{Binding Name}"
+                                       FontSize="18"
+                                       FontAttributes="Bold"/>
+                                <Label Text="{Binding MaxPrice, StringFormat='₱{0:N2}'}"
+                                       TextColor="Green"
+                                       FontSize="16"/>
+                            </StackLayout>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage> 
