@@ -3,9 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Kalikse.Views.RecipeListPage"
              Title="Filtered Recipes">
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Refresh" Clicked="OnRefreshClicked" Priority="0" Order="Primary" />
-    </ContentPage.ToolbarItems>
 
     <Grid RowDefinitions="Auto,*">
         <Label Text="Your Filtered Recipes"
