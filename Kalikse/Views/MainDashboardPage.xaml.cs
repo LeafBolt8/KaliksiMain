@@ -126,62 +126,63 @@ namespace Kalikse
 � � � � // Event handler for the "Generate Plan" button on the Dashboard
 � � � � private async void OnGeneratePlanClicked(object sender, EventArgs e)
         {
-            Debug.WriteLine("Generate Plan button clicked.");
-
-            // Get the budget
-            if (!decimal.TryParse(BudgetEntry.Text, out decimal budget))
+            try
             {
-                await DisplayAlert("Error", "Please enter a valid budget amount.", "OK");
-                return;
+                // Get budget
+                if (!decimal.TryParse(BudgetEntry.Text, out decimal budget))
+                {
+                    await DisplayAlert("Error", "Please enter a valid budget amount", "OK");
+                    return;
+                }
+
+                // Get selected dietary preference
+                var dietPref = GetSelectedDietaryPreference();
+                if (string.IsNullOrEmpty(dietPref))
+                {
+                    await DisplayAlert("Error", "Please select a dietary preference", "OK");
+                    return;
+                }
+
+                // Get selected allergens
+                var allergens = GetSelectedAllergens();
+
+                // Navigate to RecipeListPage with the filtered criteria
+                if (Detail is NavigationPage navigationPage)
+                {
+                    await navigationPage.PushAsync(new RecipeListPage(budget, dietPref, allergens));
+                }
             }
-
-            // Get the selected dietary preference
-            var selectedDietPref = GetSelectedDietPreference();
-            if (string.IsNullOrEmpty(selectedDietPref))
+            catch (Exception ex)
             {
-                await DisplayAlert("Error", "Please select a dietary preference.", "OK");
-                return;
-            }
-
-            // Get selected allergens
-            var selectedAllergens = GetSelectedAllergens();
-
-            // Navigate to the RecipeListPage with the user's criteria
-            if (Detail is NavigationPage navigationPage)
-            {
-                await navigationPage.PushAsync(new RecipeListPage(budget, selectedDietPref, selectedAllergens));
+                await DisplayAlert("Error", "Failed to generate plan: " + ex.Message, "OK");
             }
         }
 
-        private string GetSelectedDietPreference()
+        private string GetSelectedDietaryPreference()
         {
-            if (NoneRadio.IsChecked)
-                return "None";
-            if (KetoRadio.IsChecked)
-                return "Keto";
-            if (VegetarianRadio.IsChecked)
-                return "Vegetarian";
-            if (VeganRadio.IsChecked)
-                return "Vegan";
-            if (LowCarbRadio.IsChecked)
-                return "Low Carb";
-            if (HighProteinRadio.IsChecked)
-                return "High Protein";
-            
-            return null;
+            // Find the selected RadioButton in the DietPref group
+            var selectedDiet = this.FindByName<RadioButton>("None")?.IsChecked == true ? "None" :
+                             this.FindByName<RadioButton>("Keto")?.IsChecked == true ? "Keto" :
+                             this.FindByName<RadioButton>("Vegetarian")?.IsChecked == true ? "Vegetarian" :
+                             this.FindByName<RadioButton>("Vegan")?.IsChecked == true ? "Vegan" :
+                             this.FindByName<RadioButton>("Low Carb")?.IsChecked == true ? "Low Carb" :
+                             this.FindByName<RadioButton>("High Protein")?.IsChecked == true ? "High Protein" : null;
+
+            return selectedDiet;
         }
 
         private List<string> GetSelectedAllergens()
         {
             var allergens = new List<string>();
-            
-            // Check each allergen checkbox
+
             if (PeanutsCheckbox.IsChecked)
                 allergens.Add("Peanuts");
-
-            // Add other allergens as they are checked
-            // You'll need to add similar checks for other allergen checkboxes
-            // For now, we'll just check Peanuts as an example
+            if (SeafoodCheckbox.IsChecked)
+                allergens.Add("Seafood");
+            if (GlutenCheckbox.IsChecked)
+                allergens.Add("Gluten");
+            if (DairyCheckbox.IsChecked)
+                allergens.Add("Dairy");
 
             return allergens;
         }
