@@ -1,106 +1,40 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:Kalikse.Views"
              x:Class="Kalikse.Views.RecipeListPage"
-             Title="Filtered Recipes"
-             BackgroundImageSource="{AppThemeBinding Light=lightbackground.png, Dark=lightdashboardbg.png}">
+             Title="Filtered Recipes">
 
-    <Grid RowDefinitions="Auto,*" Padding="10">
-        <Frame Grid.Row="0"
-               Margin="0,10"
-               Padding="15"
-               BorderColor="{AppThemeBinding Light={StaticResource PrimaryColor}, Dark={StaticResource SecondaryColor}}"
-               BackgroundColor="{AppThemeBinding Light={StaticResource CardBackgroundLight}, Dark={StaticResource CardBackgroundDark}}"
-               CornerRadius="10"
-               HasShadow="True"
-               Opacity="0.95">
-            <StackLayout>
-                <Label Text="Your Filtered Recipes"
-                       FontSize="24"
-                       FontAttributes="Bold"
-                       TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}"
-                       HorizontalOptions="Center"/>
-                <Label x:Name="FilterSummary"
-                       FontSize="16"
-                       TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}"
-                       HorizontalOptions="Center"
-                       Margin="0,5,0,0"/>
-            </StackLayout>
-        </Frame>
+    <Grid RowDefinitions="Auto,*">
+        <Label Text="Your Filtered Recipes"
+               Grid.Row="0"
+               FontSize="24"
+               HorizontalOptions="Center"
+               Margin="10"/>
 
         <CollectionView Grid.Row="1"
                        x:Name="RecipesCollection"
                        SelectionMode="Single"
-                       SelectionChanged="OnRecipeSelected"
-                       Margin="0,10">
-            <CollectionView.EmptyView>
-                <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
-                    <Label Text="No recipes found matching your criteria"
-                           FontSize="18"
-                           TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}"
-                           HorizontalOptions="Center"
-                           HorizontalTextAlignment="Center"/>
-                    <Label Text="Try adjusting your filters"
-                           FontSize="16"
-                           TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}"
-                           HorizontalOptions="Center"
-                           HorizontalTextAlignment="Center"
-                           Margin="0,5,0,0"/>
-                </StackLayout>
-            </CollectionView.EmptyView>
+                       SelectionChanged="OnRecipeSelected">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Frame Margin="0,5"
-                           Padding="15"
-                           BorderColor="{AppThemeBinding Light={StaticResource PrimaryColor}, Dark={StaticResource SecondaryColor}}"
-                           BackgroundColor="{AppThemeBinding Light={StaticResource CardBackgroundLight}, Dark={StaticResource CardBackgroundDark}}"
-                           CornerRadius="10"
-                           HasShadow="True"
-                           Opacity="0.95">
-                        <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto">
-                            <Frame Grid.Column="0" 
-                                   Grid.RowSpan="3"
-                                   HeightRequest="120"
-                                   WidthRequest="120"
-                                   CornerRadius="10"
-                                   IsClippedToBounds="True"
-                                   Padding="0"
-                                   Margin="0,0,15,0">
-                                <Image Source="{Binding ImageUrl}"
-                                       Aspect="AspectFill"/>
-                            </Frame>
-                            
-                            <Label Grid.Column="1"
-                                   Grid.Row="0"
-                                   Text="{Binding Name}"
-                                   FontSize="20"
-                                   FontAttributes="Bold"
-                                   TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}"
-                                   LineBreakMode="TailTruncation"/>
-                            
-                            <Label Grid.Column="1"
-                                   Grid.Row="1"
-                                   Text="{Binding MaxPrice, StringFormat='₱{0:N2}'}"
-                                   FontSize="18"
-                                   TextColor="Green"
-                                   Margin="0,5"/>
-                            
+                    <Frame Margin="10"
+                           Padding="10"
+                           BorderColor="Gray"
+                           CornerRadius="10">
+                        <Grid ColumnDefinitions="Auto,*">
+                            <Image Source="{Binding ImageUrl}"
+                                   WidthRequest="100"
+                                   HeightRequest="100"
+                                   Aspect="AspectFill"
+                                   Grid.Column="0"/>
                             <StackLayout Grid.Column="1"
-                                       Grid.Row="2"
-                                       Orientation="Horizontal"
-                                       Spacing="5">
-                                <Label Text="{Binding DietaryPreference}"
-                                       FontSize="14"
-                                       TextColor="{AppThemeBinding Light={StaticResource PrimaryColor}, Dark={StaticResource SecondaryColor}}"
-                                       BackgroundColor="{AppThemeBinding Light={StaticResource PrimaryColor}, Dark={StaticResource SecondaryColor}}"
-                                       TextColor="White"
-                                       Padding="8,4"
-                                       CornerRadius="15"/>
-                                <Label Text="{Binding Allergens, Converter={StaticResource AllergensToStringConverter}}"
-                                       FontSize="14"
-                                       TextColor="{AppThemeBinding Light={StaticResource DarkText}, Dark={StaticResource LightText}}"
-                                       VerticalOptions="Center"/>
+                                       Margin="10,0,0,0">
+                                <Label Text="{Binding Name}"
+                                       FontSize="18"
+                                       FontAttributes="Bold"/>
+                                <Label Text="{Binding MaxPrice, StringFormat='₱{0:N2}'}"
+                                       TextColor="Green"
+                                       FontSize="16"/>
                             </StackLayout>
                         </Grid>
                     </Frame>
