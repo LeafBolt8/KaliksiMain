@@ -8,7 +8,5 @@
         <ShellContent ContentTemplate="{DataTemplate local:MainDashboardPage}" />
     </FlyoutItem>
 
-    <!-- Add the RecipeDetailPage to the Shell -->
-    <ShellContent Title="Recipe Details" Route="RecipeDetailPage"
-                  ContentTemplate="{DataTemplate local:RecipeDetailPage}" />
+    <!-- Add the RecipeDetailPage to the Shell -->        
 </Shell>

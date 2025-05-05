@@ -78,12 +78,11 @@ namespace Kalikse
 
             // 3. Get the registered user's name from the temporary store
             // This will be "Guest User" if no one registered since the app started
-            string userName = TemporaryAuthStore.GetRegisteredUserName();
 
             // 4. Create a new CommunityRecipe object
             var newRecipe = new CommunityRecipe
             {
-                UserName = userName, // Use the retrieved user name
+                
                 PostDate = DateTime.Now, // Use the current date and time
                 FoodName = foodName,
                 IngredientsWithPrices = ingredients, // Assuming this format is okay for display

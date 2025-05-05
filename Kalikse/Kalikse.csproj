@@ -64,14 +64,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Data\RecipeDatabase.sql" />
 	  <None Remove="Platforms\Android\Assets\google-services.json" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Content Include="Data\RecipeDatabase.sql">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </Content>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -92,12 +85,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="RecipeDetailPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="RecipeListPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="Views\AddRecipePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -105,9 +92,6 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\PremiumPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\RecipeDetailPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\MainDashboardPage.xaml">
@@ -128,6 +112,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Folder Include="Data\" />
 	  <Folder Include="NewFolder\" />
 	</ItemGroup>
 
