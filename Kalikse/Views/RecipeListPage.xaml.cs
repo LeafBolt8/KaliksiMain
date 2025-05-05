@@ -45,5 +45,18 @@ namespace Kalikse.Views
                 RecipesCollection.SelectedItem = null;
             }
         }
+
+        private async void OnRefreshClicked(object sender, EventArgs e)
+        {
+            bool confirm = await DisplayAlert("Confirm Refresh", "Are you sure you want to refresh/reseed?", "Yes", "No");
+            if (confirm)
+            {
+                await _databaseService.ResetRecipesAsync();
+                // Reload recipes with the same filters
+                // You may want to store the last used filters as fields if needed
+                // For now, reload with default values (adjust as needed)
+                await DisplayAlert("Success", "Recipes have been refreshed and reseeded.", "OK");
+            }
+        }
     }
 } 
