@@ -23,32 +23,29 @@ namespace Kalikse.Services
 
         private void InitializeDatabase()
         {
-            // Always recreate the database to ensure clean state
-            if (File.Exists(_dbPath))
+            if (!File.Exists(_dbPath))
             {
-                File.Delete(_dbPath);
+                using var connection = new SqliteConnection(_connectionString);
+                connection.Open();
+
+                var command = connection.CreateCommand();
+                command.CommandText = @"
+                    CREATE TABLE IF NOT EXISTS Recipes (
+                        Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        Name TEXT NOT NULL,
+                        Description TEXT,
+                        ImageUrl TEXT,
+                        MinPrice REAL,
+                        MaxPrice REAL,
+                        DietaryPreference TEXT,
+                        Allergens TEXT,
+                        Ingredients TEXT,
+                        Instructions TEXT,
+                        CreatedAt TEXT,
+                        UpdatedAt TEXT
+                    );";
+                command.ExecuteNonQuery();
             }
-
-            using var connection = new SqliteConnection(_connectionString);
-            connection.Open();
-
-            var command = connection.CreateCommand();
-            command.CommandText = @"
-                CREATE TABLE IF NOT EXISTS Recipes (
-                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    Name TEXT NOT NULL,
-                    Description TEXT,
-                    ImageUrl TEXT,
-                    MinPrice REAL,
-                    MaxPrice REAL,
-                    DietaryPreference TEXT,
-                    Allergens TEXT,
-                    Ingredients TEXT,
-                    Instructions TEXT,
-                    CreatedAt TEXT,
-                    UpdatedAt TEXT
-                );";
-            command.ExecuteNonQuery();
         }
 
         private void SeedTestRecipe()
