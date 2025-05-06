@@ -2,69 +2,78 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Kalikse.Views.RecipeDetailPage"
-             Title="Recipe Details">
+             Title="Recipe Details"
+             BackgroundImageSource="{AppThemeBinding Light=lightbackground.png, Dark=darkbackground.png}"  BackgroundColor="Transparent">
 
     <ScrollView>
-        <StackLayout Padding="20">
-            <Image x:Name="RecipeImage"
-                   HeightRequest="250"
-                   Aspect="AspectFill"
-                   Margin="0,0,0,20"/>
+        <Frame BackgroundColor="{AppThemeBinding Light=White, Dark=#1F1F1F}" 
+               Margin="100,0" 
+               Padding="15" 
+               CornerRadius="10" 
+               HasShadow="True">
+            <VerticalStackLayout Spacing="15">
+                <Image x:Name="RecipeImage"
+                       HeightRequest="200"
+                       Aspect="AspectFill"
+                       HorizontalOptions="Center"/>
 
-            <Label x:Name="RecipeName"
-                   FontSize="24"
-                   FontAttributes="Bold"
-                   Margin="0,0,0,10"/>
+                <Label x:Name="RecipeName"
+                       FontSize="24"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"/>
 
-            <Label x:Name="PriceRange"
-                   FontSize="18"
-                   TextColor="Green"
-                   Margin="0,0,0,20"/>
+                <Label x:Name="PriceRange"
+                       FontSize="18"
+                       TextColor="Green"
+                       HorizontalOptions="Center"/>
 
-            <Label Text="Description"
-                   FontSize="20"
-                   FontAttributes="Bold"
-                   Margin="0,0,0,10"/>
-            <Label x:Name="Description"
-                   Margin="0,0,0,20"/>
+                <Label Text="Description"
+                       FontSize="20"
+                       FontAttributes="Bold"/>
+                <Label x:Name="Description"
+                       TextType="Html"/>
 
-            <Label Text="Ingredients"
-                   FontSize="20"
-                   FontAttributes="Bold"
-                   Margin="0,0,0,10"/>
-            <CollectionView x:Name="IngredientsList"
-                           HeightRequest="200"
-                           Margin="0,0,0,20">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Label Text="{Binding}"
-                               Margin="10,5"/>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+                <Label Text="Ingredients"
+                       FontSize="20"
+                       FontAttributes="Bold"/>
+                <CollectionView x:Name="IngredientsList">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Name}"
+                                       VerticalOptions="Center"/>
+                                <Label Grid.Column="1"
+                                       Text="{Binding PriceRange}"
+                                       TextColor="Green"
+                                       VerticalOptions="Center"/>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
 
-            <Label Text="Instructions"
-                   FontSize="20"
-                   FontAttributes="Bold"
-                   Margin="0,0,0,10"/>
-            <Label x:Name="Instructions"
-                   Margin="0,0,0,20"/>
+                <Label Text="Allergens"
+                       FontSize="20"
+                       FontAttributes="Bold"/>
+                <CollectionView x:Name="AllergensList">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Label Text="{Binding}"
+                                   Padding="5"
+                                   TextColor="Red"/>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
 
-            <Label Text="Allergens"
-                   FontSize="20"
-                   FontAttributes="Bold"
-                   Margin="0,0,0,10"/>
-            <CollectionView x:Name="AllergensList"
-                           HeightRequest="100"
-                           Margin="0,0,0,20">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Label Text="{Binding}"
-                               TextColor="Red"
-                               Margin="10,5"/>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </StackLayout>
+                <Label Text="Instructions"
+                       FontSize="20"
+                       FontAttributes="Bold"/>
+                <Label x:Name="Instructions"
+                       TextType="Html"/>
+            </VerticalStackLayout>
+        </Frame>
     </ScrollView>
 </ContentPage> 

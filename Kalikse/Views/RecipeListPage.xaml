@@ -2,7 +2,12 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Kalikse.Views.RecipeListPage"
-             Title="Filtered Recipes">
+             Title="Filtered Recipes"
+             BackgroundImageSource="{AppThemeBinding Light=lightbackground.png, Dark=darkbackground.png}"  BackgroundColor="Transparent">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Development Reseed" Clicked="OnReseedClicked" Priority="0" Order="Primary" />
+    </ContentPage.ToolbarItems>
 
     <Grid RowDefinitions="Auto,Auto,*">
         <Label Text="Your Filtered Recipes"
