@@ -20,7 +20,8 @@
                        Placeholder="Search recipes..."
                        TextChanged="OnSearchTextChanged"
                        Grid.Row="0"
-                       WidthRequest="300" />
+                       WidthRequest="300"
+                       HorizontalOptions="Start" />
             <Picker x:Name="SortPicker"
                     Title="Sort by"
                     SelectedIndexChanged="OnSortChanged"
