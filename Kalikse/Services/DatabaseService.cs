@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.IO;
 using System.Linq;
+using System.Text.Json;
 
 namespace Kalikse.Services
 {
@@ -127,7 +128,15 @@ namespace Kalikse.Services
                     command.Parameters.AddWithValue("@MaxPrice", 150.00m);
                     command.Parameters.AddWithValue("@DietaryPreference", "Keto");
                     command.Parameters.AddWithValue("@Allergens", "Dairy, Nuts");
-                    command.Parameters.AddWithValue("@Ingredients", "Coconut Oil, Cream Cheese, Cocoa Powder, Stevia, Vanilla Extract, Almonds");
+                    command.Parameters.AddWithValue("@Ingredients", JsonSerializer.Serialize(new List<Ingredient>
+                    {
+                        new Ingredient { Name = "Coconut Oil", MinPrice = 40.00m, MaxPrice = 45.00m },
+                        new Ingredient { Name = "Cream Cheese", MinPrice = 35.00m, MaxPrice = 40.00m },
+                        new Ingredient { Name = "Cocoa Powder", MinPrice = 25.00m, MaxPrice = 30.00m },
+                        new Ingredient { Name = "Stevia", MinPrice = 15.00m, MaxPrice = 20.00m },
+                        new Ingredient { Name = "Vanilla Extract", MinPrice = 20.00m, MaxPrice = 25.00m },
+                        new Ingredient { Name = "Almonds", MinPrice = 30.00m, MaxPrice = 35.00m }
+                    }));
                     command.Parameters.AddWithValue("@Instructions", "1. In a mixing bowl, combine 1/2 cup softened cream cheese and 1/4 cup coconut oil until smooth.\n2. Add 2 tablespoons unsweetened cocoa powder, 1 tablespoon powdered erythritol or stevia, and 1/2 teaspoon vanilla extract. Mix until fully incorporated.\n3. Fold in 2 tablespoons finely chopped almonds.\n4. Using a small scoop or spoon, form the mixture into 1-inch balls and place on a parchment-lined tray.\n5. Freeze for at least 30 minutes, or until firm. Store in an airtight container in the refrigerator for up to 1 week.\nTip: Roll the fat bombs in extra chopped nuts or shredded coconut for added texture.");
                     command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("o"));
                     command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("o"));
@@ -157,7 +166,16 @@ namespace Kalikse.Services
                     command.Parameters.AddWithValue("@MaxPrice", 350.00m);
                     command.Parameters.AddWithValue("@DietaryPreference", "Keto");
                     command.Parameters.AddWithValue("@Allergens", "Dairy");
-                    command.Parameters.AddWithValue("@Ingredients", "Chicken Breast, Zucchini Noodles, Heavy Cream, Parmesan, Garlic, Butter, Italian Seasoning");
+                    command.Parameters.AddWithValue("@Ingredients", JsonSerializer.Serialize(new List<Ingredient>
+                    {
+                        new Ingredient { Name = "Chicken Breast", MinPrice = 180.00m, MaxPrice = 200.00m },
+                        new Ingredient { Name = "Zucchini", MinPrice = 25.00m, MaxPrice = 30.00m },
+                        new Ingredient { Name = "Heavy Cream", MinPrice = 35.00m, MaxPrice = 40.00m },
+                        new Ingredient { Name = "Parmesan", MinPrice = 45.00m, MaxPrice = 50.00m },
+                        new Ingredient { Name = "Garlic", MinPrice = 5.00m, MaxPrice = 8.00m },
+                        new Ingredient { Name = "Butter", MinPrice = 15.00m, MaxPrice = 20.00m },
+                        new Ingredient { Name = "Italian Seasoning", MinPrice = 10.00m, MaxPrice = 15.00m }
+                    }));
                     command.Parameters.AddWithValue("@Instructions", "1. Season 2 chicken breasts with salt, pepper, and Italian seasoning. In a skillet over medium heat, melt 1 tablespoon butter and cook chicken until golden and cooked through (about 6–7 minutes per side). Remove and slice.\n2. In the same pan, add 2 minced garlic cloves and sauté for 1 minute. Pour in 1 cup heavy cream and bring to a gentle simmer.\n3. Stir in 1/2 cup grated Parmesan cheese and cook until the sauce thickens, about 3–4 minutes.\n4. Add 2 cups spiralized zucchini noodles and toss to coat in the sauce. Cook for 2–3 minutes until just tender.\n5. Return sliced chicken to the pan, toss to combine, and serve immediately, garnished with extra Parmesan and fresh parsley.\nTip: Do not overcook zucchini noodles to prevent them from becoming soggy.");
                     command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("o"));
                     command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("o"));
@@ -266,6 +284,9 @@ namespace Kalikse.Services
             using var reader = await command.ExecuteReaderAsync();
             while (await reader.ReadAsync())
             {
+                var ingredientsJson = reader.GetString(8);
+                var ingredients = JsonSerializer.Deserialize<List<Ingredient>>(ingredientsJson);
+
                 recipes.Add(new Recipe
                 {
                     Id = reader.GetInt32(0),
@@ -276,7 +297,7 @@ namespace Kalikse.Services
                     MaxPrice = reader.GetDecimal(5),
                     DietaryPreference = reader.GetString(6),
                     Allergens = reader.GetString(7).Split(',').ToList(),
-                    Ingredients = reader.GetString(8).Split(',').ToList(),
+                    Ingredients = ingredients,
                     Instructions = reader.GetString(9),
                     CreatedAt = DateTime.Parse(reader.GetString(10)),
                     UpdatedAt = DateTime.Parse(reader.GetString(11))
@@ -298,6 +319,9 @@ namespace Kalikse.Services
             using var reader = await command.ExecuteReaderAsync();
             if (await reader.ReadAsync())
             {
+                var ingredientsJson = reader.GetString(8);
+                var ingredients = JsonSerializer.Deserialize<List<Ingredient>>(ingredientsJson);
+
                 return new Recipe
                 {
                     Id = reader.GetInt32(0),
@@ -308,7 +332,7 @@ namespace Kalikse.Services
                     MaxPrice = reader.GetDecimal(5),
                     DietaryPreference = reader.GetString(6),
                     Allergens = reader.GetString(7).Split(',').ToList(),
-                    Ingredients = reader.GetString(8).Split(',').ToList(),
+                    Ingredients = ingredients,
                     Instructions = reader.GetString(9),
                     CreatedAt = DateTime.Parse(reader.GetString(10)),
                     UpdatedAt = DateTime.Parse(reader.GetString(11))
@@ -395,7 +419,15 @@ namespace Kalikse.Services
             command.Parameters.AddWithValue("@MaxPrice", 150.00m);
             command.Parameters.AddWithValue("@DietaryPreference", "Keto");
             command.Parameters.AddWithValue("@Allergens", "Dairy, Nuts");
-            command.Parameters.AddWithValue("@Ingredients", "Coconut Oil, Cream Cheese, Cocoa Powder, Stevia, Vanilla Extract, Almonds");
+            command.Parameters.AddWithValue("@Ingredients", JsonSerializer.Serialize(new List<Ingredient>
+            {
+                new Ingredient { Name = "Coconut Oil", MinPrice = 40.00m, MaxPrice = 45.00m },
+                new Ingredient { Name = "Cream Cheese", MinPrice = 35.00m, MaxPrice = 40.00m },
+                new Ingredient { Name = "Cocoa Powder", MinPrice = 25.00m, MaxPrice = 30.00m },
+                new Ingredient { Name = "Stevia", MinPrice = 15.00m, MaxPrice = 20.00m },
+                new Ingredient { Name = "Vanilla Extract", MinPrice = 20.00m, MaxPrice = 25.00m },
+                new Ingredient { Name = "Almonds", MinPrice = 30.00m, MaxPrice = 35.00m }
+            }));
             command.Parameters.AddWithValue("@Instructions", "1. In a mixing bowl, combine 1/2 cup softened cream cheese and 1/4 cup coconut oil until smooth.\n2. Add 2 tablespoons unsweetened cocoa powder, 1 tablespoon powdered erythritol or stevia, and 1/2 teaspoon vanilla extract. Mix until fully incorporated.\n3. Fold in 2 tablespoons finely chopped almonds.\n4. Using a small scoop or spoon, form the mixture into 1-inch balls and place on a parchment-lined tray.\n5. Freeze for at least 30 minutes, or until firm. Store in an airtight container in the refrigerator for up to 1 week.\nTip: Roll the fat bombs in extra chopped nuts or shredded coconut for added texture.");
             command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("o"));
             command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("o"));
@@ -425,7 +457,16 @@ namespace Kalikse.Services
             command.Parameters.AddWithValue("@MaxPrice", 350.00m);
             command.Parameters.AddWithValue("@DietaryPreference", "Keto");
             command.Parameters.AddWithValue("@Allergens", "Dairy");
-            command.Parameters.AddWithValue("@Ingredients", "Chicken Breast, Zucchini Noodles, Heavy Cream, Parmesan, Garlic, Butter, Italian Seasoning");
+            command.Parameters.AddWithValue("@Ingredients", JsonSerializer.Serialize(new List<Ingredient>
+            {
+                new Ingredient { Name = "Chicken Breast", MinPrice = 180.00m, MaxPrice = 200.00m },
+                new Ingredient { Name = "Zucchini", MinPrice = 25.00m, MaxPrice = 30.00m },
+                new Ingredient { Name = "Heavy Cream", MinPrice = 35.00m, MaxPrice = 40.00m },
+                new Ingredient { Name = "Parmesan", MinPrice = 45.00m, MaxPrice = 50.00m },
+                new Ingredient { Name = "Garlic", MinPrice = 5.00m, MaxPrice = 8.00m },
+                new Ingredient { Name = "Butter", MinPrice = 15.00m, MaxPrice = 20.00m },
+                new Ingredient { Name = "Italian Seasoning", MinPrice = 10.00m, MaxPrice = 15.00m }
+            }));
             command.Parameters.AddWithValue("@Instructions", "1. Season 2 chicken breasts with salt, pepper, and Italian seasoning. In a skillet over medium heat, melt 1 tablespoon butter and cook chicken until golden and cooked through (about 6–7 minutes per side). Remove and slice.\n2. In the same pan, add 2 minced garlic cloves and sauté for 1 minute. Pour in 1 cup heavy cream and bring to a gentle simmer.\n3. Stir in 1/2 cup grated Parmesan cheese and cook until the sauce thickens, about 3–4 minutes.\n4. Add 2 cups spiralized zucchini noodles and toss to coat in the sauce. Cook for 2–3 minutes until just tender.\n5. Return sliced chicken to the pan, toss to combine, and serve immediately, garnished with extra Parmesan and fresh parsley.\nTip: Do not overcook zucchini noodles to prevent them from becoming soggy.");
             command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("o"));
             command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("o"));

@@ -26,11 +26,18 @@ namespace Kalikse.Views
                 {
                     RecipeImage.Source = recipe.ImageUrl;
                     RecipeName.Text = recipe.Name;
-                    PriceRange.Text = $"Price Range: ₱{recipe.MinPrice:N2} - ₱{recipe.MaxPrice:N2}";
+                    PriceRange.Text = $"Total Price Range: ₱{recipe.MinPrice:N2} - ₱{recipe.MaxPrice:N2}";
                     Description.Text = recipe.Description;
                     Instructions.Text = recipe.Instructions;
 
-                    IngredientsList.ItemsSource = new ObservableCollection<string>(recipe.Ingredients);
+                    // Create a list of ingredients with formatted price ranges
+                    var ingredientsWithPrices = recipe.Ingredients.Select(i => new
+                    {
+                        Name = i.Name,
+                        PriceRange = $"₱{i.MinPrice:N2} - ₱{i.MaxPrice:N2}"
+                    }).ToList();
+
+                    IngredientsList.ItemsSource = new ObservableCollection<dynamic>(ingredientsWithPrices);
                     AllergensList.ItemsSource = new ObservableCollection<string>(recipe.Allergens);
                 }
                 else
