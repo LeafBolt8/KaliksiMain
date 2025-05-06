@@ -15,16 +15,22 @@
                FontSize="24"
                HorizontalOptions="Center"
                Margin="10"/>
-        <Grid Grid.Row="1" ColumnDefinitions="1*,Auto" Margin="10">
-            <SearchBar x:Name="SearchBar" Placeholder="Search recipes..." TextChanged="OnSearchTextChanged" />
-            <Picker x:Name="SortPicker" Grid.Column="1" Title="Sort by" SelectedIndexChanged="OnSortChanged" WidthRequest="150">
+        <HorizontalStackLayout Grid.Row="1" Margin="10" Spacing="10">
+            <SearchBar x:Name="SearchBar"
+                       Placeholder="Search recipes..."
+                       TextChanged="OnSearchTextChanged"
+                       WidthRequest="350" />
+            <Picker x:Name="SortPicker"
+                    Title="Sort by"
+                    SelectedIndexChanged="OnSortChanged"
+                    WidthRequest="180">
                 <Picker.Items>
                     <x:String>Name</x:String>
                     <x:String>Price - Highest to Lowest</x:String>
                     <x:String>Price - Lowest to Highest</x:String>
                 </Picker.Items>
             </Picker>
-        </Grid>
+        </HorizontalStackLayout>
         <CollectionView Grid.Row="2"
                        x:Name="RecipesCollection"
                        SelectionMode="Single"
