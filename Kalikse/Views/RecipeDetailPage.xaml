@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Kalikse.Views.RecipeDetailPage"
-             Title="Recipe Details">
+             Title="Recipe Details"
+             BackgroundImageSource="{AppThemeBinding Light=lightbackground.png, Dark=darkbackground.png}"  BackgroundColor="Transparent">
 
     <ScrollView>
         <VerticalStackLayout Spacing="15" Padding="15">
