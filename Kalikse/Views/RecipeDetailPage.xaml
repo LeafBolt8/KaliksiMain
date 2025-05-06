@@ -7,7 +7,7 @@
 
     <ScrollView>
         <Frame BackgroundColor="White" 
-               Margin="30,0" 
+               Margin="45,0" 
                Padding="15" 
                CornerRadius="10" 
                HasShadow="True">
