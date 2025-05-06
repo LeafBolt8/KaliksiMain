@@ -83,7 +83,7 @@ namespace Kalikse.Views
             if (_sortBy == "Name")
                 filtered = filtered.OrderBy(r => r.Name).ToList();
             else if (_sortBy == "Price")
-                filtered = filtered.OrderBy(r => r.Price).ToList();
+                filtered = filtered.OrderBy(r => r.MaxPrice).ToList();
             RecipesCollection.ItemsSource = filtered;
         }
     }
