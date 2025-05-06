@@ -6,7 +6,7 @@
              BackgroundImageSource="{AppThemeBinding Light=lightbackground.png, Dark=darkbackground.png}"  BackgroundColor="Transparent">
 
     <ScrollView>
-        <Frame BackgroundColor="White" 
+        <Frame BackgroundColor="{AppThemeBinding Light=White, Dark=#1F1F1F}" 
                Margin="45,0" 
                Padding="15" 
                CornerRadius="10" 
