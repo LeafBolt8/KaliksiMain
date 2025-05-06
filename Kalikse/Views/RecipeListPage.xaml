@@ -8,7 +8,7 @@
         <ToolbarItem Text="Development Reseed" Clicked="OnReseedClicked" Priority="0" Order="Primary" />
     </ContentPage.ToolbarItems>
 
-    <Grid RowDefinitions="Auto,*" BackgroundImageSource="{AppThemeBinding Light=lightbackground.png, Dark=darkbackground.png}" BackgroundColor="Transparent">
+    <Grid RowDefinitions="Auto,*">
         <Label Text="Your Filtered Recipes"
                Grid.Row="0"
                FontSize="24"
