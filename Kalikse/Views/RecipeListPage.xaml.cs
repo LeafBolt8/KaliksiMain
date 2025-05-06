@@ -10,14 +10,11 @@ namespace Kalikse.Views
     {
         private readonly DatabaseService _databaseService;
         private ObservableCollection<Recipe> _recipes;
-<<<<<<< HEAD
         private string _searchText = "";
         private string _sortBy = "Name";
-=======
         private decimal _maxBudget;
         private string _dietaryPreference;
         private List<string> _allergens;
->>>>>>> 8a7f26dd0ec9ed91e87317ee76210ff2d18dd941
 
         public RecipeListPage(decimal maxBudget, string dietaryPreference, List<string> allergens)
         {
