@@ -4,6 +4,10 @@
              x:Class="Kalikse.Views.RecipeListPage"
              Title="Filtered Recipes">
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Development Reseed" Clicked="OnReseedClicked" Priority="0" Order="Primary" />
+    </ContentPage.ToolbarItems>
+
     <Grid RowDefinitions="Auto,*">
         <Label Text="Your Filtered Recipes"
                Grid.Row="0"

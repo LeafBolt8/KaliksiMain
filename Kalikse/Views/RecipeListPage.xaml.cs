@@ -9,6 +9,9 @@ namespace Kalikse.Views
     {
         private readonly DatabaseService _databaseService;
         private ObservableCollection<Recipe> _recipes;
+        private decimal _maxBudget;
+        private string _dietaryPreference;
+        private List<string> _allergens;
 
         public RecipeListPage(decimal maxBudget, string dietaryPreference, List<string> allergens)
         {
@@ -16,6 +19,10 @@ namespace Kalikse.Views
             _databaseService = new DatabaseService();
             _recipes = new ObservableCollection<Recipe>();
             RecipesCollection.ItemsSource = _recipes;
+
+            _maxBudget = maxBudget;
+            _dietaryPreference = dietaryPreference;
+            _allergens = allergens;
 
             LoadFilteredRecipes(maxBudget, dietaryPreference, allergens);
         }
@@ -35,6 +42,15 @@ namespace Kalikse.Views
             {
                 await DisplayAlert("Error", "Failed to load recipes: " + ex.Message, "OK");
             }
+        }
+
+        private async void OnReseedClicked(object sender, EventArgs e)
+        {
+            bool confirm = await DisplayAlert("Development Reseed", "This will wipe and reseed all recipes. Continue?", "Yes", "No");
+            if (!confirm) return;
+            await _databaseService.ResetRecipesAsync();
+            LoadFilteredRecipes(_maxBudget, _dietaryPreference, _allergens);
+            await DisplayAlert("Done", "Recipes have been reseeded.", "OK");
         }
 
         private async void OnRecipeSelected(object sender, SelectionChangedEventArgs e)
