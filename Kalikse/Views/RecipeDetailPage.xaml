@@ -57,7 +57,8 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Label Text="{Binding}"
-                               Padding="5"/>
+                               Padding="5"
+                               TextColor="Red"/>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
