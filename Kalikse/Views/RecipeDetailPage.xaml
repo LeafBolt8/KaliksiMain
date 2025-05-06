@@ -4,7 +4,7 @@
              x:Class="Kalikse.Views.RecipeDetailPage"
              Title="Recipe Details">
 
-    <ScrollView>
+    <ScrollView BackgroundImageSource="{AppThemeBinding Light=lightbackground.png, Dark=darkbackground.png}" BackgroundColor="Transparent">
         <VerticalStackLayout Spacing="15" Padding="15">
             <Image x:Name="RecipeImage"
                    HeightRequest="200"
