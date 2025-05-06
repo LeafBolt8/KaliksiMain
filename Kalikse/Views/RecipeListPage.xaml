@@ -15,15 +15,17 @@
                FontSize="24"
                HorizontalOptions="Center"
                Margin="10"/>
-        <HorizontalStackLayout Grid.Row="1" Margin="10" Spacing="10">
+        <HorizontalStackLayout Grid.Row="1" Margin="10" Spacing="20" HorizontalOptions="FillAndExpand">
             <SearchBar x:Name="SearchBar"
                        Placeholder="Search recipes..."
                        TextChanged="OnSearchTextChanged"
-                       WidthRequest="350" />
+                       WidthRequest="500"
+                       HorizontalOptions="StartAndExpand" />
             <Picker x:Name="SortPicker"
                     Title="Sort by"
                     SelectedIndexChanged="OnSortChanged"
-                    WidthRequest="180">
+                    WidthRequest="180"
+                    HorizontalOptions="End" >
                 <Picker.Items>
                     <x:String>Name</x:String>
                     <x:String>Price - Highest to Lowest</x:String>
