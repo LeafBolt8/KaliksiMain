@@ -7,7 +7,7 @@
 
     <ScrollView>
         <Frame BackgroundColor="{AppThemeBinding Light=White, Dark=#1F1F1F}" 
-               Margin="45,0" 
+               Margin="100,0" 
                Padding="15" 
                CornerRadius="10" 
                HasShadow="True">
