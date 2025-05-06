@@ -2,6 +2,7 @@ using Kalikse.Models;
 using Kalikse.Services;
 using System.Collections.ObjectModel;
 using Microsoft.Maui.Controls;
+using System.Linq;
 
 namespace Kalikse.Views
 {
@@ -9,6 +10,8 @@ namespace Kalikse.Views
     {
         private readonly DatabaseService _databaseService;
         private ObservableCollection<Recipe> _recipes;
+        private string _searchText = "";
+        private string _sortBy = "Name";
 
         public RecipeListPage(decimal maxBudget, string dietaryPreference, List<string> allergens)
         {
@@ -44,6 +47,28 @@ namespace Kalikse.Views
                 await Navigation.PushAsync(new RecipeDetailPage(selectedRecipe.Id));
                 RecipesCollection.SelectedItem = null;
             }
+        }
+
+        private void OnSearchTextChanged(object sender, TextChangedEventArgs e)
+        {
+            _searchText = e.NewTextValue;
+            ApplySearchAndSort();
+        }
+
+        private void OnSortChanged(object sender, EventArgs e)
+        {
+            _sortBy = SortPicker.SelectedItem?.ToString() ?? "Name";
+            ApplySearchAndSort();
+        }
+
+        private void ApplySearchAndSort()
+        {
+            var filtered = _recipes.Where(r => string.IsNullOrEmpty(_searchText) || r.Name.Contains(_searchText, StringComparison.OrdinalIgnoreCase)).ToList();
+            if (_sortBy == "Name")
+                filtered = filtered.OrderBy(r => r.Name).ToList();
+            else if (_sortBy == "Price")
+                filtered = filtered.OrderBy(r => r.Price).ToList();
+            RecipesCollection.ItemsSource = filtered;
         }
     }
 } 
