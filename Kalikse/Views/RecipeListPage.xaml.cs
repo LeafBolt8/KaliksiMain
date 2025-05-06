@@ -82,7 +82,9 @@ namespace Kalikse.Views
             var filtered = _recipes.Where(r => string.IsNullOrEmpty(_searchText) || r.Name.Contains(_searchText, StringComparison.OrdinalIgnoreCase)).ToList();
             if (_sortBy == "Name")
                 filtered = filtered.OrderBy(r => r.Name).ToList();
-            else if (_sortBy == "Price")
+            else if (_sortBy == "Price - Highest to Lowest")
+                filtered = filtered.OrderByDescending(r => r.MaxPrice).ToList();
+            else if (_sortBy == "Price - Lowest to Highest")
                 filtered = filtered.OrderBy(r => r.MaxPrice).ToList();
             RecipesCollection.ItemsSource = filtered;
         }
