@@ -15,9 +15,9 @@
                FontSize="24"
                HorizontalOptions="Center"
                Margin="10"/>
-        <Grid Grid.Row="1" ColumnDefinitions="1*,1*" Margin="10">
+        <Grid Grid.Row="1" ColumnDefinitions="1*,Auto" Margin="10">
             <SearchBar x:Name="SearchBar" Placeholder="Search recipes..." TextChanged="OnSearchTextChanged" />
-            <Picker x:Name="SortPicker" Grid.Column="1" Title="Sort by" SelectedIndexChanged="OnSortChanged">
+            <Picker x:Name="SortPicker" Grid.Column="1" Title="Sort by" SelectedIndexChanged="OnSortChanged" WidthRequest="150">
                 <Picker.Items>
                     <x:String>Name</x:String>
                     <x:String>Price - Highest to Lowest</x:String>
