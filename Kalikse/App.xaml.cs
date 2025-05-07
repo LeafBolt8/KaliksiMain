@@ -104,16 +104,6 @@ namespace Kalikse // This is the namespace for App.xaml.cs
             // The AppThemeBinding in XAML will automatically react to this.
         }
     }
-
-    public static MauiApp CreateMauiApp()
-    {
-        var builder = MauiApp.CreateBuilder();
-        builder
-            .UseMauiApp<App>()
-            .UseMauiCommunityToolkit()
-            // ... existing code ...
-        // ... existing code ...
-    }
 }
 
 
