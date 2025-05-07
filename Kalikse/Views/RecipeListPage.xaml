@@ -16,24 +16,26 @@
                HorizontalOptions="Center"
                Margin="10"/>
         <VerticalStackLayout Grid.Row="1" Margin="10,0,0,0" Spacing="10">
-            <SearchBar x:Name="SearchBar"
-                       Placeholder="Search recipes..."
-                       TextChanged="OnSearchTextChanged"
-                       WidthRequest="300"
-                       HorizontalOptions="Start"
-                       BorderColor="{AppThemeBinding Light=#B0B0B0, Dark=#888888}" />
-            <Picker x:Name="SortPicker"
-                    Title="Sort by"
-                    SelectedIndexChanged="OnSortChanged"
-                    WidthRequest="180"
-                    HorizontalOptions="Start"
-                    BorderColor="{AppThemeBinding Light=#B0B0B0, Dark=#888888}">
-                <Picker.Items>
-                    <x:String>Name</x:String>
-                    <x:String>Price - Highest to Lowest</x:String>
-                    <x:String>Price - Lowest to Highest</x:String>
-                </Picker.Items>
-            </Picker>
+            <Border Stroke="{AppThemeBinding Light=#B0B0B0, Dark=#888888}" StrokeThickness="1" StrokeShape="RoundRectangle 8" Margin="0,0,0,0">
+                <SearchBar x:Name="SearchBar"
+                           Placeholder="Search recipes..."
+                           TextChanged="OnSearchTextChanged"
+                           WidthRequest="300"
+                           HorizontalOptions="Start"/>
+            </Border>
+            <Border Stroke="{AppThemeBinding Light=#B0B0B0, Dark=#888888}" StrokeThickness="1" StrokeShape="RoundRectangle 8" Margin="0,0,0,0">
+                <Picker x:Name="SortPicker"
+                        Title="Sort by"
+                        SelectedIndexChanged="OnSortChanged"
+                        WidthRequest="180"
+                        HorizontalOptions="Start">
+                    <Picker.Items>
+                        <x:String>Name</x:String>
+                        <x:String>Price - Highest to Lowest</x:String>
+                        <x:String>Price - Lowest to Highest</x:String>
+                    </Picker.Items>
+                </Picker>
+            </Border>
         </VerticalStackLayout>
         <CollectionView Grid.Row="2"
                        x:Name="RecipesCollection"
