@@ -9,6 +9,7 @@ namespace Kalikse.Views
         public IngredientDetailsPopup(Ingredient ingredient)
         {
             InitializeComponent();
+            System.Diagnostics.Debug.WriteLine($"DEBUG: Ingredient={ingredient.Name}, Store={ingredient.AvailableStore?.Name}, BranchesCount={ingredient.AvailableStore?.Branches?.Count}");
             IngredientNameLabel.Text = ingredient.Name;
             if (ingredient.AvailableStore != null && !string.IsNullOrEmpty(ingredient.AvailableStore.Name) && ingredient.AvailableStore.Branches != null && ingredient.AvailableStore.Branches.Count > 0)
             {
