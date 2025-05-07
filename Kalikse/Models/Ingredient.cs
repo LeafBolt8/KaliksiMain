@@ -7,5 +7,6 @@ namespace Kalikse.Models
         public decimal MinPrice { get; set; }
         public decimal MaxPrice { get; set; }
         public Store AvailableStore { get; set; }
+        public string PriceRange => $"₱{MinPrice:N2} - ₱{MaxPrice:N2}";
     }
 } 

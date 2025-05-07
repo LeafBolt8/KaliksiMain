@@ -58,7 +58,7 @@
                                 <Label Text="{Binding Name}"
                                        VerticalOptions="Center"/>
                                 <Label Grid.Column="1"
-                                       Text="{Binding MinPrice, StringFormat='₱{0:N2}'} - {Binding MaxPrice, StringFormat='₱{0:N2}'}"
+                                       Text="{Binding PriceRange}"
                                        TextColor="Green"
                                        VerticalOptions="Center"/>
                                 <Label Grid.Column="2"
