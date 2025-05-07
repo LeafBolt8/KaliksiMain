@@ -10,6 +10,7 @@
         <ResourceDictionary>
             <converters:StoreLogoConverter x:Key="StoreLogoConverter" />
             <!-- Your other converters -->
+            <TapGestureRecognizer x:Key="MoreDetailsTapGesture" Tapped="OnMoreDetailsTapped" />
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -56,17 +57,17 @@
                                 </Grid.ColumnDefinitions>
                                 <Label Text="{Binding Name}"
                                        VerticalOptions="Center"/>
-                                <ImageButton Grid.Column="1"
-                                           Source="{Binding AvailableStore, Converter={StaticResource StoreLogoConverter}}"
-                                           HeightRequest="30"
-                                           WidthRequest="30"
-                                           Margin="10,0"
-                                           IsVisible="{Binding AvailableStore, Converter={StaticResource IsNotNullConverter}}"
-                                           Clicked="OnStoreLogoClicked"/>
-                                <Label Grid.Column="2"
-                                       Text="{Binding PriceRange}"
+                                <Label Grid.Column="1"
+                                       Text="{Binding MinPrice, StringFormat='₱{0:N2}'} - {Binding MaxPrice, StringFormat='₱{0:N2}'}"
                                        TextColor="Green"
                                        VerticalOptions="Center"/>
+                                <Label Grid.Column="2"
+                                       Text="More Details"
+                                       TextColor="Blue"
+                                       FontAttributes="Italic"
+                                       VerticalOptions="Center"
+                                       IsVisible="{Binding AvailableStore, Converter={StaticResource IsNotNullConverter}}"
+                                       GestureRecognizers="{StaticResource MoreDetailsTapGesture}"/>
                             </Grid>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
@@ -80,6 +81,10 @@
                        BorderColor="Gray"
                        CornerRadius="10">
                     <StackLayout>
+                        <Image x:Name="StoreLogoImage"
+                               HeightRequest="40"
+                               WidthRequest="40"
+                               HorizontalOptions="Center"/>
                         <Label x:Name="StoreNameLabel"
                                FontSize="18"
                                FontAttributes="Bold"

@@ -69,5 +69,16 @@ namespace Kalikse.Views
         {
             BranchesPopup.IsVisible = false;
         }
+
+        private void OnMoreDetailsTapped(object sender, EventArgs e)
+        {
+            if (sender is Label label && label.BindingContext is Ingredient ingredient && ingredient.AvailableStore != null)
+            {
+                StoreLogoImage.Source = ingredient.AvailableStore.LogoUrl;
+                StoreNameLabel.Text = ingredient.AvailableStore.Name;
+                BranchesList.ItemsSource = ingredient.AvailableStore.Branches;
+                BranchesPopup.IsVisible = true;
+            }
+        }
     }
 } 
