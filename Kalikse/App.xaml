@@ -20,7 +20,11 @@
                 <Setter Property="StrokeShape" Value="RoundRectangle 10"/>
                 <Setter Property="Stroke" Value="{StaticResource PrimaryColor}"/>
                 <Setter Property="Padding" Value="15,0"/>
-                <Setter Property="Shadow" Value="Medium"/>
+                <Setter Property="Shadow">
+                    <Setter.Value>
+                        <Shadow Offset="5,5" Radius="10" Opacity="0.2"/>
+                    </Setter.Value>
+                </Setter>
             </Style>
 
             <Style x:Key="InvalidEntryStyle" TargetType="Entry">
