@@ -40,10 +40,12 @@
                        Margin="0,20,0,0">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Frame Margin="10,15"
+                    <Frame Margin="20,15,20,0"
                            Padding="10"
                            BorderColor="Gray"
-                           CornerRadius="10">
+                           CornerRadius="10"
+                           HorizontalOptions="Center"
+                           WidthRequest="350">
                         <Grid ColumnDefinitions="Auto,*">
                             <Image Source="{Binding ImageUrl}"
                                    WidthRequest="100"
