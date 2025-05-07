@@ -10,11 +10,15 @@ namespace Kalikse.Views
         {
             InitializeComponent();
             IngredientNameLabel.Text = ingredient.Name;
-            if (ingredient.AvailableStore != null)
+            if (ingredient.AvailableStore != null && !string.IsNullOrEmpty(ingredient.AvailableStore.Name) && ingredient.AvailableStore.Branches != null && ingredient.AvailableStore.Branches.Count > 0)
             {
                 CompanyNameLabel.Text = ingredient.AvailableStore.Name;
                 CompanyLogoImage.Source = ingredient.AvailableStore.LogoUrl;
                 BranchesListView.ItemsSource = ingredient.AvailableStore.Branches;
+            }
+            else
+            {
+                Close(); // Close immediately if no valid company/branches
             }
         }
 

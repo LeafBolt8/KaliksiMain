@@ -74,7 +74,7 @@ namespace Kalikse.Views
 
         private async void OnMoreDetailsTapped(object sender, EventArgs e)
         {
-            if (sender is Label label && label.BindingContext is Ingredient ingredient && ingredient.AvailableStore != null)
+            if (sender is Label label && label.BindingContext is Ingredient ingredient && ingredient.AvailableStore != null && !string.IsNullOrEmpty(ingredient.AvailableStore.Name) && ingredient.AvailableStore.Branches != null && ingredient.AvailableStore.Branches.Count > 0)
             {
                 var popup = new IngredientDetailsPopup(ingredient);
                 await Application.Current.MainPage.ShowPopupAsync(popup);
