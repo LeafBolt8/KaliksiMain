@@ -14,6 +14,7 @@ using System;
 using Microsoft.Maui.Storage; // Needed for Preferences
 using Microsoft.Maui; // Needed for AppTheme
 using System.Diagnostics; // Needed for Debug.WriteLine (Good practice for debugging startup)
+using CommunityToolkit.Maui;
 
 namespace Kalikse // This is the namespace for App.xaml.cs
 {
@@ -102,6 +103,16 @@ namespace Kalikse // This is the namespace for App.xaml.cs
             // If UserAppTheme is Unspecified, the system theme might have changed while asleep.
             // The AppThemeBinding in XAML will automatically react to this.
         }
+    }
+
+    public static MauiApp CreateMauiApp()
+    {
+        var builder = MauiApp.CreateBuilder();
+        builder
+            .UseMauiApp<App>()
+            .UseMauiCommunityToolkit()
+            // ... existing code ...
+        // ... existing code ...
     }
 }
 

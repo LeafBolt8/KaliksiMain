@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+               x:Class="Kalikse.Views.IngredientDetailsPopup"
+               Size="400,400">
+    <Frame Padding="20" CornerRadius="15" BackgroundColor="White" VerticalOptions="Center" HorizontalOptions="Center">
+        <StackLayout Spacing="10">
+            <Label x:Name="IngredientNameLabel" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
+            <Label x:Name="CompanyNameLabel" FontSize="16" FontAttributes="Italic" HorizontalOptions="Center"/>
+            <Image x:Name="CompanyLogoImage" HeightRequest="50" WidthRequest="50" HorizontalOptions="Center"/>
+            <Label Text="Branches Available:" FontAttributes="Bold"/>
+            <CollectionView x:Name="BranchesListView">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding}" FontSize="14" Padding="5,0"/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Button Text="Close" Clicked="OnCloseClicked"/>
+        </StackLayout>
+    </Frame>
+</toolkit:Popup> 

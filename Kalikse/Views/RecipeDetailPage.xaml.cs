@@ -1,6 +1,8 @@
 using Kalikse.Models;
 using Kalikse.Services;
 using System.Collections.ObjectModel;
+using CommunityToolkit.Maui.Views;
+using Kalikse.Views;
 
 namespace Kalikse.Views
 {
@@ -74,15 +76,8 @@ namespace Kalikse.Views
         {
             if (sender is Label label && label.BindingContext is Ingredient ingredient && ingredient.AvailableStore != null)
             {
-                await Application.Current.MainPage.DisplayAlert("Debug", $"Tapped: {ingredient.Name}\nStore: {ingredient.AvailableStore.Name}", "OK");
-                StoreLogoImage.Source = ingredient.AvailableStore.LogoUrl;
-                StoreNameLabel.Text = ingredient.AvailableStore.Name;
-                BranchesList.ItemsSource = ingredient.AvailableStore.Branches;
-                BranchesPopup.IsVisible = true;
-            }
-            else
-            {
-                await Application.Current.MainPage.DisplayAlert("Debug", "OnMoreDetailsTapped called, but no store found.", "OK");
+                var popup = new IngredientDetailsPopup(ingredient);
+                await Application.Current.MainPage.ShowPopupAsync(popup);
             }
         }
     }
