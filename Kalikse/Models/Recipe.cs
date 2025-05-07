@@ -3,13 +3,6 @@ using System.Collections.Generic;
 
 namespace Kalikse.Models
 {
-    public class Ingredient
-    {
-        public string Name { get; set; }
-        public decimal MinPrice { get; set; }
-        public decimal MaxPrice { get; set; }
-    }
-
     public class Recipe
     {
         public int Id { get; set; }
