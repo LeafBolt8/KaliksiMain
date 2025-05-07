@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:Kalikse.Converters"
              x:Class="Kalikse.Views.RecipeDetailPage"
              Title="Recipe Details"
              BackgroundImageSource="{AppThemeBinding Light=lightbackground.png, Dark=darkbackground.png}"  BackgroundColor="Transparent">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:StoreLogoConverter x:Key="StoreLogoConverter" />
+            <!-- Your other converters -->
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <ScrollView>
         <Frame Margin="20"
@@ -49,7 +57,7 @@
                                 <Label Text="{Binding Name}"
                                        VerticalOptions="Center"/>
                                 <ImageButton Grid.Column="1"
-                                           Source="{Binding AvailableStore.LogoUrl}"
+                                           Source="{Binding AvailableStore, Converter={StaticResource StoreLogoConverter}}"
                                            HeightRequest="30"
                                            WidthRequest="30"
                                            Margin="10,0"
