@@ -80,7 +80,7 @@
                                             <Image Source="diet.png" HeightRequest="24" WidthRequest="24"/>
                                             <Label Text="Diet Preferences" FontAttributes="Bold" FontSize="18"/>
                                         </HorizontalStackLayout>
-                                        <Label Text="Select a diet plan that matches your lifestyle and health goals." FontSize="13" TextColor="Gray"/>
+                                        <Label Text="Select a diet plan that matches your lifestyle and health goals." FontSize="15" TextColor="Gray"/>
                                         <Grid ColumnDefinitions="30,*,30" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" RowSpacing="0">
                                             <!-- None -->
                                             <RadioButton x:Name="None" GroupName="DietPref" Grid.Row="0" Grid.Column="0" VerticalOptions="Center" />
@@ -123,7 +123,7 @@
                                             <Image Source="allergy_icon.png" HeightRequest="24" WidthRequest="24"/>
                                             <Label Text="Allergies" FontAttributes="Bold"/>
                                         </HorizontalStackLayout>
-                                        <Label Text="Select any allergies to filter out recipes containing these ingredients." FontSize="13" TextColor="Gray"/>
+                                        <Label Text="Select any allergies to filter out recipes containing these ingredients." FontSize="15" TextColor="Gray"/>
                                         <Grid ColumnDefinitions="30,*,30" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" RowSpacing="10">
                                             <CheckBox x:Name="PeanutsCheckbox" Grid.Row="0" Grid.Column="0" Color="{StaticResource PrimaryColor}" VerticalOptions="Center"/>
                                             <Label Text="Peanuts" Grid.Row="0" Grid.Column="1" VerticalOptions="Center"/>
