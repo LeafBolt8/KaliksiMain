@@ -57,7 +57,7 @@ namespace Kalikse.Views
 
         private void OnStoreLogoClicked(object sender, EventArgs e)
         {
-            if (sender is ImageButton button && button.BindingContext is Ingredient ingredient)
+            if (sender is ImageButton button && button.BindingContext is Ingredient ingredient && ingredient.AvailableStore != null)
             {
                 StoreNameLabel.Text = ingredient.AvailableStore.Name;
                 BranchesList.ItemsSource = ingredient.AvailableStore.Branches;
