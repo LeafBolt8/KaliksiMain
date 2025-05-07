@@ -15,40 +15,44 @@
                FontSize="24"
                HorizontalOptions="Center"
                Margin="10"/>
-        <VerticalStackLayout Grid.Row="1" Margin="10,0,0,0" Spacing="10">
-            <Label Text="Search" FontAttributes="Bold" FontSize="15" Margin="5,0,0,0"/>
-            <Border Stroke="#B0B0B0" StrokeThickness="1" StrokeShape="RoundRectangle 4" WidthRequest="340" HorizontalOptions="Start" Shadow="None" Padding="2">
-                <Grid ColumnDefinitions="Auto,*" WidthRequest="336">
-                    <Image Source="search_icon.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" Margin="5,0" Grid.Column="0"/>
-                    <SearchBar x:Name="SearchBar"
-                               Placeholder="Search recipes..."
-                               TextChanged="OnSearchTextChanged"
-                               WidthRequest="296"
-                               HorizontalOptions="Start"
-                               BackgroundColor="{AppThemeBinding Light=#F5F5F5, Dark=#333333}"
-                               Grid.Column="1"/>
-                </Grid>
-            </Border>
-            <Label Text="Sort by" FontAttributes="Bold" FontSize="15" Margin="5,10,0,0"/>
-            <Border Stroke="#B0B0B0" StrokeThickness="1" StrokeShape="RoundRectangle 4" WidthRequest="340" HorizontalOptions="Start" Shadow="None" Padding="2">
-                <Grid ColumnDefinitions="Auto,*" WidthRequest="336">
-                    <Image Source="sort_icon.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" Margin="5,0" Grid.Column="0"/>
-                    <Picker x:Name="SortPicker"
-                            Title="Sort by"
-                            SelectedIndexChanged="OnSortChanged"
-                            WidthRequest="296"
-                            HorizontalOptions="Start"
-                            BackgroundColor="{AppThemeBinding Light=#F5F5F5, Dark=#333333}"
-                            Grid.Column="1">
-                        <Picker.Items>
-                            <x:String>Name</x:String>
-                            <x:String>Price - Highest to Lowest</x:String>
-                            <x:String>Price - Lowest to Highest</x:String>
-                        </Picker.Items>
-                    </Picker>
-                </Grid>
-            </Border>
-        </VerticalStackLayout>
+        <HorizontalStackLayout Spacing="20" Margin="0,0,0,10">
+            <VerticalStackLayout Spacing="2">
+                <Label Text="Search" FontAttributes="Bold" FontSize="15" Margin="5,0,0,0"/>
+                <Border Stroke="#B0B0B0" StrokeThickness="1" StrokeShape="RoundRectangle 4" WidthRequest="340" HorizontalOptions="Start" Shadow="None" Padding="2">
+                    <Grid ColumnDefinitions="Auto,*" WidthRequest="336">
+                        <Image Source="search_icon.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" Margin="5,0" Grid.Column="0"/>
+                        <SearchBar x:Name="SearchBar"
+                                   Placeholder="Search recipes..."
+                                   TextChanged="OnSearchTextChanged"
+                                   WidthRequest="296"
+                                   HorizontalOptions="Start"
+                                   BackgroundColor="{AppThemeBinding Light=#F5F5F5, Dark=#333333}"
+                                   Grid.Column="1"/>
+                    </Grid>
+                </Border>
+            </VerticalStackLayout>
+            <VerticalStackLayout Spacing="2">
+                <Label Text="Sort by" FontAttributes="Bold" FontSize="15" Margin="5,0,0,0"/>
+                <Border Stroke="#B0B0B0" StrokeThickness="1" StrokeShape="RoundRectangle 4" WidthRequest="340" HorizontalOptions="Start" Shadow="None" Padding="2">
+                    <Grid ColumnDefinitions="Auto,*" WidthRequest="336">
+                        <Image Source="sort_icon.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" Margin="5,0" Grid.Column="0"/>
+                        <Picker x:Name="SortPicker"
+                                Title="Sort by"
+                                SelectedIndexChanged="OnSortChanged"
+                                WidthRequest="296"
+                                HorizontalOptions="Start"
+                                BackgroundColor="{AppThemeBinding Light=#F5F5F5, Dark=#333333}"
+                                Grid.Column="1">
+                            <Picker.Items>
+                                <x:String>Name</x:String>
+                                <x:String>Price - Highest to Lowest</x:String>
+                                <x:String>Price - Lowest to Highest</x:String>
+                            </Picker.Items>
+                        </Picker>
+                    </Grid>
+                </Border>
+            </VerticalStackLayout>
+        </HorizontalStackLayout>
         <CollectionView Grid.Row="2"
                        x:Name="RecipesCollection"
                        SelectionMode="Single"
