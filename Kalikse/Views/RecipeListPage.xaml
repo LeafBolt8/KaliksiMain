@@ -36,10 +36,11 @@
         <CollectionView Grid.Row="2"
                        x:Name="RecipesCollection"
                        SelectionMode="Single"
-                       SelectionChanged="OnRecipeSelected">
+                       SelectionChanged="OnRecipeSelected"
+                       Margin="0,20,0,0">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Frame Margin="10"
+                    <Frame Margin="10,15"
                            Padding="10"
                            BorderColor="Gray"
                            CornerRadius="10">
