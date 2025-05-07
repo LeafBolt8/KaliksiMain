@@ -121,7 +121,7 @@
                                     <VerticalStackLayout Spacing="5">
                                         <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
                                             <Image Source="allergy_icon.png" HeightRequest="24" WidthRequest="24"/>
-                                            <Label Text="Allergies" FontAttributes="Bold"/>
+                                            <Label Text="Allergies" FontAttributes="Bold" FontSize="18"/>
                                         </HorizontalStackLayout>
                                         <Label Text="Select any allergies to filter out recipes containing these ingredients." FontSize="15" TextColor="Gray"/>
                                         <Grid ColumnDefinitions="30,*,30" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" RowSpacing="10">
