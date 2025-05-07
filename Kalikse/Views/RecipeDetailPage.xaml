@@ -9,6 +9,7 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <converters:StoreLogoConverter x:Key="StoreLogoConverter" />
+            <converters:IsNotNullConverter x:Key="IsNotNullConverter" />
             <!-- Your other converters -->
             <TapGestureRecognizer x:Key="MoreDetailsTapGesture" Tapped="OnMoreDetailsTapped" />
         </ResourceDictionary>
