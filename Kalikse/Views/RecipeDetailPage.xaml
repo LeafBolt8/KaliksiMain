@@ -44,10 +44,18 @@
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
                                 <Label Text="{Binding Name}"
                                        VerticalOptions="Center"/>
-                                <Label Grid.Column="1"
+                                <ImageButton Grid.Column="1"
+                                           Source="{Binding AvailableStore.LogoUrl}"
+                                           HeightRequest="30"
+                                           WidthRequest="30"
+                                           Margin="10,0"
+                                           IsVisible="{Binding AvailableStore, Converter={StaticResource IsNotNullConverter}}"
+                                           Clicked="OnStoreLogoClicked"/>
+                                <Label Grid.Column="2"
                                        Text="{Binding PriceRange}"
                                        TextColor="Green"
                                        VerticalOptions="Center"/>
@@ -55,6 +63,32 @@
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
+
+                <!-- Store Branches Popup -->
+                <Frame x:Name="BranchesPopup"
+                       IsVisible="False"
+                       Margin="0,10"
+                       Padding="15"
+                       BorderColor="Gray"
+                       CornerRadius="10">
+                    <StackLayout>
+                        <Label x:Name="StoreNameLabel"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"/>
+                        <CollectionView x:Name="BranchesList">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Label Text="{Binding}"
+                                           Padding="5"/>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                        <Button Text="Close"
+                                Clicked="OnCloseBranchesPopup"
+                                Margin="0,10,0,0"/>
+                    </StackLayout>
+                </Frame>
 
                 <Label Text="Allergens"
                        FontSize="20"

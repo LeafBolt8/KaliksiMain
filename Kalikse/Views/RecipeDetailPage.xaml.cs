@@ -31,13 +31,15 @@ namespace Kalikse.Views
                     Instructions.Text = recipe.Instructions;
 
                     // Create a list of ingredients with formatted price ranges
-                    var ingredientsWithPrices = recipe.Ingredients.Select(i => new
+                    var ingredientsWithPrices = recipe.Ingredients.Select(i => new Ingredient
                     {
                         Name = i.Name,
-                        PriceRange = $"₱{i.MinPrice:N2} - ₱{i.MaxPrice:N2}"
+                        MinPrice = i.MinPrice,
+                        MaxPrice = i.MaxPrice,
+                        AvailableStore = StoreService.GetStoreForIngredient(i.Name)
                     }).ToList();
 
-                    IngredientsList.ItemsSource = new ObservableCollection<dynamic>(ingredientsWithPrices);
+                    IngredientsList.ItemsSource = new ObservableCollection<Ingredient>(ingredientsWithPrices);
                     AllergensList.ItemsSource = new ObservableCollection<string>(recipe.Allergens);
                 }
                 else
@@ -51,6 +53,21 @@ namespace Kalikse.Views
                 await DisplayAlert("Error", "Failed to load recipe details: " + ex.Message, "OK");
                 await Navigation.PopAsync();
             }
+        }
+
+        private void OnStoreLogoClicked(object sender, EventArgs e)
+        {
+            if (sender is ImageButton button && button.BindingContext is Ingredient ingredient)
+            {
+                StoreNameLabel.Text = ingredient.AvailableStore.Name;
+                BranchesList.ItemsSource = ingredient.AvailableStore.Branches;
+                BranchesPopup.IsVisible = true;
+            }
+        }
+
+        private void OnCloseBranchesPopup(object sender, EventArgs e)
+        {
+            BranchesPopup.IsVisible = false;
         }
     }
 } 
