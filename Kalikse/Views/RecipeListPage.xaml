@@ -16,7 +16,7 @@
                HorizontalOptions="Center"
                Margin="10"/>
         <VerticalStackLayout Grid.Row="1" Margin="10,0,0,0" Spacing="10">
-            <Border Stroke="#B0B0B0" StrokeThickness="1" StrokeShape="RoundRectangle 8" WidthRequest="300" HorizontalOptions="Start">
+            <Border Stroke="#B0B0B0" StrokeThickness="1" StrokeShape="RoundRectangle 8" WidthRequest="300" HorizontalOptions="Start" Shadow="None">
                 <SearchBar x:Name="SearchBar"
                            Placeholder="Search recipes..."
                            TextChanged="OnSearchTextChanged"
@@ -24,7 +24,7 @@
                            HorizontalOptions="Start"
                            BackgroundColor="White"/>
             </Border>
-            <Border Stroke="#B0B0B0" StrokeThickness="1" StrokeShape="RoundRectangle 8" WidthRequest="180" HorizontalOptions="Start">
+            <Border Stroke="#B0B0B0" StrokeThickness="1" StrokeShape="RoundRectangle 8" WidthRequest="180" HorizontalOptions="Start" Shadow="None">
                 <Picker x:Name="SortPicker"
                         Title="Sort by"
                         SelectedIndexChanged="OnSortChanged"
