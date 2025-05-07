@@ -43,9 +43,7 @@
                     <Frame Margin="20,15,20,0"
                            Padding="10"
                            BorderColor="Gray"
-                           CornerRadius="10"
-                           HorizontalOptions="Center"
-                           WidthRequest="350">
+                           CornerRadius="10">
                         <Grid ColumnDefinitions="Auto,*">
                             <Image Source="{Binding ImageUrl}"
                                    WidthRequest="100"

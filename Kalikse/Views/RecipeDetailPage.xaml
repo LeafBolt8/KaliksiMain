@@ -6,12 +6,13 @@
              BackgroundImageSource="{AppThemeBinding Light=lightbackground.png, Dark=darkbackground.png}"  BackgroundColor="Transparent">
 
     <ScrollView>
-        <Frame BackgroundColor="{AppThemeBinding Light=White, Dark=#1F1F1F}" 
-               Margin="100,0" 
-               Padding="15" 
-               CornerRadius="10" 
-               HasShadow="True">
-            <VerticalStackLayout Spacing="15">
+        <Frame Margin="20"
+               Padding="20"
+               BorderColor="Gray"
+               CornerRadius="10"
+               HorizontalOptions="Center"
+               WidthRequest="400">
+            <StackLayout Spacing="15">
                 <Image x:Name="RecipeImage"
                        HeightRequest="200"
                        Aspect="AspectFill"
@@ -73,7 +74,7 @@
                        FontAttributes="Bold"/>
                 <Label x:Name="Instructions"
                        TextType="Html"/>
-            </VerticalStackLayout>
+            </StackLayout>
         </Frame>
     </ScrollView>
 </ContentPage> 
