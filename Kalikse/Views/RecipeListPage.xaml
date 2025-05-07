@@ -37,7 +37,6 @@
                     <Grid ColumnDefinitions="Auto,*" WidthRequest="336">
                         <Image Source="sort_icon.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" Margin="5,0" Grid.Column="0"/>
                         <Picker x:Name="SortPicker"
-                                Title="Sort by"
                                 SelectedIndexChanged="OnSortChanged"
                                 WidthRequest="296"
                                 HorizontalOptions="Start"
