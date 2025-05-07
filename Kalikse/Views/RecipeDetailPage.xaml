@@ -66,8 +66,11 @@
                                        TextColor="Blue"
                                        FontAttributes="Italic"
                                        VerticalOptions="Center"
-                                       IsVisible="{Binding AvailableStore, Converter={StaticResource IsNotNullConverter}}"
-                                       GestureRecognizers="{StaticResource MoreDetailsTapGesture}"/>
+                                       IsVisible="{Binding AvailableStore, Converter={StaticResource IsNotNullConverter}}">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnMoreDetailsTapped" />
+                                    </Label.GestureRecognizers>
+                                </Label>
                             </Grid>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
