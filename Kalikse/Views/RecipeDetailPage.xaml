@@ -11,7 +11,7 @@
                BorderColor="Gray"
                CornerRadius="10"
                HorizontalOptions="Center"
-               WidthRequest="600">
+               WidthRequest="800">
             <StackLayout Spacing="15">
                 <Image x:Name="RecipeImage"
                        HeightRequest="200"
