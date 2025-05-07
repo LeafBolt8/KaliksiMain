@@ -6,14 +6,14 @@
                Size="400,400">
     <Frame Padding="20" CornerRadius="15" BackgroundColor="White" VerticalOptions="Center" HorizontalOptions="Center">
         <StackLayout Spacing="10">
-            <Label x:Name="IngredientNameLabel" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
-            <Label x:Name="CompanyNameLabel" FontSize="16" FontAttributes="Italic" HorizontalOptions="Center"/>
+            <Label x:Name="IngredientNameLabel" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black"/>
+            <Label x:Name="CompanyNameLabel" FontSize="16" FontAttributes="Italic" HorizontalOptions="Center" TextColor="Black"/>
             <Image x:Name="CompanyLogoImage" HeightRequest="50" WidthRequest="50" HorizontalOptions="Center"/>
-            <Label Text="Branches Available:" FontAttributes="Bold"/>
+            <Label Text="Branches Available:" FontAttributes="Bold" TextColor="Black"/>
             <CollectionView x:Name="BranchesListView">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Label Text="{Binding}" FontSize="14" Padding="5,0"/>
+                        <Label Text="{Binding}" FontSize="14" Padding="5,0" TextColor="Black"/>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
