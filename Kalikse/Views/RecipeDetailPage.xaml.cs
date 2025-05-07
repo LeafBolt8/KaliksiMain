@@ -70,14 +70,19 @@ namespace Kalikse.Views
             BranchesPopup.IsVisible = false;
         }
 
-        private void OnMoreDetailsTapped(object sender, EventArgs e)
+        private async void OnMoreDetailsTapped(object sender, EventArgs e)
         {
             if (sender is Label label && label.BindingContext is Ingredient ingredient && ingredient.AvailableStore != null)
             {
+                await Application.Current.MainPage.DisplayAlert("Debug", $"Tapped: {ingredient.Name}\nStore: {ingredient.AvailableStore.Name}", "OK");
                 StoreLogoImage.Source = ingredient.AvailableStore.LogoUrl;
                 StoreNameLabel.Text = ingredient.AvailableStore.Name;
                 BranchesList.ItemsSource = ingredient.AvailableStore.Branches;
                 BranchesPopup.IsVisible = true;
+            }
+            else
+            {
+                await Application.Current.MainPage.DisplayAlert("Debug", "OnMoreDetailsTapped called, but no store found.", "OK");
             }
         }
     }

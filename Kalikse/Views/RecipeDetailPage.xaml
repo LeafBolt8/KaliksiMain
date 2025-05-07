@@ -60,7 +60,8 @@
                                 <Label Grid.Column="1"
                                        Text="{Binding PriceRange}"
                                        TextColor="Green"
-                                       VerticalOptions="Center"/>
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"/>
                                 <Label Grid.Column="2"
                                        Text="More Details"
                                        TextColor="Blue"
