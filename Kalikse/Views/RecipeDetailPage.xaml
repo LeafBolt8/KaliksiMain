@@ -51,9 +51,9 @@
                         <DataTemplate>
                             <Grid Padding="5">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="1.5*"/>
+                                    <ColumnDefinition Width="1.2*"/>
                                 </Grid.ColumnDefinitions>
                                 <Label Text="{Binding Name}"
                                        VerticalOptions="Center"/>
@@ -67,7 +67,8 @@
                                        TextColor="Blue"
                                        FontAttributes="Italic"
                                        VerticalOptions="Center"
-                                       IsVisible="{Binding AvailableStore, Converter={StaticResource IsNotNullConverter}}">
+                                       IsVisible="{Binding AvailableStore, Converter={StaticResource IsNotNullConverter}}"
+                                       BindingContext="{Binding .}">
                                     <Label.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="OnMoreDetailsTapped" />
                                     </Label.GestureRecognizers>
