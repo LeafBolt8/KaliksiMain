@@ -35,12 +35,13 @@
                 <Label Text="Sort by" FontAttributes="Bold" FontSize="15" Margin="5,0,0,0"/>
                 <Border Stroke="#B0B0B0" StrokeThickness="1" StrokeShape="RoundRectangle 4" WidthRequest="340" HorizontalOptions="Start" Shadow="None" Padding="2">
                     <Grid ColumnDefinitions="Auto,*" WidthRequest="336">
-                        <Image Source="sort_icon.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" Margin="5,0" Grid.Column="0"/>
+                        <Image Source="sort_icon.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" Margin="5,0" Grid.Column="0" TintColor="{AppThemeBinding Light=Gray, Dark=White}"/>
                         <Picker x:Name="SortPicker"
                                 SelectedIndexChanged="OnSortChanged"
                                 WidthRequest="296"
                                 HorizontalOptions="Start"
                                 BackgroundColor="{AppThemeBinding Light=#F5F5F5, Dark=#333333}"
+                                TextColor="{AppThemeBinding Light=Gray, Dark=White}"
                                 Grid.Column="1">
                             <Picker.Items>
                                 <x:String>Name</x:String>
