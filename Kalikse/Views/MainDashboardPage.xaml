@@ -124,23 +124,23 @@
                                             <Label Text="Allergies" FontAttributes="Bold" FontSize="18"/>
                                         </HorizontalStackLayout>
                                         <Label Text="Select any allergies to filter out recipes containing these ingredients." FontSize="15" TextColor="Gray"/>
-                                        <Grid ColumnDefinitions="30,*,30" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" RowSpacing="10">
+                                        <Grid ColumnDefinitions="30,*,30" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" RowSpacing="2">
                                             <CheckBox x:Name="PeanutsCheckbox" Grid.Row="0" Grid.Column="0" Color="{StaticResource PrimaryColor}" VerticalOptions="Center"/>
                                             <Label Text="Peanuts" Grid.Row="0" Grid.Column="1" VerticalOptions="Center"/>
                                             <Image Source="peanut.png" Grid.Row="0" Grid.Column="2" HeightRequest="20" HorizontalOptions="End"/>
-                                            <Label Text="Avoids foods containing peanuts to prevent allergic reactions." Grid.Row="1" Grid.ColumnSpan="3" FontSize="15" TextColor="Gray" Margin="35,0,0,4"/>
+                                            <Label Text="Avoids foods containing peanuts to prevent allergic reactions." Grid.Row="1" Grid.ColumnSpan="3" FontSize="15" TextColor="Gray" Margin="35,0,0,0"/>
                                             <CheckBox x:Name="SeafoodCheckbox" Grid.Row="2" Grid.Column="0" Color="{StaticResource PrimaryColor}" VerticalOptions="Center"/>
                                             <Label Text="Seafood" Grid.Row="2" Grid.Column="1" VerticalOptions="Center"/>
                                             <Image Source="seafood.png" Grid.Row="2" Grid.Column="2" HeightRequest="20" HorizontalOptions="End"/>
-                                            <Label Text="Excludes all types of seafood to prevent allergic responses." Grid.Row="3" Grid.ColumnSpan="3" FontSize="15" TextColor="Gray" Margin="35,0,0,4"/>
+                                            <Label Text="Excludes all types of seafood to prevent allergic responses." Grid.Row="3" Grid.ColumnSpan="3" FontSize="15" TextColor="Gray" Margin="35,0,0,0"/>
                                             <CheckBox x:Name="GlutenCheckbox" Grid.Row="4" Grid.Column="0" Color="{StaticResource PrimaryColor}" VerticalOptions="Center"/>
                                             <Label Text="Gluten" Grid.Row="4" Grid.Column="1" VerticalOptions="Center"/>
                                             <Image Source="gluten_free.png" Grid.Row="4" Grid.Column="2" HeightRequest="20" HorizontalOptions="End"/>
-                                            <Label Text="Avoids foods containing gluten, suitable for those with celiac disease or gluten sensitivity." Grid.Row="5" Grid.ColumnSpan="3" FontSize="15" TextColor="Gray" Margin="35,0,0,4"/>
+                                            <Label Text="Avoids foods containing gluten, suitable for those with celiac disease or gluten sensitivity." Grid.Row="5" Grid.ColumnSpan="3" FontSize="15" TextColor="Gray" Margin="35,0,0,0"/>
                                             <CheckBox x:Name="DairyCheckbox" Grid.Row="6" Grid.Column="0" Color="{StaticResource PrimaryColor}" VerticalOptions="Center"/>
                                             <Label Text="Dairy" Grid.Row="6" Grid.Column="1" VerticalOptions="Center"/>
                                             <Image Source="dairy.png" Grid.Row="6" Grid.Column="2" HeightRequest="20" HorizontalOptions="End"/>
-                                            <Label Text="Excludes milk and dairy products to prevent intolerance or allergic reactions." Grid.Row="7" Grid.ColumnSpan="3" FontSize="15" TextColor="Gray" Margin="35,0,0,4"/>
+                                            <Label Text="Excludes milk and dairy products to prevent intolerance or allergic reactions." Grid.Row="7" Grid.ColumnSpan="3" FontSize="15" TextColor="Gray" Margin="35,0,0,0"/>
                                         </Grid>
                                     </VerticalStackLayout>
 
