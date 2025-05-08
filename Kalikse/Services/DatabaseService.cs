@@ -165,7 +165,7 @@ namespace Kalikse.Services
                         new Ingredient { Name = "Ginger", MinPrice = 10, MaxPrice = 15 },
                         new Ingredient { Name = "Onions", MinPrice = 15, MaxPrice = 20 }
                     }));
-                    command.Parameters.AddWithValue("@Instructions", "1. Chop pork belly and cook until crispy. Remove and set aside. In the same pan, add 2 minced garlic cloves and cook until fragrant.\n2. Add 1/2 cup chopped onions and 1/2 cup coconut cream. Cook for 5 minutes.\n3. Add 1/2 cup shrimp paste and 1/2 cup green chilies. Cook for another 5 minutes.\n4. Serve hot, garnished with extra garlic, onions, and coconut cream.");
+                    command.Parameters.AddWithValue("@Instructions", "1. Chop pork belly and cook until crispy. Remove and set aside. In the same pan, add 2 minced garlic cloves and cook until fragrant.\n\n2. Add 1/2 cup chopped onions and 1/2 cup coconut cream. Cook for 5 minutes.\n\n3. Add 1/2 cup shrimp paste and 1/2 cup green chilies. Cook for another 5 minutes.\n\n4. Serve hot, garnished with extra garlic, onions, and coconut cream.");
                     command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("o"));
                     command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("o"));
                     command.ExecuteNonQuery();
@@ -261,7 +261,7 @@ namespace Kalikse.Services
                         new Ingredient { Name = "Fish Sauce", MinPrice = 15, MaxPrice = 20 },
                         new Ingredient { Name = "Black Pepper", MinPrice = 10, MaxPrice = 15 }
                     }));
-                    command.Parameters.AddWithValue("@Instructions", "1. Cook pork belly until crispy and fat is rendered. Remove and set aside. In the same pan, add 2 minced garlic cloves and 1/2 cup chopped onions. Cook until fragrant.\n2. Add 1/2 cup mung beans and 1/2 cup water. Simmer for 5 minutes.\n3. Add 1/2 cup spinach and 1/2 cup chicharon. Cook for another 5 minutes.\n4. Serve hot, garnished with extra pork fat, garlic, onions, and fish sauce.");
+                    command.Parameters.AddWithValue("@Instructions", "1. Cook pork belly until crispy and fat is rendered. Remove and set aside. In the same pan, add 2 minced garlic cloves and 1/2 cup chopped onions. Cook until fragrant.\n\n2. Add 1/2 cup mung beans and 1/2 cup water. Simmer for 5 minutes.\n\n3. Add 1/2 cup spinach and 1/2 cup chicharon. Cook for another 5 minutes.\n\n4. Serve hot, garnished with extra pork fat, garlic, onions, and fish sauce.");
                     command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("o"));
                     command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("o"));
                     command.ExecuteNonQuery();
@@ -285,7 +285,7 @@ namespace Kalikse.Services
                         new Ingredient { Name = "Butter", MinPrice = 30, MaxPrice = 40 },
                         new Ingredient { Name = "Heavy Cream", MinPrice = 40, MaxPrice = 50 }
                     }));
-                    command.Parameters.AddWithValue("@Instructions", "1. Preheat oven to 160°C (325°F). Grease a 9-inch springform pan.\n2. Mix almond flour, ube extract, erythritol, and eggs until well combined. Pour into the prepared pan.\n3. Bake for 10 minutes. Remove and let cool.\n4. In a separate bowl, mix cream cheese, butter, and heavy cream until smooth.\n5. Spread over cooled almond mixture. Bake for another 10 minutes. Let cool completely before serving.");
+                    command.Parameters.AddWithValue("@Instructions", "1. Preheat oven to 160°C (325°F). Grease a 9-inch springform pan.\n\n2. Mix almond flour, ube extract, erythritol, and eggs until well combined. Pour into the prepared pan.\n\n3. Bake for 10 minutes. Remove and let cool.\n\n4. In a separate bowl, mix cream cheese, butter, and heavy cream until smooth.\n\n5. Spread over cooled almond mixture. Bake for another 10 minutes. Let cool completely before serving.");
                     command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("o"));
                     command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("o"));
                     command.ExecuteNonQuery();
@@ -307,7 +307,7 @@ namespace Kalikse.Services
                         new Ingredient { Name = "Vanilla Extract", MinPrice = 20, MaxPrice = 30 },
                         new Ingredient { Name = "Salt", MinPrice = 5, MaxPrice = 10 }
                     }));
-                    command.Parameters.AddWithValue("@Instructions", "1. Preheat oven to 160°C (325°F). Grease a 9-inch springform pan.\n2. Whisk egg yolks, heavy cream, allulose, vanilla extract, and salt until well combined. Pour into the prepared pan.\n3. Bake for 30 minutes. Let cool completely before serving.");
+                    command.Parameters.AddWithValue("@Instructions", "1. Preheat oven to 160°C (325°F). Grease a 9-inch springform pan.\n\n2. Whisk egg yolks, heavy cream, allulose, vanilla extract, and salt until well combined. Pour into the prepared pan.\n\n3. Bake for 30 minutes. Let cool completely before serving.");
                     command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("o"));
                     command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("o"));
                     command.ExecuteNonQuery();
@@ -528,7 +528,7 @@ namespace Kalikse.Services
                 new Ingredient { Name = "Ginger", MinPrice = 10, MaxPrice = 15 },
                 new Ingredient { Name = "Onions", MinPrice = 15, MaxPrice = 20 }
             }));
-            command.Parameters.AddWithValue("@Instructions", "1. Chop pork belly and cook until crispy. Remove and set aside. In the same pan, add 2 minced garlic cloves and cook until fragrant.\n2. Add 1/2 cup chopped onions and 1/2 cup coconut cream. Cook for 5 minutes.\n3. Add 1/2 cup shrimp paste and 1/2 cup green chilies. Cook for another 5 minutes.\n4. Serve hot, garnished with extra garlic, onions, and coconut cream.");
+            command.Parameters.AddWithValue("@Instructions", "1. Chop pork belly and cook until crispy. Remove and set aside. In the same pan, add 2 minced garlic cloves and cook until fragrant.\n\n2. Add 1/2 cup chopped onions and 1/2 cup coconut cream. Cook for 5 minutes.\n\n3. Add 1/2 cup shrimp paste and 1/2 cup green chilies. Cook for another 5 minutes.\n\n4. Serve hot, garnished with extra garlic, onions, and coconut cream.");
             command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("o"));
             command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("o"));
             await command.ExecuteNonQueryAsync();
@@ -624,7 +624,7 @@ namespace Kalikse.Services
                 new Ingredient { Name = "Fish Sauce", MinPrice = 15, MaxPrice = 20 },
                 new Ingredient { Name = "Black Pepper", MinPrice = 10, MaxPrice = 15 }
             }));
-            command.Parameters.AddWithValue("@Instructions", "1. Cook pork belly until crispy and fat is rendered. Remove and set aside. In the same pan, add 2 minced garlic cloves and 1/2 cup chopped onions. Cook until fragrant.\n2. Add 1/2 cup mung beans and 1/2 cup water. Simmer for 5 minutes.\n3. Add 1/2 cup spinach and 1/2 cup chicharon. Cook for another 5 minutes.\n4. Serve hot, garnished with extra pork fat, garlic, onions, and fish sauce.");
+            command.Parameters.AddWithValue("@Instructions", "1. Cook pork belly until crispy and fat is rendered. Remove and set aside. In the same pan, add 2 minced garlic cloves and 1/2 cup chopped onions. Cook until fragrant.\n\n2. Add 1/2 cup mung beans and 1/2 cup water. Simmer for 5 minutes.\n\n3. Add 1/2 cup spinach and 1/2 cup chicharon. Cook for another 5 minutes.\n\n4. Serve hot, garnished with extra pork fat, garlic, onions, and fish sauce.");
             command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("o"));
             command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("o"));
             await command.ExecuteNonQueryAsync();
@@ -648,7 +648,7 @@ namespace Kalikse.Services
                 new Ingredient { Name = "Butter", MinPrice = 30, MaxPrice = 40 },
                 new Ingredient { Name = "Heavy Cream", MinPrice = 40, MaxPrice = 50 }
             }));
-            command.Parameters.AddWithValue("@Instructions", "1. Preheat oven to 160°C (325°F). Grease a 9-inch springform pan.\n2. Mix almond flour, ube extract, erythritol, and eggs until well combined. Pour into the prepared pan.\n3. Bake for 10 minutes. Remove and let cool.\n4. In a separate bowl, mix cream cheese, butter, and heavy cream until smooth.\n5. Spread over cooled almond mixture. Bake for another 10 minutes. Let cool completely before serving.");
+            command.Parameters.AddWithValue("@Instructions", "1. Preheat oven to 160°C (325°F). Grease a 9-inch springform pan.\n\n2. Mix almond flour, ube extract, erythritol, and eggs until well combined. Pour into the prepared pan.\n\n3. Bake for 10 minutes. Remove and let cool.\n\n4. In a separate bowl, mix cream cheese, butter, and heavy cream until smooth.\n\n5. Spread over cooled almond mixture. Bake for another 10 minutes. Let cool completely before serving.");
             command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("o"));
             command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("o"));
             await command.ExecuteNonQueryAsync();
@@ -670,7 +670,7 @@ namespace Kalikse.Services
                 new Ingredient { Name = "Vanilla Extract", MinPrice = 20, MaxPrice = 30 },
                 new Ingredient { Name = "Salt", MinPrice = 5, MaxPrice = 10 }
             }));
-            command.Parameters.AddWithValue("@Instructions", "1. Preheat oven to 160°C (325°F). Grease a 9-inch springform pan.\n2. Whisk egg yolks, heavy cream, allulose, vanilla extract, and salt until well combined. Pour into the prepared pan.\n3. Bake for 30 minutes. Let cool completely before serving.");
+            command.Parameters.AddWithValue("@Instructions", "1. Preheat oven to 160°C (325°F). Grease a 9-inch springform pan.\n\n2. Whisk egg yolks, heavy cream, allulose, vanilla extract, and salt until well combined. Pour into the prepared pan.\n\n3. Bake for 30 minutes. Let cool completely before serving.");
             command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("o"));
             command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("o"));
             await command.ExecuteNonQueryAsync();
