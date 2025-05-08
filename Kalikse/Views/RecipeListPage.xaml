@@ -63,7 +63,8 @@
                            Padding="10"
                            BorderColor="Gray"
                            CornerRadius="10"
-                           WidthRequest="500"
+                           WidthRequest="1300"
+                           HeightRequest="150"
                            HorizontalOptions="Center">
                         <Grid ColumnDefinitions="Auto,*">
                             <Image Source="{Binding ImageUrl}"
