@@ -64,12 +64,12 @@
                            BorderColor="Gray"
                            CornerRadius="10"
                            WidthRequest="1300"
-                           HeightRequest="150"
+                           HeightRequest="170"
                            HorizontalOptions="Center">
                         <Grid ColumnDefinitions="Auto,*">
                             <Image Source="{Binding ImageUrl}"
                                    WidthRequest="180"
-                                   HeightRequest="130"
+                                   HeightRequest="170"
                                    Aspect="AspectFill"
                                    Grid.Column="0"/>
                             <StackLayout Grid.Column="1"
