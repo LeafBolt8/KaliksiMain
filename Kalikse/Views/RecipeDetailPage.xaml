@@ -68,6 +68,7 @@
                                        TextColor="Blue"
                                        FontAttributes="Italic"
                                        VerticalOptions="Center"
+                                       HorizontalOptions="End"
                                        IsVisible="{Binding AvailableStore, Converter={StaticResource IsNotNullConverter}}"
                                        BindingContext="{Binding .}">
                                     <Label.GestureRecognizers>
