@@ -189,7 +189,7 @@ namespace Kalikse.Services
                         new Ingredient { Name = "Garlic", MinPrice = 10, MaxPrice = 15 },
                         new Ingredient { Name = "Fish Sauce", MinPrice = 15, MaxPrice = 20 }
                     }));
-                    command.Parameters.AddWithValue("@Instructions", "1. Cook chicken pieces until browned. Remove and set aside. In the same pan, add 1/2 cup coconut milk and 1/2 cup water. Simmer for 5 minutes.\n2. Add 1/2 cup spinach and 1/2 cup green chilies. Cook for another 5 minutes.\n3. Return chicken to the pan and cook for another 5 minutes. Serve hot, garnished with extra coconut milk and fish sauce.");
+                    command.Parameters.AddWithValue("@Instructions", "1. Cook chicken pieces until browned. Remove and set aside. In the same pan, add 1/2 cup coconut milk and 1/2 cup water. Simmer for 5 minutes.\n\n2. Add 1/2 cup spinach and 1/2 cup green chilies. Cook for another 5 minutes.\n\n3. Return chicken to the pan and cook for another 5 minutes. Serve hot, garnished with extra coconut milk and fish sauce.");
                     command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("o"));
                     command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("o"));
                     command.ExecuteNonQuery();
@@ -213,7 +213,7 @@ namespace Kalikse.Services
                         new Ingredient { Name = "Onions", MinPrice = 15, MaxPrice = 20 },
                         new Ingredient { Name = "Fish Sauce", MinPrice = 15, MaxPrice = 20 }
                     }));
-                    command.Parameters.AddWithValue("@Instructions", "1. Cook chicken pieces until browned. Remove and set aside. In the same pan, add 1/2 cup coconut milk and 1/2 cup water. Simmer for 5 minutes.\n2. Add 1/2 cup chayote and 1/2 cup moringa leaves. Cook for another 5 minutes.\n3. Return chicken to the pan and cook for another 5 minutes. Serve hot, garnished with extra coconut milk and fish sauce.");
+                    command.Parameters.AddWithValue("@Instructions", "1. Cook chicken pieces until browned. Remove and set aside. In the same pan, add 1/2 cup coconut milk and 1/2 cup water. Simmer for 5 minutes.\n\n2. Add 1/2 cup chayote and 1/2 cup moringa leaves. Cook for another 5 minutes.\n\n3. Return chicken to the pan and cook for another 5 minutes. Serve hot, garnished with extra coconut milk and fish sauce.");
                     command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("o"));
                     command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("o"));
                     command.ExecuteNonQuery();
@@ -552,7 +552,7 @@ namespace Kalikse.Services
                 new Ingredient { Name = "Garlic", MinPrice = 10, MaxPrice = 15 },
                 new Ingredient { Name = "Fish Sauce", MinPrice = 15, MaxPrice = 20 }
             }));
-            command.Parameters.AddWithValue("@Instructions", "1. Cook chicken pieces until browned. Remove and set aside. In the same pan, add 1/2 cup coconut milk and 1/2 cup water. Simmer for 5 minutes.\n2. Add 1/2 cup spinach and 1/2 cup green chilies. Cook for another 5 minutes.\n3. Return chicken to the pan and cook for another 5 minutes. Serve hot, garnished with extra coconut milk and fish sauce.");
+            command.Parameters.AddWithValue("@Instructions", "1. Cook chicken pieces until browned. Remove and set aside. In the same pan, add 1/2 cup coconut milk and 1/2 cup water. Simmer for 5 minutes.\n\n2. Add 1/2 cup spinach and 1/2 cup green chilies. Cook for another 5 minutes.\n\n3. Return chicken to the pan and cook for another 5 minutes. Serve hot, garnished with extra coconut milk and fish sauce.");
             command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("o"));
             command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("o"));
             await command.ExecuteNonQueryAsync();
@@ -576,7 +576,7 @@ namespace Kalikse.Services
                 new Ingredient { Name = "Onions", MinPrice = 15, MaxPrice = 20 },
                 new Ingredient { Name = "Fish Sauce", MinPrice = 15, MaxPrice = 20 }
             }));
-            command.Parameters.AddWithValue("@Instructions", "1. Cook chicken pieces until browned. Remove and set aside. In the same pan, add 1/2 cup coconut milk and 1/2 cup water. Simmer for 5 minutes.\n2. Add 1/2 cup chayote and 1/2 cup moringa leaves. Cook for another 5 minutes.\n3. Return chicken to the pan and cook for another 5 minutes. Serve hot, garnished with extra coconut milk and fish sauce.");
+            command.Parameters.AddWithValue("@Instructions", "1. Cook chicken pieces until browned. Remove and set aside. In the same pan, add 1/2 cup coconut milk and 1/2 cup water. Simmer for 5 minutes.\n\n2. Add 1/2 cup chayote and 1/2 cup moringa leaves. Cook for another 5 minutes.\n\n3. Return chicken to the pan and cook for another 5 minutes. Serve hot, garnished with extra coconut milk and fish sauce.");
             command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("o"));
             command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("o"));
             await command.ExecuteNonQueryAsync();
