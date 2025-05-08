@@ -65,7 +65,7 @@
                                        HorizontalOptions="Center"/>
                                 <Frame Grid.Column="2"
                                        Padding="6,2"
-                                       BackgroundColor="Blue"
+                                       BackgroundColor="{StaticResource PrimaryColor}"
                                        CornerRadius="6"
                                        HasShadow="False"
                                        BorderColor="Transparent"
