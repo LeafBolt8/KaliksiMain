@@ -84,7 +84,8 @@
                                        FontSize="14"
                                        TextColor="White"
                                        LineBreakMode="TailTruncation"
-                                       MaxLines="2"/>
+                                       MaxLines="2"
+                                       HorizontalTextAlignment="Center"/>
                             </StackLayout>
                         </Grid>
                     </Frame>
