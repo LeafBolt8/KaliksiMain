@@ -77,6 +77,11 @@
                                 <Label Text="{Binding MaxPrice, StringFormat='₱{0:N2}'}"
                                        TextColor="Green"
                                        FontSize="16"/>
+                                <Label Text="{Binding Description}"
+                                       FontSize="14"
+                                       TextColor="White"
+                                       LineBreakMode="TailTruncation"
+                                       MaxLines="2"/>
                             </StackLayout>
                         </Grid>
                     </Frame>
