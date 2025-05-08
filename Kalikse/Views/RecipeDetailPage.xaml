@@ -63,18 +63,26 @@
                                        TextColor="Green"
                                        VerticalOptions="Center"
                                        HorizontalOptions="Center"/>
-                                <Label Grid.Column="2"
-                                       Text="More Details"
-                                       TextColor="Blue"
-                                       FontAttributes="Italic"
+                                <Frame Grid.Column="2"
+                                       Padding="6,2"
+                                       BackgroundColor="Blue"
+                                       CornerRadius="6"
+                                       HasShadow="False"
+                                       BorderColor="Transparent"
                                        VerticalOptions="Center"
                                        HorizontalOptions="End"
-                                       IsVisible="{Binding AvailableStore, Converter={StaticResource IsNotNullConverter}}"
-                                       BindingContext="{Binding .}">
-                                    <Label.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="OnMoreDetailsTapped" />
-                                    </Label.GestureRecognizers>
-                                </Label>
+                                       IsVisible="{Binding AvailableStore, Converter={StaticResource IsNotNullConverter}}">
+                                    <Label Text="Check Availability"
+                                           TextColor="White"
+                                           FontAttributes="Italic"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="Center"
+                                           BindingContext="{Binding .}">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnMoreDetailsTapped" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                </Frame>
                             </Grid>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
