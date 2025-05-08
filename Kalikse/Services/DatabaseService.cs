@@ -93,7 +93,7 @@ namespace Kalikse.Services
                         new Ingredient { Name = "Black Peppercorns", MinPrice = 10, MaxPrice = 15 },
                         new Ingredient { Name = "Olive Oil", MinPrice = 30, MaxPrice = 40 }
                     }));
-                    command.Parameters.AddWithValue("@Instructions", "1. Season chicken thighs with salt and pepper. In a large skillet over medium heat, heat 2 tablespoons olive oil. Add chicken, skin-side down, and cook until golden and cooked through (about 6–7 minutes per side). Remove and set aside.\n2. In the same skillet, add 2 minced garlic cloves and cook until fragrant. Add 1/4 cup coconut aminos, 1/4 cup white vinegar, 1 bay leaf, and 1 teaspoon black peppercorns. Simmer for 5 minutes.\n3. Return chicken to the skillet, skin-side up, and simmer for another 5 minutes. Serve hot, garnished with extra garlic and bay leaves.");
+                    command.Parameters.AddWithValue("@Instructions", "1. Season chicken thighs with salt and pepper. In a large skillet over medium heat, heat 2 tablespoons olive oil. Add chicken, skin-side down, and cook until golden and cooked through (about 6–7 minutes per side). Remove and set aside.\n\n2. In the same skillet, add 2 minced garlic cloves and cook until fragrant. Add 1/4 cup coconut aminos, 1/4 cup white vinegar, 1 bay leaf, and 1 teaspoon black peppercorns. Simmer for 5 minutes.\n\n3. Return chicken to the skillet, skin-side up, and simmer for another 5 minutes. Serve hot, garnished with extra garlic and bay leaves.");
                     command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("o"));
                     command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("o"));
                     command.ExecuteNonQuery();
@@ -117,7 +117,7 @@ namespace Kalikse.Services
                         new Ingredient { Name = "Sinigang Mix", MinPrice = 15, MaxPrice = 25 },
                         new Ingredient { Name = "Fish Sauce", MinPrice = 15, MaxPrice = 20 }
                     }));
-                    command.Parameters.AddWithValue("@Instructions", "1. Cook pork belly until crispy and fat is rendered. Remove and set aside. In the same pan, add 2 minced garlic cloves and cook until fragrant.\n2. Add 1 cup cauliflower rice, 1 diced radish, 1/2 cup spinach, and 1/2 cup diced tomatoes. Cook for 5 minutes.\n3. Add 1/2 cup fish sauce, 1/2 cup coconut aminos, and 1/2 cup water. Simmer for 5 minutes.\n4. Add 1/2 cup cooked pork belly and 1/2 cup water. Simmer for another 5 minutes. Serve hot, garnished with extra garlic and fish sauce.");
+                    command.Parameters.AddWithValue("@Instructions", "1. Cook pork belly until crispy and fat is rendered. Remove and set aside. In the same pan, add 2 minced garlic cloves and cook until fragrant.\n\n2. Add 1 cup cauliflower rice, 1 diced radish, 1/2 cup spinach, and 1/2 cup diced tomatoes. Cook for 5 minutes.\n\n3. Add 1/2 cup fish sauce, 1/2 cup coconut aminos, and 1/2 cup water. Simmer for 5 minutes.\n\n4. Add 1/2 cup cooked pork belly and 1/2 cup water. Simmer for another 5 minutes. Serve hot, garnished with extra garlic and fish sauce.");
                     command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("o"));
                     command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("o"));
                     command.ExecuteNonQuery();
@@ -141,7 +141,7 @@ namespace Kalikse.Services
                         new Ingredient { Name = "Eggs", MinPrice = 20, MaxPrice = 30 },
                         new Ingredient { Name = "Mayonnaise", MinPrice = 30, MaxPrice = 40 }
                     }));
-                    command.Parameters.AddWithValue("@Instructions", "1. Chop pork belly and chicken liver. In a large skillet over medium heat, cook until crispy. Remove and set aside.\n2. In the same pan, add 2 minced garlic cloves and cook until fragrant. Add 1/2 cup chopped onions and 1/2 cup calamansi juice. Cook for 5 minutes.\n3. Add 1/2 cup chicken liver and 1/2 cup pork belly. Cook for another 5 minutes.\n4. Serve hot, garnished with extra garlic, onions, and calamansi. Top with 1/4 cup mayonnaise.");
+                    command.Parameters.AddWithValue("@Instructions", "1. Chop pork belly and chicken liver. In a large skillet over medium heat, cook until crispy. Remove and set aside.\n\n2. In the same pan, add 2 minced garlic cloves and cook until fragrant. Add 1/2 cup chopped onions and 1/2 cup calamansi juice. Cook for 5 minutes.\n\n3. Add 1/2 cup chicken liver and 1/2 cup pork belly. Cook for another 5 minutes.\n\n4. Serve hot, garnished with extra garlic, onions, and calamansi. Top with 1/4 cup mayonnaise.");
                     command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("o"));
                     command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("o"));
                     command.ExecuteNonQuery();
@@ -237,7 +237,7 @@ namespace Kalikse.Services
                         new Ingredient { Name = "Black Pepper", MinPrice = 10, MaxPrice = 15 },
                         new Ingredient { Name = "Olive Oil", MinPrice = 30, MaxPrice = 40 }
                     }));
-                    command.Parameters.AddWithValue("@Instructions", "1. Marinate beef sirloin in coconut aminos, garlic, and black pepper for at least 30 minutes.\n2. Cook cauliflower rice in a large skillet over medium heat until golden.\n3. In the same pan, cook eggs until desired consistency. Remove and set aside.\n4. Cook marinated beef until browned. Remove and set aside.\n5. Serve beef, cauliflower rice, and eggs together, garnished with extra coconut aminos and black pepper.");
+                    command.Parameters.AddWithValue("@Instructions", "1. Marinate beef sirloin in coconut aminos, garlic, and black pepper for at least 30 minutes.\n\n2. Cook cauliflower rice in a large skillet over medium heat until golden.\n\n3. In the same pan, cook eggs until desired consistency. Remove and set aside.\n\n4. Cook marinated beef until browned. Remove and set aside.\n\n5. Serve beef, cauliflower rice, and eggs together, garnished with extra coconut aminos and black pepper.");
                     command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("o"));
                     command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("o"));
                     command.ExecuteNonQuery();
@@ -456,7 +456,7 @@ namespace Kalikse.Services
                 new Ingredient { Name = "Black Peppercorns", MinPrice = 10, MaxPrice = 15 },
                 new Ingredient { Name = "Olive Oil", MinPrice = 30, MaxPrice = 40 }
             }));
-            command.Parameters.AddWithValue("@Instructions", "1. Season chicken thighs with salt and pepper. In a large skillet over medium heat, heat 2 tablespoons olive oil. Add chicken, skin-side down, and cook until golden and cooked through (about 6–7 minutes per side). Remove and set aside.\n2. In the same skillet, add 2 minced garlic cloves and cook until fragrant. Add 1/4 cup coconut aminos, 1/4 cup white vinegar, 1 bay leaf, and 1 teaspoon black peppercorns. Simmer for 5 minutes.\n3. Return chicken to the skillet, skin-side up, and simmer for another 5 minutes. Serve hot, garnished with extra garlic and bay leaves.");
+            command.Parameters.AddWithValue("@Instructions", "1. Season chicken thighs with salt and pepper. In a large skillet over medium heat, heat 2 tablespoons olive oil. Add chicken, skin-side down, and cook until golden and cooked through (about 6–7 minutes per side). Remove and set aside.\n\n2. In the same skillet, add 2 minced garlic cloves and cook until fragrant. Add 1/4 cup coconut aminos, 1/4 cup white vinegar, 1 bay leaf, and 1 teaspoon black peppercorns. Simmer for 5 minutes.\n\n3. Return chicken to the skillet, skin-side up, and simmer for another 5 minutes. Serve hot, garnished with extra garlic and bay leaves.");
             command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("o"));
             command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("o"));
             await command.ExecuteNonQueryAsync();
@@ -480,7 +480,7 @@ namespace Kalikse.Services
                 new Ingredient { Name = "Sinigang Mix", MinPrice = 15, MaxPrice = 25 },
                 new Ingredient { Name = "Fish Sauce", MinPrice = 15, MaxPrice = 20 }
             }));
-            command.Parameters.AddWithValue("@Instructions", "1. Cook pork belly until crispy and fat is rendered. Remove and set aside. In the same pan, add 2 minced garlic cloves and cook until fragrant.\n2. Add 1 cup cauliflower rice, 1 diced radish, 1/2 cup spinach, and 1/2 cup diced tomatoes. Cook for 5 minutes.\n3. Add 1/2 cup fish sauce, 1/2 cup coconut aminos, and 1/2 cup water. Simmer for 5 minutes.\n4. Add 1/2 cup cooked pork belly and 1/2 cup water. Simmer for another 5 minutes. Serve hot, garnished with extra garlic and fish sauce.");
+            command.Parameters.AddWithValue("@Instructions", "1. Cook pork belly until crispy and fat is rendered. Remove and set aside. In the same pan, add 2 minced garlic cloves and cook until fragrant.\n\n2. Add 1 cup cauliflower rice, 1 diced radish, 1/2 cup spinach, and 1/2 cup diced tomatoes. Cook for 5 minutes.\n\n3. Add 1/2 cup fish sauce, 1/2 cup coconut aminos, and 1/2 cup water. Simmer for 5 minutes.\n\n4. Add 1/2 cup cooked pork belly and 1/2 cup water. Simmer for another 5 minutes. Serve hot, garnished with extra garlic and fish sauce.");
             command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("o"));
             command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("o"));
             await command.ExecuteNonQueryAsync();
@@ -504,7 +504,7 @@ namespace Kalikse.Services
                 new Ingredient { Name = "Eggs", MinPrice = 20, MaxPrice = 30 },
                 new Ingredient { Name = "Mayonnaise", MinPrice = 30, MaxPrice = 40 }
             }));
-            command.Parameters.AddWithValue("@Instructions", "1. Chop pork belly and chicken liver. In a large skillet over medium heat, cook until crispy. Remove and set aside.\n2. In the same pan, add 2 minced garlic cloves and cook until fragrant. Add 1/2 cup chopped onions and 1/2 cup calamansi juice. Cook for 5 minutes.\n3. Add 1/2 cup chicken liver and 1/2 cup pork belly. Cook for another 5 minutes.\n4. Serve hot, garnished with extra garlic, onions, and calamansi. Top with 1/4 cup mayonnaise.");
+            command.Parameters.AddWithValue("@Instructions", "1. Chop pork belly and chicken liver. In a large skillet over medium heat, cook until crispy. Remove and set aside.\n\n2. In the same pan, add 2 minced garlic cloves and cook until fragrant. Add 1/2 cup chopped onions and 1/2 cup calamansi juice. Cook for 5 minutes.\n\n3. Add 1/2 cup chicken liver and 1/2 cup pork belly. Cook for another 5 minutes.\n\n4. Serve hot, garnished with extra garlic, onions, and calamansi. Top with 1/4 cup mayonnaise.");
             command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("o"));
             command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("o"));
             await command.ExecuteNonQueryAsync();
@@ -600,7 +600,7 @@ namespace Kalikse.Services
                 new Ingredient { Name = "Black Pepper", MinPrice = 10, MaxPrice = 15 },
                 new Ingredient { Name = "Olive Oil", MinPrice = 30, MaxPrice = 40 }
             }));
-            command.Parameters.AddWithValue("@Instructions", "1. Marinate beef sirloin in coconut aminos, garlic, and black pepper for at least 30 minutes.\n2. Cook cauliflower rice in a large skillet over medium heat until golden.\n3. In the same pan, cook eggs until desired consistency. Remove and set aside.\n4. Cook marinated beef until browned. Remove and set aside.\n5. Serve beef, cauliflower rice, and eggs together, garnished with extra coconut aminos and black pepper.");
+            command.Parameters.AddWithValue("@Instructions", "1. Marinate beef sirloin in coconut aminos, garlic, and black pepper for at least 30 minutes.\n\n2. Cook cauliflower rice in a large skillet over medium heat until golden.\n\n3. In the same pan, cook eggs until desired consistency. Remove and set aside.\n\n4. Cook marinated beef until browned. Remove and set aside.\n\n5. Serve beef, cauliflower rice, and eggs together, garnished with extra coconut aminos and black pepper.");
             command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("o"));
             command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("o"));
             await command.ExecuteNonQueryAsync();
