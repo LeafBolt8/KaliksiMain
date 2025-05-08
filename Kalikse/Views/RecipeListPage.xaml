@@ -63,13 +63,13 @@
                            Padding="10"
                            BorderColor="Gray"
                            CornerRadius="10"
-                           WidthRequest="1300"
+                           WidthRequest="1500"
                            HeightRequest="170"
                            HorizontalOptions="Center">
                         <Grid ColumnDefinitions="Auto,*">
                             <Image Source="{Binding ImageUrl}"
                                    WidthRequest="180"
-                                   HeightRequest="170"
+                                   HeightRequest="180"
                                    Aspect="AspectFill"
                                    Grid.Column="0"/>
                             <Grid Grid.Column="1"
