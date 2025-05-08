@@ -78,7 +78,7 @@ namespace Kalikse.Services
                     // Keto Chicken Adobo
                     command.Parameters.AddWithValue("@Name", "Keto Chicken Adobo");
                     command.Parameters.AddWithValue("@Description", "A Filipino classic reimagined for keto, featuring tender chicken thighs braised in vinegar, coconut aminos (instead of soy sauce), and garlic. This low-carb version maintains all the savory, tangy flavors of traditional adobo while fitting perfectly into a ketogenic diet.");
-                    command.Parameters.AddWithValue("@ImageUrl", "chicken_adobo.jpg");
+                    command.Parameters.AddWithValue("@ImageUrl", "chicken_adobo.png");
                     command.Parameters.AddWithValue("@MinPrice", 250.00m);
                     command.Parameters.AddWithValue("@MaxPrice", 350.00m);
                     command.Parameters.AddWithValue("@DietaryPreference", "Keto");
@@ -102,7 +102,7 @@ namespace Kalikse.Services
                     command.Parameters.Clear();
                     command.Parameters.AddWithValue("@Name", "Keto Sinigang with Cauliflower Rice");
                     command.Parameters.AddWithValue("@Description", "A keto-friendly version of the beloved Filipino sour soup, using low-carb vegetables and cauliflower rice. This comforting dish maintains the signature tangy flavor while keeping carbs in check, perfect for those missing traditional Filipino flavors on their keto journey.");
-                    command.Parameters.AddWithValue("@ImageUrl", "sinigang.jpg");
+                    command.Parameters.AddWithValue("@ImageUrl", "sinigang.png");
                     command.Parameters.AddWithValue("@MinPrice", 300.00m);
                     command.Parameters.AddWithValue("@MaxPrice", 400.00m);
                     command.Parameters.AddWithValue("@DietaryPreference", "Keto");
@@ -126,7 +126,7 @@ namespace Kalikse.Services
                     command.Parameters.Clear();
                     command.Parameters.AddWithValue("@Name", "Keto Sisig");
                     command.Parameters.AddWithValue("@Description", "A sizzling keto version of the popular Filipino sisig, made with chopped pork belly and chicken liver, seasoned with calamansi and chili. This protein-rich dish is naturally low in carbs while delivering all the bold, spicy flavors of the original.");
-                    command.Parameters.AddWithValue("@ImageUrl", "sisig.jpg");
+                    command.Parameters.AddWithValue("@ImageUrl", "sisig.png");
                     command.Parameters.AddWithValue("@MinPrice", 250.00m);
                     command.Parameters.AddWithValue("@MaxPrice", 350.00m);
                     command.Parameters.AddWithValue("@DietaryPreference", "Keto");
@@ -150,7 +150,7 @@ namespace Kalikse.Services
                     command.Parameters.Clear();
                     command.Parameters.AddWithValue("@Name", "Keto Bicol Express");
                     command.Parameters.AddWithValue("@Description", "A rich and creamy keto adaptation of the spicy Bicolano favorite, using pork belly and coconut cream. This dish is naturally keto-friendly and packed with healthy fats, making it an ideal choice for those following a ketogenic diet while craving Filipino flavors.");
-                    command.Parameters.AddWithValue("@ImageUrl", "bicol_express.jpg");
+                    command.Parameters.AddWithValue("@ImageUrl", "bicol_express.png");
                     command.Parameters.AddWithValue("@MinPrice", 280.00m);
                     command.Parameters.AddWithValue("@MaxPrice", 380.00m);
                     command.Parameters.AddWithValue("@DietaryPreference", "Keto");
@@ -174,7 +174,7 @@ namespace Kalikse.Services
                     command.Parameters.Clear();
                     command.Parameters.AddWithValue("@Name", "Keto Ginataang Manok");
                     command.Parameters.AddWithValue("@Description", "A keto-friendly version of chicken cooked in coconut milk, using low-carb vegetables. This creamy, satisfying dish showcases the rich flavors of Filipino coconut-based cuisine while keeping carbs minimal.");
-                    command.Parameters.AddWithValue("@ImageUrl", "ginataang_manok.jpg");
+                    command.Parameters.AddWithValue("@ImageUrl", "ginataang_manok.png");
                     command.Parameters.AddWithValue("@MinPrice", 260.00m);
                     command.Parameters.AddWithValue("@MaxPrice", 360.00m);
                     command.Parameters.AddWithValue("@DietaryPreference", "Keto");
@@ -198,7 +198,7 @@ namespace Kalikse.Services
                     command.Parameters.Clear();
                     command.Parameters.AddWithValue("@Name", "Keto Tinolang Manok");
                     command.Parameters.AddWithValue("@Description", "A light and nourishing Filipino chicken soup made keto-friendly by using low-carb vegetables. This clear, ginger-flavored broth with tender chicken pieces offers comfort without the carbs.");
-                    command.Parameters.AddWithValue("@ImageUrl", "tinola.jpg");
+                    command.Parameters.AddWithValue("@ImageUrl", "tinola.png");
                     command.Parameters.AddWithValue("@MinPrice", 240.00m);
                     command.Parameters.AddWithValue("@MaxPrice", 340.00m);
                     command.Parameters.AddWithValue("@DietaryPreference", "Keto");
@@ -222,7 +222,7 @@ namespace Kalikse.Services
                     command.Parameters.Clear();
                     command.Parameters.AddWithValue("@Name", "Keto Tapa with Cauliflower Rice");
                     command.Parameters.AddWithValue("@Description", "A keto twist on the Filipino breakfast favorite tapsilog, featuring marinated beef tapa served with cauliflower rice and fried eggs. This low-carb version delivers all the savory flavors of traditional tapa while keeping it keto-friendly.");
-                    command.Parameters.AddWithValue("@ImageUrl", "tapa.jpg");
+                    command.Parameters.AddWithValue("@ImageUrl", "tapa.png");
                     command.Parameters.AddWithValue("@MinPrice", 270.00m);
                     command.Parameters.AddWithValue("@MaxPrice", 370.00m);
                     command.Parameters.AddWithValue("@DietaryPreference", "Keto");
@@ -246,7 +246,7 @@ namespace Kalikse.Services
                     command.Parameters.Clear();
                     command.Parameters.AddWithValue("@Name", "Keto Ginisang Munggo with Chicharon");
                     command.Parameters.AddWithValue("@Description", "A creative keto take on the Filipino mung bean stew, using spinach as the base and topped with crispy chicharon. This innovative adaptation maintains the comfort-food appeal while keeping it low-carb.");
-                    command.Parameters.AddWithValue("@ImageUrl", "munggo.jpg");
+                    command.Parameters.AddWithValue("@ImageUrl", "munggo.png");
                     command.Parameters.AddWithValue("@MinPrice", 220.00m);
                     command.Parameters.AddWithValue("@MaxPrice", 320.00m);
                     command.Parameters.AddWithValue("@DietaryPreference", "Keto");
@@ -270,7 +270,7 @@ namespace Kalikse.Services
                     command.Parameters.Clear();
                     command.Parameters.AddWithValue("@Name", "Keto Ube Cheesecake");
                     command.Parameters.AddWithValue("@Description", "A Filipino-inspired keto dessert featuring the beloved ube flavor in a rich, creamy cheesecake with an almond flour crust. This purple beauty offers the authentic taste of ube while keeping carbs low using keto-friendly sweeteners.");
-                    command.Parameters.AddWithValue("@ImageUrl", "ube_cheesecake.jpg");
+                    command.Parameters.AddWithValue("@ImageUrl", "ube_cheesecake.png");
                     command.Parameters.AddWithValue("@MinPrice", 300.00m);
                     command.Parameters.AddWithValue("@MaxPrice", 400.00m);
                     command.Parameters.AddWithValue("@DietaryPreference", "Keto");
@@ -294,7 +294,7 @@ namespace Kalikse.Services
                     command.Parameters.Clear();
                     command.Parameters.AddWithValue("@Name", "Keto Leche Flan");
                     command.Parameters.AddWithValue("@Description", "A sugar-free version of the classic Filipino custard dessert, made with low-carb sweeteners and rich egg yolks. This keto adaptation maintains the silky smooth texture and caramel flavor of traditional leche flan without the sugar.");
-                    command.Parameters.AddWithValue("@ImageUrl", "leche_flan.jpg");
+                    command.Parameters.AddWithValue("@ImageUrl", "leche_flan.png");
                     command.Parameters.AddWithValue("@MinPrice", 200.00m);
                     command.Parameters.AddWithValue("@MaxPrice", 300.00m);
                     command.Parameters.AddWithValue("@DietaryPreference", "Keto");
@@ -441,7 +441,7 @@ namespace Kalikse.Services
             command.Parameters.Clear();
             command.Parameters.AddWithValue("@Name", "Keto Chicken Adobo");
             command.Parameters.AddWithValue("@Description", "A Filipino classic reimagined for keto, featuring tender chicken thighs braised in vinegar, coconut aminos (instead of soy sauce), and garlic. This low-carb version maintains all the savory, tangy flavors of traditional adobo while fitting perfectly into a ketogenic diet.");
-            command.Parameters.AddWithValue("@ImageUrl", "chicken_adobo.jpg");
+            command.Parameters.AddWithValue("@ImageUrl", "chicken_adobo.png");
             command.Parameters.AddWithValue("@MinPrice", 250.00m);
             command.Parameters.AddWithValue("@MaxPrice", 350.00m);
             command.Parameters.AddWithValue("@DietaryPreference", "Keto");
@@ -465,7 +465,7 @@ namespace Kalikse.Services
             command.Parameters.Clear();
             command.Parameters.AddWithValue("@Name", "Keto Sinigang with Cauliflower Rice");
             command.Parameters.AddWithValue("@Description", "A keto-friendly version of the beloved Filipino sour soup, using low-carb vegetables and cauliflower rice. This comforting dish maintains the signature tangy flavor while keeping carbs in check, perfect for those missing traditional Filipino flavors on their keto journey.");
-            command.Parameters.AddWithValue("@ImageUrl", "sinigang.jpg");
+            command.Parameters.AddWithValue("@ImageUrl", "sinigang.png");
             command.Parameters.AddWithValue("@MinPrice", 300.00m);
             command.Parameters.AddWithValue("@MaxPrice", 400.00m);
             command.Parameters.AddWithValue("@DietaryPreference", "Keto");
@@ -489,7 +489,7 @@ namespace Kalikse.Services
             command.Parameters.Clear();
             command.Parameters.AddWithValue("@Name", "Keto Sisig");
             command.Parameters.AddWithValue("@Description", "A sizzling keto version of the popular Filipino sisig, made with chopped pork belly and chicken liver, seasoned with calamansi and chili. This protein-rich dish is naturally low in carbs while delivering all the bold, spicy flavors of the original.");
-            command.Parameters.AddWithValue("@ImageUrl", "sisig.jpg");
+            command.Parameters.AddWithValue("@ImageUrl", "sisig.png");
             command.Parameters.AddWithValue("@MinPrice", 250.00m);
             command.Parameters.AddWithValue("@MaxPrice", 350.00m);
             command.Parameters.AddWithValue("@DietaryPreference", "Keto");
@@ -513,7 +513,7 @@ namespace Kalikse.Services
             command.Parameters.Clear();
             command.Parameters.AddWithValue("@Name", "Keto Bicol Express");
             command.Parameters.AddWithValue("@Description", "A rich and creamy keto adaptation of the spicy Bicolano favorite, using pork belly and coconut cream. This dish is naturally keto-friendly and packed with healthy fats, making it an ideal choice for those following a ketogenic diet while craving Filipino flavors.");
-            command.Parameters.AddWithValue("@ImageUrl", "bicol_express.jpg");
+            command.Parameters.AddWithValue("@ImageUrl", "bicol_express.png");
             command.Parameters.AddWithValue("@MinPrice", 280.00m);
             command.Parameters.AddWithValue("@MaxPrice", 380.00m);
             command.Parameters.AddWithValue("@DietaryPreference", "Keto");
@@ -537,7 +537,7 @@ namespace Kalikse.Services
             command.Parameters.Clear();
             command.Parameters.AddWithValue("@Name", "Keto Ginataang Manok");
             command.Parameters.AddWithValue("@Description", "A keto-friendly version of chicken cooked in coconut milk, using low-carb vegetables. This creamy, satisfying dish showcases the rich flavors of Filipino coconut-based cuisine while keeping carbs minimal.");
-            command.Parameters.AddWithValue("@ImageUrl", "ginataang_manok.jpg");
+            command.Parameters.AddWithValue("@ImageUrl", "ginataang_manok.png");
             command.Parameters.AddWithValue("@MinPrice", 260.00m);
             command.Parameters.AddWithValue("@MaxPrice", 360.00m);
             command.Parameters.AddWithValue("@DietaryPreference", "Keto");
@@ -561,7 +561,7 @@ namespace Kalikse.Services
             command.Parameters.Clear();
             command.Parameters.AddWithValue("@Name", "Keto Tinolang Manok");
             command.Parameters.AddWithValue("@Description", "A light and nourishing Filipino chicken soup made keto-friendly by using low-carb vegetables. This clear, ginger-flavored broth with tender chicken pieces offers comfort without the carbs.");
-            command.Parameters.AddWithValue("@ImageUrl", "tinola.jpg");
+            command.Parameters.AddWithValue("@ImageUrl", "tinola.png");
             command.Parameters.AddWithValue("@MinPrice", 240.00m);
             command.Parameters.AddWithValue("@MaxPrice", 340.00m);
             command.Parameters.AddWithValue("@DietaryPreference", "Keto");
@@ -585,7 +585,7 @@ namespace Kalikse.Services
             command.Parameters.Clear();
             command.Parameters.AddWithValue("@Name", "Keto Tapa with Cauliflower Rice");
             command.Parameters.AddWithValue("@Description", "A keto twist on the Filipino breakfast favorite tapsilog, featuring marinated beef tapa served with cauliflower rice and fried eggs. This low-carb version delivers all the savory flavors of traditional tapa while keeping it keto-friendly.");
-            command.Parameters.AddWithValue("@ImageUrl", "tapa.jpg");
+            command.Parameters.AddWithValue("@ImageUrl", "tapa.png");
             command.Parameters.AddWithValue("@MinPrice", 270.00m);
             command.Parameters.AddWithValue("@MaxPrice", 370.00m);
             command.Parameters.AddWithValue("@DietaryPreference", "Keto");
@@ -609,7 +609,7 @@ namespace Kalikse.Services
             command.Parameters.Clear();
             command.Parameters.AddWithValue("@Name", "Keto Ginisang Munggo with Chicharon");
             command.Parameters.AddWithValue("@Description", "A creative keto take on the Filipino mung bean stew, using spinach as the base and topped with crispy chicharon. This innovative adaptation maintains the comfort-food appeal while keeping it low-carb.");
-            command.Parameters.AddWithValue("@ImageUrl", "munggo.jpg");
+            command.Parameters.AddWithValue("@ImageUrl", "munggo.png");
             command.Parameters.AddWithValue("@MinPrice", 220.00m);
             command.Parameters.AddWithValue("@MaxPrice", 320.00m);
             command.Parameters.AddWithValue("@DietaryPreference", "Keto");
@@ -633,7 +633,7 @@ namespace Kalikse.Services
             command.Parameters.Clear();
             command.Parameters.AddWithValue("@Name", "Keto Ube Cheesecake");
             command.Parameters.AddWithValue("@Description", "A Filipino-inspired keto dessert featuring the beloved ube flavor in a rich, creamy cheesecake with an almond flour crust. This purple beauty offers the authentic taste of ube while keeping carbs low using keto-friendly sweeteners.");
-            command.Parameters.AddWithValue("@ImageUrl", "ube_cheesecake.jpg");
+            command.Parameters.AddWithValue("@ImageUrl", "ube_cheesecake.png");
             command.Parameters.AddWithValue("@MinPrice", 300.00m);
             command.Parameters.AddWithValue("@MaxPrice", 400.00m);
             command.Parameters.AddWithValue("@DietaryPreference", "Keto");
@@ -657,7 +657,7 @@ namespace Kalikse.Services
             command.Parameters.Clear();
             command.Parameters.AddWithValue("@Name", "Keto Leche Flan");
             command.Parameters.AddWithValue("@Description", "A sugar-free version of the classic Filipino custard dessert, made with low-carb sweeteners and rich egg yolks. This keto adaptation maintains the silky smooth texture and caramel flavor of traditional leche flan without the sugar.");
-            command.Parameters.AddWithValue("@ImageUrl", "leche_flan.jpg");
+            command.Parameters.AddWithValue("@ImageUrl", "leche_flan.png");
             command.Parameters.AddWithValue("@MinPrice", 200.00m);
             command.Parameters.AddWithValue("@MaxPrice", 300.00m);
             command.Parameters.AddWithValue("@DietaryPreference", "Keto");
