@@ -674,6 +674,238 @@ namespace Kalikse.Services
             command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("o"));
             command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("o"));
             await command.ExecuteNonQueryAsync();
+
+            // Keto Ginisang Kangkong
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@Name", "Keto Ginisang Kangkong");
+            command.Parameters.AddWithValue("@Description", "A simple and nutritious Filipino stir-fry using water spinach (kangkong) with garlic and onions. This budget-friendly dish is naturally keto and packed with vitamins and minerals.");
+            command.Parameters.AddWithValue("@ImageUrl", "kangkong.png");
+            command.Parameters.AddWithValue("@MinPrice", 120.00m);
+            command.Parameters.AddWithValue("@MaxPrice", 180.00m);
+            command.Parameters.AddWithValue("@DietaryPreference", "Keto");
+            command.Parameters.AddWithValue("@Allergens", "");
+            command.Parameters.AddWithValue("@Ingredients", JsonSerializer.Serialize(new List<Ingredient>
+            {
+                new Ingredient { Name = "Kangkong", MinPrice = 40, MaxPrice = 60 },
+                new Ingredient { Name = "Garlic", MinPrice = 10, MaxPrice = 15 },
+                new Ingredient { Name = "Onions", MinPrice = 15, MaxPrice = 20 },
+                new Ingredient { Name = "Fish Sauce", MinPrice = 15, MaxPrice = 20 },
+                new Ingredient { Name = "Olive Oil", MinPrice = 20, MaxPrice = 30 },
+                new Ingredient { Name = "Black Pepper", MinPrice = 5, MaxPrice = 10 }
+            }));
+            command.Parameters.AddWithValue("@Instructions", "1. Heat olive oil in a pan. Sauté garlic and onions until fragrant.\n\n2. Add kangkong and stir-fry for 2-3 minutes.\n\n3. Season with fish sauce and black pepper. Serve hot.");
+            command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("o"));
+            command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("o"));
+            await command.ExecuteNonQueryAsync();
+
+            // Keto Tofu Sisig
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@Name", "Keto Tofu Sisig");
+            command.Parameters.AddWithValue("@Description", "A vegetarian and budget-friendly version of the popular Filipino sisig, using tofu as the main protein. This dish maintains the spicy, tangy flavors while being more affordable and keto-friendly.");
+            command.Parameters.AddWithValue("@ImageUrl", "tofu_sisig.png");
+            command.Parameters.AddWithValue("@MinPrice", 150.00m);
+            command.Parameters.AddWithValue("@MaxPrice", 200.00m);
+            command.Parameters.AddWithValue("@DietaryPreference", "Keto");
+            command.Parameters.AddWithValue("@Allergens", "");
+            command.Parameters.AddWithValue("@Ingredients", JsonSerializer.Serialize(new List<Ingredient>
+            {
+                new Ingredient { Name = "Firm Tofu", MinPrice = 50, MaxPrice = 70 },
+                new Ingredient { Name = "Onions", MinPrice = 15, MaxPrice = 20 },
+                new Ingredient { Name = "Calamansi", MinPrice = 20, MaxPrice = 30 },
+                new Ingredient { Name = "Chili Peppers", MinPrice = 10, MaxPrice = 15 },
+                new Ingredient { Name = "Garlic", MinPrice = 10, MaxPrice = 15 },
+                new Ingredient { Name = "Olive Oil", MinPrice = 20, MaxPrice = 30 },
+                new Ingredient { Name = "Fish Sauce", MinPrice = 15, MaxPrice = 20 }
+            }));
+            command.Parameters.AddWithValue("@Instructions", "1. Press and cube tofu. Pan-fry until crispy. Set aside.\n\n2. Sauté garlic and onions in olive oil.\n\n3. Add tofu, calamansi juice, and chili peppers.\n\n4. Season with fish sauce. Serve hot.");
+            command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("o"));
+            command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("o"));
+            await command.ExecuteNonQueryAsync();
+
+            // Keto Ginisang Munggo with Malunggay
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@Name", "Keto Ginisang Munggo with Malunggay");
+            command.Parameters.AddWithValue("@Description", "A nutritious and budget-friendly Filipino dish using mung beans and moringa leaves. This protein-rich dish is naturally keto and packed with vitamins and minerals.");
+            command.Parameters.AddWithValue("@ImageUrl", "munggo_malunggay.png");
+            command.Parameters.AddWithValue("@MinPrice", 130.00m);
+            command.Parameters.AddWithValue("@MaxPrice", 180.00m);
+            command.Parameters.AddWithValue("@DietaryPreference", "Keto");
+            command.Parameters.AddWithValue("@Allergens", "");
+            command.Parameters.AddWithValue("@Ingredients", JsonSerializer.Serialize(new List<Ingredient>
+            {
+                new Ingredient { Name = "Mung Beans", MinPrice = 40, MaxPrice = 60 },
+                new Ingredient { Name = "Malunggay Leaves", MinPrice = 20, MaxPrice = 30 },
+                new Ingredient { Name = "Garlic", MinPrice = 10, MaxPrice = 15 },
+                new Ingredient { Name = "Onions", MinPrice = 15, MaxPrice = 20 },
+                new Ingredient { Name = "Fish Sauce", MinPrice = 15, MaxPrice = 20 },
+                new Ingredient { Name = "Olive Oil", MinPrice = 20, MaxPrice = 30 }
+            }));
+            command.Parameters.AddWithValue("@Instructions", "1. Cook mung beans until tender.\n\n2. Sauté garlic and onions in olive oil.\n\n3. Add cooked mung beans and malunggay leaves.\n\n4. Season with fish sauce. Serve hot.");
+            command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("o"));
+            command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("o"));
+            await command.ExecuteNonQueryAsync();
+
+            // Keto Ginisang Ampalaya
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@Name", "Keto Ginisang Ampalaya");
+            command.Parameters.AddWithValue("@Description", "A simple and nutritious Filipino stir-fry using bitter gourd (ampalaya) with eggs. This budget-friendly dish is naturally keto and known for its health benefits.");
+            command.Parameters.AddWithValue("@ImageUrl", "ampalaya.png");
+            command.Parameters.AddWithValue("@MinPrice", 140.00m);
+            command.Parameters.AddWithValue("@MaxPrice", 190.00m);
+            command.Parameters.AddWithValue("@DietaryPreference", "Keto");
+            command.Parameters.AddWithValue("@Allergens", "Eggs");
+            command.Parameters.AddWithValue("@Ingredients", JsonSerializer.Serialize(new List<Ingredient>
+            {
+                new Ingredient { Name = "Ampalaya", MinPrice = 40, MaxPrice = 60 },
+                new Ingredient { Name = "Eggs", MinPrice = 30, MaxPrice = 40 },
+                new Ingredient { Name = "Garlic", MinPrice = 10, MaxPrice = 15 },
+                new Ingredient { Name = "Onions", MinPrice = 15, MaxPrice = 20 },
+                new Ingredient { Name = "Fish Sauce", MinPrice = 15, MaxPrice = 20 },
+                new Ingredient { Name = "Olive Oil", MinPrice = 20, MaxPrice = 30 }
+            }));
+            command.Parameters.AddWithValue("@Instructions", "1. Slice ampalaya thinly and soak in salt water to reduce bitterness.\n\n2. Sauté garlic and onions in olive oil.\n\n3. Add ampalaya and stir-fry until tender.\n\n4. Add beaten eggs and cook until set. Season with fish sauce.");
+            command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("o"));
+            command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("o"));
+            await command.ExecuteNonQueryAsync();
+
+            // Keto Ginisang Pechay
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@Name", "Keto Ginisang Pechay");
+            command.Parameters.AddWithValue("@Description", "A simple and nutritious Filipino stir-fry using Chinese cabbage (pechay) with garlic and onions. This budget-friendly dish is naturally keto and rich in vitamins.");
+            command.Parameters.AddWithValue("@ImageUrl", "pechay.png");
+            command.Parameters.AddWithValue("@MinPrice", 120.00m);
+            command.Parameters.AddWithValue("@MaxPrice", 170.00m);
+            command.Parameters.AddWithValue("@DietaryPreference", "Keto");
+            command.Parameters.AddWithValue("@Allergens", "");
+            command.Parameters.AddWithValue("@Ingredients", JsonSerializer.Serialize(new List<Ingredient>
+            {
+                new Ingredient { Name = "Pechay", MinPrice = 40, MaxPrice = 60 },
+                new Ingredient { Name = "Garlic", MinPrice = 10, MaxPrice = 15 },
+                new Ingredient { Name = "Onions", MinPrice = 15, MaxPrice = 20 },
+                new Ingredient { Name = "Fish Sauce", MinPrice = 15, MaxPrice = 20 },
+                new Ingredient { Name = "Olive Oil", MinPrice = 20, MaxPrice = 30 },
+                new Ingredient { Name = "Black Pepper", MinPrice = 5, MaxPrice = 10 }
+            }));
+            command.Parameters.AddWithValue("@Instructions", "1. Heat olive oil in a pan. Sauté garlic and onions until fragrant.\n\n2. Add pechay and stir-fry for 2-3 minutes.\n\n3. Season with fish sauce and black pepper. Serve hot.");
+            command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("o"));
+            command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("o"));
+            await command.ExecuteNonQueryAsync();
+
+            // Keto Ginisang Togue
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@Name", "Keto Ginisang Togue");
+            command.Parameters.AddWithValue("@Description", "A simple and nutritious Filipino stir-fry using mung bean sprouts (togue) with carrots and tofu. This budget-friendly dish is naturally keto and rich in protein.");
+            command.Parameters.AddWithValue("@ImageUrl", "togue.png");
+            command.Parameters.AddWithValue("@MinPrice", 130.00m);
+            command.Parameters.AddWithValue("@MaxPrice", 180.00m);
+            command.Parameters.AddWithValue("@DietaryPreference", "Keto");
+            command.Parameters.AddWithValue("@Allergens", "");
+            command.Parameters.AddWithValue("@Ingredients", JsonSerializer.Serialize(new List<Ingredient>
+            {
+                new Ingredient { Name = "Togue", MinPrice = 40, MaxPrice = 60 },
+                new Ingredient { Name = "Tofu", MinPrice = 30, MaxPrice = 40 },
+                new Ingredient { Name = "Carrots", MinPrice = 20, MaxPrice = 30 },
+                new Ingredient { Name = "Garlic", MinPrice = 10, MaxPrice = 15 },
+                new Ingredient { Name = "Onions", MinPrice = 15, MaxPrice = 20 },
+                new Ingredient { Name = "Fish Sauce", MinPrice = 15, MaxPrice = 20 },
+                new Ingredient { Name = "Olive Oil", MinPrice = 20, MaxPrice = 30 }
+            }));
+            command.Parameters.AddWithValue("@Instructions", "1. Heat olive oil in a pan. Sauté garlic and onions until fragrant.\n\n2. Add tofu and carrots, cook for 2 minutes.\n\n3. Add togue and stir-fry for 2-3 minutes.\n\n4. Season with fish sauce. Serve hot.");
+            command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("o"));
+            command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("o"));
+            await command.ExecuteNonQueryAsync();
+
+            // Keto Ginisang Sayote
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@Name", "Keto Ginisang Sayote");
+            command.Parameters.AddWithValue("@Description", "A simple and nutritious Filipino stir-fry using chayote (sayote) with garlic and onions. This budget-friendly dish is naturally keto and rich in fiber.");
+            command.Parameters.AddWithValue("@ImageUrl", "sayote.png");
+            command.Parameters.AddWithValue("@MinPrice", 120.00m);
+            command.Parameters.AddWithValue("@MaxPrice", 170.00m);
+            command.Parameters.AddWithValue("@DietaryPreference", "Keto");
+            command.Parameters.AddWithValue("@Allergens", "");
+            command.Parameters.AddWithValue("@Ingredients", JsonSerializer.Serialize(new List<Ingredient>
+            {
+                new Ingredient { Name = "Sayote", MinPrice = 40, MaxPrice = 60 },
+                new Ingredient { Name = "Garlic", MinPrice = 10, MaxPrice = 15 },
+                new Ingredient { Name = "Onions", MinPrice = 15, MaxPrice = 20 },
+                new Ingredient { Name = "Fish Sauce", MinPrice = 15, MaxPrice = 20 },
+                new Ingredient { Name = "Olive Oil", MinPrice = 20, MaxPrice = 30 },
+                new Ingredient { Name = "Black Pepper", MinPrice = 5, MaxPrice = 10 }
+            }));
+            command.Parameters.AddWithValue("@Instructions", "1. Heat olive oil in a pan. Sauté garlic and onions until fragrant.\n\n2. Add sayote and stir-fry for 3-4 minutes.\n\n3. Season with fish sauce and black pepper. Serve hot.");
+            command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("o"));
+            command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("o"));
+            await command.ExecuteNonQueryAsync();
+
+            // Keto Ginisang Talong
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@Name", "Keto Ginisang Talong");
+            command.Parameters.AddWithValue("@Description", "A simple and nutritious Filipino stir-fry using eggplant (talong) with garlic and onions. This budget-friendly dish is naturally keto and rich in antioxidants.");
+            command.Parameters.AddWithValue("@ImageUrl", "talong.png");
+            command.Parameters.AddWithValue("@MinPrice", 120.00m);
+            command.Parameters.AddWithValue("@MaxPrice", 170.00m);
+            command.Parameters.AddWithValue("@DietaryPreference", "Keto");
+            command.Parameters.AddWithValue("@Allergens", "");
+            command.Parameters.AddWithValue("@Ingredients", JsonSerializer.Serialize(new List<Ingredient>
+            {
+                new Ingredient { Name = "Talong", MinPrice = 40, MaxPrice = 60 },
+                new Ingredient { Name = "Garlic", MinPrice = 10, MaxPrice = 15 },
+                new Ingredient { Name = "Onions", MinPrice = 15, MaxPrice = 20 },
+                new Ingredient { Name = "Fish Sauce", MinPrice = 15, MaxPrice = 20 },
+                new Ingredient { Name = "Olive Oil", MinPrice = 20, MaxPrice = 30 },
+                new Ingredient { Name = "Black Pepper", MinPrice = 5, MaxPrice = 10 }
+            }));
+            command.Parameters.AddWithValue("@Instructions", "1. Heat olive oil in a pan. Sauté garlic and onions until fragrant.\n\n2. Add talong and stir-fry for 3-4 minutes.\n\n3. Season with fish sauce and black pepper. Serve hot.");
+            command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("o"));
+            command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("o"));
+            await command.ExecuteNonQueryAsync();
+
+            // Keto Ginisang Sitaw
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@Name", "Keto Ginisang Sitaw");
+            command.Parameters.AddWithValue("@Description", "A simple and nutritious Filipino stir-fry using long beans (sitaw) with garlic and onions. This budget-friendly dish is naturally keto and rich in fiber.");
+            command.Parameters.AddWithValue("@ImageUrl", "sitaw.png");
+            command.Parameters.AddWithValue("@MinPrice", 120.00m);
+            command.Parameters.AddWithValue("@MaxPrice", 170.00m);
+            command.Parameters.AddWithValue("@DietaryPreference", "Keto");
+            command.Parameters.AddWithValue("@Allergens", "");
+            command.Parameters.AddWithValue("@Ingredients", JsonSerializer.Serialize(new List<Ingredient>
+            {
+                new Ingredient { Name = "Sitaw", MinPrice = 40, MaxPrice = 60 },
+                new Ingredient { Name = "Garlic", MinPrice = 10, MaxPrice = 15 },
+                new Ingredient { Name = "Onions", MinPrice = 15, MaxPrice = 20 },
+                new Ingredient { Name = "Fish Sauce", MinPrice = 15, MaxPrice = 20 },
+                new Ingredient { Name = "Olive Oil", MinPrice = 20, MaxPrice = 30 },
+                new Ingredient { Name = "Black Pepper", MinPrice = 5, MaxPrice = 10 }
+            }));
+            command.Parameters.AddWithValue("@Instructions", "1. Heat olive oil in a pan. Sauté garlic and onions until fragrant.\n\n2. Add sitaw and stir-fry for 3-4 minutes.\n\n3. Season with fish sauce and black pepper. Serve hot.");
+            command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("o"));
+            command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("o"));
+            await command.ExecuteNonQueryAsync();
+
+            // Keto Ginisang Kalabasa
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@Name", "Keto Ginisang Kalabasa");
+            command.Parameters.AddWithValue("@Description", "A simple and nutritious Filipino stir-fry using squash (kalabasa) with garlic and onions. This budget-friendly dish is naturally keto and rich in vitamins.");
+            command.Parameters.AddWithValue("@ImageUrl", "kalabasa.png");
+            command.Parameters.AddWithValue("@MinPrice", 120.00m);
+            command.Parameters.AddWithValue("@MaxPrice", 170.00m);
+            command.Parameters.AddWithValue("@DietaryPreference", "Keto");
+            command.Parameters.AddWithValue("@Allergens", "");
+            command.Parameters.AddWithValue("@Ingredients", JsonSerializer.Serialize(new List<Ingredient>
+            {
+                new Ingredient { Name = "Kalabasa", MinPrice = 40, MaxPrice = 60 },
+                new Ingredient { Name = "Garlic", MinPrice = 10, MaxPrice = 15 },
+                new Ingredient { Name = "Onions", MinPrice = 15, MaxPrice = 20 },
+                new Ingredient { Name = "Fish Sauce", MinPrice = 15, MaxPrice = 20 },
+                new Ingredient { Name = "Olive Oil", MinPrice = 20, MaxPrice = 30 },
+                new Ingredient { Name = "Black Pepper", MinPrice = 5, MaxPrice = 10 }
+            }));
+            command.Parameters.AddWithValue("@Instructions", "1. Heat olive oil in a pan. Sauté garlic and onions until fragrant.\n\n2. Add kalabasa and stir-fry for 3-4 minutes.\n\n3. Season with fish sauce and black pepper. Serve hot.");
+            command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.ToString("o"));
+            command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("o"));
+            await command.ExecuteNonQueryAsync();
         }
     }
 } 
